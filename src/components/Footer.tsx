@@ -5,7 +5,7 @@ import { personalInfo } from "@/constants/data";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#2A2520] px-6 py-16">
+    <footer className="relative border-t border-[#3D3730] px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,17 +15,17 @@ export default function Footer() {
           className="flex flex-col items-center gap-8 md:flex-row md:justify-between"
         >
           {/* Left: Name */}
-          <div>
-            <p className="text-lg font-bold text-[#F5F0EB]">
+          <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
+            <p className="text-lg font-bold text-[#FDFBF7]">
               {personalInfo.nameJa}
             </p>
-            <p className="mt-1 text-sm text-[#5A5550]">
+            <p className="mt-1 text-sm text-[#706B66]">
               {personalInfo.nameEn} / {personalInfo.alias}
             </p>
-          </div>
+          </motion.div>
 
           {/* Center: Nav */}
-          <nav className="flex gap-8">
+          <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
             {[
               { label: "Portfolio", href: "#portfolio" },
               { label: "History", href: "#history" },
@@ -33,18 +33,20 @@ export default function Footer() {
               { label: "Gallery", href: "#gallery" },
               { label: "Contact", href: "#contact" },
             ].map((link) => (
-              <a
+              <motion.a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#8B8680] transition-colors duration-300 hover:text-[#B87333]"
+                whileHover={{ y: -2, color: "#D4944A" }}
+                transition={{ duration: 0.2 }}
+                className="text-sm text-[#A09A94]"
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
           </nav>
 
           {/* Right: Copyright */}
-          <p className="text-xs text-[#3A3530]">
+          <p className="text-xs text-[#4A4540]">
             &copy; {new Date().getFullYear()} {personalInfo.alias}. All rights
             reserved.
           </p>

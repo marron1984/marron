@@ -14,6 +14,7 @@ export default function MouseBackground() {
     if (!ctx) return;
 
     let animationId: number;
+    let time = 0;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -27,28 +28,33 @@ export default function MouseBackground() {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Geometric shapes (poker-chip / diamond inspired)
     const shapes: {
       x: number;
       y: number;
       size: number;
       rotation: number;
+      rotationSpeed: number;
       speed: number;
-      type: "diamond" | "circle" | "hexagon";
+      type: "diamond" | "circle" | "hexagon" | "cross" | "ring";
       opacity: number;
+      wobblePhase: number;
+      wobbleAmp: number;
     }[] = [];
 
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 45; i++) {
       shapes.push({
         x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        size: Math.random() * 20 + 8,
+        y: Math.random() * window.innerHeight * 3,
+        size: Math.random() * 24 + 6,
         rotation: Math.random() * Math.PI * 2,
-        speed: Math.random() * 0.3 + 0.1,
-        type: (["diamond", "circle", "hexagon"] as const)[
-          Math.floor(Math.random() * 3)
+        rotationSpeed: (Math.random() - 0.5) * 0.04,
+        speed: Math.random() * 0.5 + 0.15,
+        type: (["diamond", "circle", "hexagon", "cross", "ring"] as const)[
+          Math.floor(Math.random() * 5)
         ],
-        opacity: Math.random() * 0.08 + 0.02,
+        opacity: Math.random() * 0.1 + 0.03,
+        wobblePhase: Math.random() * Math.PI * 2,
+        wobbleAmp: Math.random() * 30 + 10,
       });
     }
 
@@ -57,13 +63,22 @@ export default function MouseBackground() {
       mouseInfluence: { dx: number; dy: number }
     ) => {
       ctx.save();
-      const offsetX = mouseInfluence.dx * shape.size * 0.02;
-      const offsetY = mouseInfluence.dy * shape.size * 0.02;
+      const wobble = Math.sin(time * 0.001 + shape.wobblePhase) * shape.wobbleAmp;
+      const offsetX = mouseInfluence.dx * shape.size * 0.04 + wobble * 0.3;
+      const offsetY = mouseInfluence.dy * shape.size * 0.04;
       ctx.translate(shape.x + offsetX, shape.y + offsetY);
       ctx.rotate(shape.rotation);
-      ctx.globalAlpha = shape.opacity;
-      ctx.strokeStyle = "#B87333";
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.6;
+
+      const dist = Math.hypot(
+        shape.x - mouseRef.current.x,
+        shape.y - mouseRef.current.y
+      );
+      const proximity = Math.max(0, 1 - dist / 400);
+      ctx.globalAlpha = shape.opacity + proximity * 0.15;
+      ctx.strokeStyle = proximity > 0.3
+        ? `rgba(212, 148, 74, ${0.3 + proximity * 0.5})`
+        : `rgba(212, 148, 74, ${0.15 + proximity * 0.3})`;
 
       if (shape.type === "diamond") {
         ctx.beginPath();
@@ -77,11 +92,17 @@ export default function MouseBackground() {
         ctx.beginPath();
         ctx.arc(0, 0, shape.size, 0, Math.PI * 2);
         ctx.stroke();
-        // Inner circle (poker chip)
         ctx.beginPath();
-        ctx.arc(0, 0, shape.size * 0.6, 0, Math.PI * 2);
+        ctx.arc(0, 0, shape.size * 0.55, 0, Math.PI * 2);
         ctx.stroke();
-      } else {
+        for (let n = 0; n < 8; n++) {
+          const angle = (Math.PI / 4) * n;
+          ctx.beginPath();
+          ctx.moveTo(Math.cos(angle) * shape.size * 0.85, Math.sin(angle) * shape.size * 0.85);
+          ctx.lineTo(Math.cos(angle) * shape.size, Math.sin(angle) * shape.size);
+          ctx.stroke();
+        }
+      } else if (shape.type === "hexagon") {
         ctx.beginPath();
         for (let i = 0; i < 6; i++) {
           const angle = (Math.PI / 3) * i - Math.PI / 6;
@@ -92,12 +113,37 @@ export default function MouseBackground() {
         }
         ctx.closePath();
         ctx.stroke();
+      } else if (shape.type === "cross") {
+        const arm = shape.size * 0.3;
+        ctx.beginPath();
+        ctx.moveTo(-arm, -shape.size);
+        ctx.lineTo(arm, -shape.size);
+        ctx.lineTo(arm, -arm);
+        ctx.lineTo(shape.size, -arm);
+        ctx.lineTo(shape.size, arm);
+        ctx.lineTo(arm, arm);
+        ctx.lineTo(arm, shape.size);
+        ctx.lineTo(-arm, shape.size);
+        ctx.lineTo(-arm, arm);
+        ctx.lineTo(-shape.size, arm);
+        ctx.lineTo(-shape.size, -arm);
+        ctx.lineTo(-arm, -arm);
+        ctx.closePath();
+        ctx.stroke();
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, shape.size, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, shape.size * 0.7, 0, Math.PI * 2);
+        ctx.stroke();
       }
 
       ctx.restore();
     };
 
     const animate = () => {
+      time++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
@@ -106,15 +152,28 @@ export default function MouseBackground() {
       const dy = (mouseRef.current.y - centerY) / centerY;
 
       for (const shape of shapes) {
-        shape.rotation += shape.speed * 0.01;
-        shape.y += shape.speed * 0.3;
-
-        if (shape.y > canvas.height + shape.size) {
-          shape.y = -shape.size;
+        shape.rotation += shape.rotationSpeed;
+        shape.y -= shape.speed;
+        if (shape.y < -shape.size * 2) {
+          shape.y = canvas.height + shape.size * 2;
           shape.x = Math.random() * canvas.width;
         }
-
         drawShape(shape, { dx, dy });
+      }
+
+      ctx.lineWidth = 0.3;
+      for (let i = 0; i < shapes.length; i++) {
+        for (let j = i + 1; j < shapes.length; j++) {
+          const dist = Math.hypot(shapes[i].x - shapes[j].x, shapes[i].y - shapes[j].y);
+          if (dist < 150) {
+            ctx.globalAlpha = (1 - dist / 150) * 0.06;
+            ctx.strokeStyle = "rgba(212, 148, 74, 0.04)";
+            ctx.beginPath();
+            ctx.moveTo(shapes[i].x, shapes[i].y);
+            ctx.lineTo(shapes[j].x, shapes[j].y);
+            ctx.stroke();
+          }
+        }
       }
 
       animationId = requestAnimationFrame(animate);

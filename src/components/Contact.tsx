@@ -31,38 +31,80 @@ export default function Contact() {
     window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${body}`;
   };
 
+  const inputClasses =
+    "w-full rounded-xl border border-[#3D3730] bg-[#1A1815] px-4 py-3 text-[#FDFBF7] placeholder-[#4A4540] outline-none transition-all duration-300 focus:border-[#D4944A]/60 focus:shadow-lg focus:shadow-[#D4944A]/10";
+
   return (
     <section className="relative px-6 py-32" id="contact">
-      <div className="mx-auto max-w-2xl">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(212,148,74,0.04)_0%,_transparent_60%)]" />
+
+      <div className="relative mx-auto max-w-2xl">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 block text-sm tracking-[0.3em] uppercase text-[#B87333]">
+          <motion.span
+            initial={{ opacity: 0, letterSpacing: "0.1em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="mb-4 block text-sm uppercase text-[#D4944A]"
+          >
             Contact
-          </span>
-          <h2 className="text-3xl font-bold text-[#F5F0EB] md:text-5xl">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+          >
             お問い合わせ
-          </h2>
-          <p className="mt-4 text-[#8B8680]">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-4 text-[#A09A94]"
+          >
             お気軽にご連絡ください
-          </p>
+          </motion.p>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+          />
         </motion.div>
 
         {/* Form card */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
           className="relative"
         >
-          {/* Gradient border */}
-          <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-[#B87333]/30 via-transparent to-[#2A4A7F]/20" />
+          {/* Animated gradient border */}
+          <motion.div
+            animate={{
+              background: [
+                "linear-gradient(135deg, rgba(212,148,74,0.3), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(225deg, rgba(212,148,74,0.3), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(315deg, rgba(212,148,74,0.3), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(135deg, rgba(212,148,74,0.3), transparent, rgba(59,107,196,0.2))",
+              ],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-[1px] rounded-3xl"
+          />
 
           <form
             onSubmit={handleSubmit}
@@ -70,13 +112,18 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {/* Name */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
                 <label
                   htmlFor="name"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#C9C0B6]"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#D9D0C7]"
                 >
-                  <User className="h-4 w-4 text-[#B87333]" />
-                  お名前 <span className="text-[#B87333]">*</span>
+                  <User className="h-4 w-4 text-[#D4944A]" />
+                  お名前 <span className="text-[#D4944A]">*</span>
                 </label>
                 <input
                   type="text"
@@ -86,17 +133,22 @@ export default function Contact() {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="山田 太郎"
-                  className="w-full rounded-xl border border-[#2A2520] bg-[#12110E] px-4 py-3 text-[#F5F0EB] placeholder-[#3A3530] outline-none transition-colors focus:border-[#B87333]/50"
+                  className={inputClasses}
                 />
-              </div>
+              </motion.div>
 
               {/* Company */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
                 <label
                   htmlFor="company"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#C9C0B6]"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#D9D0C7]"
                 >
-                  <Building className="h-4 w-4 text-[#B87333]" />
+                  <Building className="h-4 w-4 text-[#D4944A]" />
                   会社名
                 </label>
                 <input
@@ -106,18 +158,23 @@ export default function Contact() {
                   value={form.company}
                   onChange={handleChange}
                   placeholder="株式会社〇〇"
-                  className="w-full rounded-xl border border-[#2A2520] bg-[#12110E] px-4 py-3 text-[#F5F0EB] placeholder-[#3A3530] outline-none transition-colors focus:border-[#B87333]/50"
+                  className={inputClasses}
                 />
-              </div>
+              </motion.div>
 
               {/* Email */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
                 <label
                   htmlFor="email"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#C9C0B6]"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#D9D0C7]"
                 >
-                  <Mail className="h-4 w-4 text-[#B87333]" />
-                  メールアドレス <span className="text-[#B87333]">*</span>
+                  <Mail className="h-4 w-4 text-[#D4944A]" />
+                  メールアドレス <span className="text-[#D4944A]">*</span>
                 </label>
                 <input
                   type="email"
@@ -127,18 +184,23 @@ export default function Contact() {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
-                  className="w-full rounded-xl border border-[#2A2520] bg-[#12110E] px-4 py-3 text-[#F5F0EB] placeholder-[#3A3530] outline-none transition-colors focus:border-[#B87333]/50"
+                  className={inputClasses}
                 />
-              </div>
+              </motion.div>
 
               {/* Message */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+              >
                 <label
                   htmlFor="message"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#C9C0B6]"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#D9D0C7]"
                 >
-                  <MessageSquare className="h-4 w-4 text-[#B87333]" />
-                  メッセージ <span className="text-[#B87333]">*</span>
+                  <MessageSquare className="h-4 w-4 text-[#D4944A]" />
+                  メッセージ <span className="text-[#D4944A]">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -148,24 +210,31 @@ export default function Contact() {
                   value={form.message}
                   onChange={handleChange}
                   placeholder="お問い合わせ内容をご記入ください"
-                  className="w-full resize-none rounded-xl border border-[#2A2520] bg-[#12110E] px-4 py-3 text-[#F5F0EB] placeholder-[#3A3530] outline-none transition-colors focus:border-[#B87333]/50"
+                  className={`${inputClasses} resize-none`}
                 />
-              </div>
+              </motion.div>
 
               {/* Submit */}
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#B87333] to-[#A0622D] px-6 py-4 font-medium text-white transition-shadow hover:shadow-lg hover:shadow-[#B87333]/20"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 }}
               >
-                <Send className="h-4 w-4" />
-                送信する
-              </motion.button>
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D4944A] to-[#B87A38] px-6 py-4 font-medium text-white shadow-lg shadow-[#D4944A]/20 transition-shadow hover:shadow-xl hover:shadow-[#D4944A]/30"
+                >
+                  <Send className="h-4 w-4" />
+                  送信する
+                </motion.button>
+              </motion.div>
             </div>
 
             {/* Email hint */}
-            <p className="mt-4 text-center text-xs text-[#5A5550]">
+            <p className="mt-4 text-center text-xs text-[#706B66]">
               送信ボタンをクリックするとメーラーが起動します
             </p>
           </form>

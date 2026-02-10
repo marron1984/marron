@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#0A0A0F]">
+    <div className="relative min-h-screen bg-[#08080D]">
       <MouseBackground />
       <main className="relative z-10">
         <Hero />

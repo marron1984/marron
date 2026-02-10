@@ -35,7 +35,7 @@ function AutoScrollTrack() {
 
   useAnimationFrame(() => {
     if (!trackRef.current) return;
-    xRef.current -= 0.4;
+    xRef.current -= 0.5;
     const totalWidth = trackRef.current.scrollWidth / 2;
     if (Math.abs(xRef.current) >= totalWidth) {
       xRef.current = 0;
@@ -43,7 +43,6 @@ function AutoScrollTrack() {
     trackRef.current.style.transform = `translateX(${xRef.current}px)`;
   });
 
-  // Duplicate images for seamless loop
   const doubled = [...galleryImages, ...galleryImages];
 
   return (
@@ -53,7 +52,7 @@ function AutoScrollTrack() {
         return (
           <div
             key={`${img.src}-${i}`}
-            className={`relative flex-shrink-0 overflow-hidden rounded-xl ${
+            className={`relative flex-shrink-0 overflow-hidden rounded-xl border border-[#3D3730]/50 ${
               isLogo
                 ? "h-48 w-48 bg-white md:h-56 md:w-56"
                 : "h-48 w-72 md:h-56 md:w-80"
@@ -65,7 +64,7 @@ function AutoScrollTrack() {
               fill
               className={`${
                 isLogo ? "object-contain p-4" : "object-cover"
-              } transition-transform duration-500 hover:scale-105`}
+              } transition-transform duration-700 hover:scale-110`}
               sizes="320px"
             />
           </div>
@@ -86,28 +85,50 @@ export default function Gallery() {
 
   return (
     <section className="relative py-32" id="gallery">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(59,107,196,0.04)_0%,_transparent_60%)]" />
+
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 block text-sm tracking-[0.3em] uppercase text-[#B87333]">
+          <motion.span
+            initial={{ opacity: 0, letterSpacing: "0.1em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="mb-4 block text-sm uppercase text-[#D4944A]"
+          >
             Gallery
-          </span>
-          <h2 className="text-3xl font-bold text-[#F5F0EB] md:text-5xl">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+          >
             Recent Photos
-          </h2>
+          </motion.h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+          />
         </motion.div>
       </div>
 
       {/* Auto-scrolling row */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
         className="mb-8 overflow-hidden"
@@ -118,36 +139,49 @@ export default function Gallery() {
       {/* Manual scrollable row */}
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Navigation arrows */}
-        <button
+        <motion.button
           onClick={() => scroll("left")}
-          className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#2A2520] bg-[#12110E]/90 p-2 text-[#8B8680] backdrop-blur-sm transition-colors hover:border-[#B87333]/40 hover:text-[#B87333] md:left-0"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#3D3730] bg-[#1A1815]/90 p-2.5 text-[#A09A94] backdrop-blur-sm transition-colors hover:border-[#D4944A]/50 hover:text-[#D4944A] md:left-0"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={() => scroll("right")}
-          className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#2A2520] bg-[#12110E]/90 p-2 text-[#8B8680] backdrop-blur-sm transition-colors hover:border-[#B87333]/40 hover:text-[#B87333] md:right-0"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#3D3730] bg-[#1A1815]/90 p-2.5 text-[#A09A94] backdrop-blur-sm transition-colors hover:border-[#D4944A]/50 hover:text-[#D4944A] md:right-0"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-5 w-5" />
-        </button>
+        </motion.button>
 
         {/* Scrollable track */}
         <div
           ref={scrollRef}
           className="scrollbar-hide flex gap-4 overflow-x-auto scroll-smooth px-2 pb-4"
         >
-          {galleryImages.map((img) => {
+          {galleryImages.map((img, idx) => {
             const isLogo = img.src.endsWith(".png");
             return (
               <motion.div
                 key={img.src}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.85, rotate: idx % 2 === 0 ? -2 : 2 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.5 }}
-                className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-[#2A2520] ${
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.03,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  transition: { duration: 0.3 },
+                }}
+                className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-[#3D3730] transition-colors duration-300 hover:border-[#D4944A]/40 ${
                   isLogo
                     ? "h-56 w-56 bg-white md:h-64 md:w-64"
                     : "h-56 w-80 md:h-64 md:w-96"
@@ -163,10 +197,14 @@ export default function Gallery() {
                   sizes="400px"
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <p className="absolute bottom-3 left-4 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <motion.p
+                  initial={{ y: 10 }}
+                  whileHover={{ y: 0 }}
+                  className="absolute bottom-3 left-4 text-sm font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                >
                   {img.alt}
-                </p>
+                </motion.p>
               </motion.div>
             );
           })}

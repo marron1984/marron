@@ -2,71 +2,111 @@
 
 import { motion } from "framer-motion";
 import { philosophy } from "@/constants/data";
-import { Quote } from "lucide-react";
+import { Quote, Lightbulb, Footprints, Rocket } from "lucide-react";
+
+const beliefIcons = [Lightbulb, Footprints, Rocket];
 
 export default function Philosophy() {
   return (
     <section className="relative px-6 py-32" id="philosophy">
-      <div className="mx-auto max-w-4xl">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,148,74,0.05)_0%,_transparent_70%)]" />
+
+      <div className="relative mx-auto max-w-5xl">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-20 text-center"
         >
-          <span className="mb-4 block text-sm tracking-[0.3em] text-[#B87333] uppercase">
+          <motion.span
+            initial={{ opacity: 0, letterSpacing: "0.1em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="mb-4 block text-sm text-[#D4944A] uppercase"
+          >
             Philosophy
-          </span>
-          <h2 className="text-3xl font-bold text-[#F5F0EB] md:text-5xl">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+          >
             信念
-          </h2>
+          </motion.h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+          />
         </motion.div>
 
-        {/* Quote card */}
+        {/* Main quote card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="relative"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+          className="relative mb-20"
         >
-          {/* Decorative border */}
-          <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-[#B87333]/30 via-transparent to-[#2A4A7F]/20" />
+          {/* Animated gradient border */}
+          <motion.div
+            animate={{
+              background: [
+                "linear-gradient(135deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(225deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(315deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(135deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
+              ],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-[1px] rounded-3xl"
+          />
 
           <div className="relative rounded-3xl bg-[#0E0D0A] p-8 md:p-16">
             {/* Quote icon */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, rotate: -20, scale: 0 }}
+              whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
               className="mb-8"
             >
-              <Quote className="h-12 w-12 text-[#B87333]/40" />
+              <motion.div
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Quote className="h-14 w-14 text-[#D4944A]/50" />
+              </motion.div>
             </motion.div>
 
             {/* Main quote */}
             <motion.blockquote
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8"
             >
-              <p className="text-2xl font-bold leading-relaxed text-[#F5F0EB] md:text-4xl">
+              <p className="bg-gradient-to-r from-[#FDFBF7] via-[#D4944A] to-[#FDFBF7] bg-clip-text text-2xl font-bold leading-relaxed text-transparent animate-shimmer md:text-4xl">
                 「{philosophy.mainQuote}」
               </p>
             </motion.blockquote>
 
-            {/* Divider */}
+            {/* Animated divider */}
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mb-8 h-[1px] bg-gradient-to-r from-[#B87333]/40 via-[#B87333]/20 to-transparent"
+              transition={{ duration: 1, delay: 0.6 }}
+              className="mb-8 h-[1px] bg-gradient-to-r from-[#D4944A]/50 via-[#D4944A]/20 to-transparent"
             />
 
             {/* Subtext */}
@@ -75,12 +115,57 @@ export default function Philosophy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-lg leading-relaxed text-[#8B8680] md:text-xl"
+              className="text-lg leading-relaxed text-[#A09A94] md:text-xl"
             >
               {philosophy.subtext}
             </motion.p>
           </div>
         </motion.div>
+
+        {/* Belief cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {philosophy.beliefs.map((belief, i) => {
+            const Icon = beliefIcons[i];
+            return (
+              <motion.div
+                key={belief.title}
+                initial={{ opacity: 0, y: 50, rotateY: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                  delay: i * 0.15,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                  transition: { duration: 0.3 },
+                }}
+                className="group relative rounded-2xl border border-[#3D3730] bg-[#1A1815] p-6 transition-colors duration-300 hover:border-[#D4944A]/30"
+              >
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ rotate: 15, scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="mb-4 inline-flex rounded-xl bg-[#D4944A]/10 p-3"
+                >
+                  <Icon className="h-6 w-6 text-[#D4944A]" />
+                </motion.div>
+
+                <h3 className="mb-3 text-lg font-bold text-[#FDFBF7]">
+                  {belief.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#A09A94]">
+                  {belief.text}
+                </p>
+
+                {/* Bottom glow on hover */}
+                <div className="pointer-events-none absolute bottom-0 left-1/2 h-12 w-3/4 -translate-x-1/2 rounded-b-2xl bg-[#D4944A]/0 blur-xl transition-all duration-500 group-hover:bg-[#D4944A]/10" />
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
