@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { personalInfo } from "@/constants/data";
 import { Sparkles } from "lucide-react";
 
@@ -36,6 +37,26 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 mx-auto max-w-4xl text-center"
       >
+        {/* Profile photo */}
+        <motion.div
+          variants={itemVariants}
+          className="mb-8 flex justify-center"
+        >
+          <div className="relative">
+            {/* Outer glow ring */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#B87333]/60 via-[#B87333]/20 to-[#2A4A7F]/40 blur-sm" />
+            <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-[#B87333]/40 md:h-40 md:w-40">
+              <Image
+                src="/profile.jpeg"
+                alt={personalInfo.nameJa}
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
+
         {/* Alias badge */}
         <motion.div variants={itemVariants} className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#B87333]/30 bg-[#B87333]/10 px-4 py-2">
           <Sparkles className="h-4 w-4 text-[#B87333]" />
