@@ -54,3 +54,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #B87333;
 }
+
+/* Hide scrollbar for gallery */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

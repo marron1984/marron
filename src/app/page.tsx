@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Timeline from "@/components/Timeline";
 import Philosophy from "@/components/Philosophy";
+import Gallery from "@/components/Gallery";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
         <BentoGrid />
         <Timeline />
         <Philosophy />
+        <Gallery />
+        <Contact />
       </main>
       <Footer />
     </div>
