@@ -42,10 +42,10 @@ function TimelineItem({
           }}
           className={`inline-block rounded-2xl border ${
             event.highlight
-              ? "border-[#D4944A]/40 bg-[#D4944A]/8"
-              : "border-[#3D3730] bg-[#1A1815]"
+              ? "border-[#EDAB62]/40 bg-[#EDAB62]/8"
+              : "border-[#564F48] bg-[#262320]"
           } p-6 transition-all duration-300 hover:shadow-lg ${
-            event.highlight ? "hover:shadow-[#D4944A]/10" : "hover:shadow-white/5"
+            event.highlight ? "hover:shadow-[#EDAB62]/10" : "hover:shadow-white/5"
           }`}
         >
           {/* Year badge */}
@@ -56,8 +56,8 @@ function TimelineItem({
             transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
             className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold tracking-widest ${
               event.highlight
-                ? "bg-[#D4944A]/15 text-[#D4944A]"
-                : "bg-[#2A2520] text-[#706B66]"
+                ? "bg-[#EDAB62]/15 text-[#EDAB62]"
+                : "bg-[#3B3632] text-[#8C8780]"
             }`}
           >
             {event.year}
@@ -69,7 +69,7 @@ function TimelineItem({
           </h3>
 
           {/* Description */}
-          <p className="mb-3 text-sm leading-relaxed text-[#A09A94]">
+          <p className="mb-3 text-sm leading-relaxed text-[#B8B2AC]">
             {event.description}
           </p>
 
@@ -80,10 +80,10 @@ function TimelineItem({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 + 0.5 }}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#D4944A]/10 px-3 py-1"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#EDAB62]/10 px-3 py-1"
             >
-              <Zap className="h-3 w-3 text-[#D4944A]" />
-              <span className="text-xs font-medium text-[#D4944A]">
+              <Zap className="h-3 w-3 text-[#EDAB62]" />
+              <span className="text-xs font-medium text-[#EDAB62]">
                 {event.detail}
               </span>
             </motion.div>
@@ -100,12 +100,12 @@ function TimelineItem({
           transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 300 }}
           whileHover={{ scale: 1.5 }}
           className={`flex h-5 w-5 items-center justify-center rounded-full ${
-            event.highlight ? "bg-[#D4944A] shadow-lg shadow-[#D4944A]/30" : "bg-[#4A4540]"
+            event.highlight ? "bg-[#EDAB62] shadow-lg shadow-[#EDAB62]/30" : "bg-[#635C56]"
           }`}
         >
           <Circle
             className={`h-2 w-2 ${
-              event.highlight ? "text-[#08080D]" : "text-[#706B66]"
+              event.highlight ? "text-[#101018]" : "text-[#8C8780]"
             }`}
             fill="currentColor"
           />
@@ -130,7 +130,7 @@ export default function Timeline() {
   return (
     <section className="relative px-6 py-32" id="history">
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(59,107,196,0.04)_0%,_transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(96, 144, 232,0.04)_0%,_transparent_60%)]" />
 
       <div ref={containerRef} className="relative mx-auto max-w-4xl">
         {/* Section header */}
@@ -146,7 +146,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="mb-4 block text-sm text-[#D4944A] uppercase"
+            className="mb-4 block text-sm text-[#EDAB62] uppercase"
           >
             History
           </motion.span>
@@ -164,7 +164,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="mt-4 text-[#A09A94]"
+            className="mt-4 text-[#B8B2AC]"
           >
             2001 &mdash; Present
           </motion.p>
@@ -173,30 +173,30 @@ export default function Timeline() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
           />
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line (desktop) */}
-          <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-[#2A2520] md:left-1/2 md:block md:-translate-x-1/2">
+          <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-[#3B3632] md:left-1/2 md:block md:-translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#D4944A] to-[#D4944A]/20"
+              className="w-full bg-gradient-to-b from-[#EDAB62] to-[#EDAB62]/20"
             />
             {/* Glow effect on line */}
             <motion.div
               style={{ height: lineHeight, opacity: glowOpacity }}
-              className="absolute top-0 w-full bg-[#D4944A] blur-md"
+              className="absolute top-0 w-full bg-[#EDAB62] blur-md"
             />
           </div>
 
           {/* Vertical line (mobile) */}
-          <div className="absolute left-[9px] top-0 h-full w-[2px] bg-[#2A2520] md:hidden">
+          <div className="absolute left-[9px] top-0 h-full w-[2px] bg-[#3B3632] md:hidden">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#D4944A] to-[#D4944A]/20"
+              className="w-full bg-gradient-to-b from-[#EDAB62] to-[#EDAB62]/20"
             />
           </div>
 

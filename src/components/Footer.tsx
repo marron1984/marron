@@ -5,7 +5,7 @@ import { personalInfo } from "@/constants/data";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#3D3730] px-6 py-16">
+    <footer className="relative border-t border-[#564F48] px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="text-lg font-bold text-[#FDFBF7]">
               {personalInfo.nameJa}
             </p>
-            <p className="mt-1 text-sm text-[#706B66]">
+            <p className="mt-1 text-sm text-[#8C8780]">
               {personalInfo.nameEn} / {personalInfo.alias}
             </p>
           </motion.div>
@@ -36,9 +36,9 @@ export default function Footer() {
               <motion.a
                 key={link.href}
                 href={link.href}
-                whileHover={{ y: -2, color: "#D4944A" }}
+                whileHover={{ y: -2, color: "#EDAB62" }}
                 transition={{ duration: 0.2 }}
-                className="text-sm text-[#A09A94]"
+                className="text-sm text-[#B8B2AC]"
               >
                 {link.label}
               </motion.a>
@@ -46,7 +46,7 @@ export default function Footer() {
           </nav>
 
           {/* Right: Copyright */}
-          <p className="text-xs text-[#4A4540]">
+          <p className="text-xs text-[#635C56]">
             &copy; {new Date().getFullYear()} {personalInfo.alias}. All rights
             reserved.
           </p>

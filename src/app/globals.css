@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #08080D;
+  --background: #101018;
   --foreground: #FDFBF7;
-  --marron: #D4944A;
-  --navy: #3B6BC4;
-  --muted: #A09A94;
+  --marron: #EDAB62;
+  --navy: #6090E8;
+  --muted: #B8B2AC;
 }
 
 @theme inline {
@@ -18,7 +18,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3D3730 transparent;
+  scrollbar-color: #564F48 transparent;
 }
 
 html {
@@ -33,7 +33,7 @@ body {
 
 /* Selection color */
 ::selection {
-  background: rgba(212, 148, 74, 0.4);
+  background: rgba(237, 171, 98, 0.4);
   color: #FDFBF7;
 }
 
@@ -47,12 +47,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3D3730;
+  background: #564F48;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4944A;
+  background: #EDAB62;
 }
 
 /* Hide scrollbar for gallery */

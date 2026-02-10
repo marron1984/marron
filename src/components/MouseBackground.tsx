@@ -77,8 +77,8 @@ export default function MouseBackground() {
       const proximity = Math.max(0, 1 - dist / 400);
       ctx.globalAlpha = shape.opacity + proximity * 0.15;
       ctx.strokeStyle = proximity > 0.3
-        ? `rgba(212, 148, 74, ${0.3 + proximity * 0.5})`
-        : `rgba(212, 148, 74, ${0.15 + proximity * 0.3})`;
+        ? `rgba(237, 171, 98, ${0.3 + proximity * 0.5})`
+        : `rgba(237, 171, 98, ${0.15 + proximity * 0.3})`;
 
       if (shape.type === "diamond") {
         ctx.beginPath();
@@ -167,7 +167,7 @@ export default function MouseBackground() {
           const dist = Math.hypot(shapes[i].x - shapes[j].x, shapes[i].y - shapes[j].y);
           if (dist < 150) {
             ctx.globalAlpha = (1 - dist / 150) * 0.06;
-            ctx.strokeStyle = "rgba(212, 148, 74, 0.04)";
+            ctx.strokeStyle = "rgba(237, 171, 98, 0.04)";
             ctx.beginPath();
             ctx.moveTo(shapes[i].x, shapes[i].y);
             ctx.lineTo(shapes[j].x, shapes[j].y);

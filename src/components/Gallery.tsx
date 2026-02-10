@@ -52,7 +52,7 @@ function AutoScrollTrack() {
         return (
           <div
             key={`${img.src}-${i}`}
-            className={`relative flex-shrink-0 overflow-hidden rounded-xl border border-[#3D3730]/50 ${
+            className={`relative flex-shrink-0 overflow-hidden rounded-xl border border-[#564F48]/50 ${
               isLogo
                 ? "h-48 w-48 bg-white md:h-56 md:w-56"
                 : "h-48 w-72 md:h-56 md:w-80"
@@ -86,7 +86,7 @@ export default function Gallery() {
   return (
     <section className="relative py-32" id="gallery">
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(59,107,196,0.04)_0%,_transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(96, 144, 232,0.04)_0%,_transparent_60%)]" />
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
@@ -102,7 +102,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="mb-4 block text-sm uppercase text-[#D4944A]"
+            className="mb-4 block text-sm uppercase text-[#EDAB62]"
           >
             Gallery
           </motion.span>
@@ -120,7 +120,7 @@ export default function Gallery() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
           />
         </motion.div>
       </div>
@@ -143,7 +143,7 @@ export default function Gallery() {
           onClick={() => scroll("left")}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#3D3730] bg-[#1A1815]/90 p-2.5 text-[#A09A94] backdrop-blur-sm transition-colors hover:border-[#D4944A]/50 hover:text-[#D4944A] md:left-0"
+          className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#564F48] bg-[#262320]/90 p-2.5 text-[#B8B2AC] backdrop-blur-sm transition-colors hover:border-[#EDAB62]/50 hover:text-[#EDAB62] md:left-0"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -152,7 +152,7 @@ export default function Gallery() {
           onClick={() => scroll("right")}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#3D3730] bg-[#1A1815]/90 p-2.5 text-[#A09A94] backdrop-blur-sm transition-colors hover:border-[#D4944A]/50 hover:text-[#D4944A] md:right-0"
+          className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-[#564F48] bg-[#262320]/90 p-2.5 text-[#B8B2AC] backdrop-blur-sm transition-colors hover:border-[#EDAB62]/50 hover:text-[#EDAB62] md:right-0"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-5 w-5" />
@@ -181,7 +181,7 @@ export default function Gallery() {
                   y: -8,
                   transition: { duration: 0.3 },
                 }}
-                className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-[#3D3730] transition-colors duration-300 hover:border-[#D4944A]/40 ${
+                className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-[#564F48] transition-colors duration-300 hover:border-[#EDAB62]/40 ${
                   isLogo
                     ? "h-56 w-56 bg-white md:h-64 md:w-64"
                     : "h-56 w-80 md:h-64 md:w-96"

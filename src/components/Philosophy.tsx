@@ -10,7 +10,7 @@ export default function Philosophy() {
   return (
     <section className="relative px-6 py-32" id="philosophy">
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,148,74,0.05)_0%,_transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(237, 171, 98,0.05)_0%,_transparent_70%)]" />
 
       <div className="relative mx-auto max-w-5xl">
         {/* Section header */}
@@ -26,7 +26,7 @@ export default function Philosophy() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="mb-4 block text-sm text-[#D4944A] uppercase"
+            className="mb-4 block text-sm text-[#EDAB62] uppercase"
           >
             Philosophy
           </motion.span>
@@ -44,7 +44,7 @@ export default function Philosophy() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4944A] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
           />
         </motion.div>
 
@@ -60,17 +60,17 @@ export default function Philosophy() {
           <motion.div
             animate={{
               background: [
-                "linear-gradient(135deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
-                "linear-gradient(225deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
-                "linear-gradient(315deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
-                "linear-gradient(135deg, rgba(212,148,74,0.4), transparent, rgba(59,107,196,0.2))",
+                "linear-gradient(135deg, rgba(237, 171, 98,0.4), transparent, rgba(96, 144, 232,0.2))",
+                "linear-gradient(225deg, rgba(237, 171, 98,0.4), transparent, rgba(96, 144, 232,0.2))",
+                "linear-gradient(315deg, rgba(237, 171, 98,0.4), transparent, rgba(96, 144, 232,0.2))",
+                "linear-gradient(135deg, rgba(237, 171, 98,0.4), transparent, rgba(96, 144, 232,0.2))",
               ],
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             className="absolute -inset-[1px] rounded-3xl"
           />
 
-          <div className="relative rounded-3xl bg-[#0E0D0A] p-8 md:p-16">
+          <div className="relative rounded-3xl bg-[#191714] p-8 md:p-16">
             {/* Quote icon */}
             <motion.div
               initial={{ opacity: 0, rotate: -20, scale: 0 }}
@@ -83,7 +83,7 @@ export default function Philosophy() {
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <Quote className="h-14 w-14 text-[#D4944A]/50" />
+                <Quote className="h-14 w-14 text-[#EDAB62]/50" />
               </motion.div>
             </motion.div>
 
@@ -95,7 +95,7 @@ export default function Philosophy() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8"
             >
-              <p className="bg-gradient-to-r from-[#FDFBF7] via-[#D4944A] to-[#FDFBF7] bg-clip-text text-2xl font-bold leading-relaxed text-transparent animate-shimmer md:text-4xl">
+              <p className="bg-gradient-to-r from-[#FDFBF7] via-[#EDAB62] to-[#FDFBF7] bg-clip-text text-2xl font-bold leading-relaxed text-transparent animate-shimmer md:text-4xl">
                 「{philosophy.mainQuote}」
               </p>
             </motion.blockquote>
@@ -106,7 +106,7 @@ export default function Philosophy() {
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="mb-8 h-[1px] bg-gradient-to-r from-[#D4944A]/50 via-[#D4944A]/20 to-transparent"
+              className="mb-8 h-[1px] bg-gradient-to-r from-[#EDAB62]/50 via-[#EDAB62]/20 to-transparent"
             />
 
             {/* Subtext */}
@@ -115,7 +115,7 @@ export default function Philosophy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-lg leading-relaxed text-[#A09A94] md:text-xl"
+              className="text-lg leading-relaxed text-[#B8B2AC] md:text-xl"
             >
               {philosophy.subtext}
             </motion.p>
@@ -142,26 +142,26 @@ export default function Philosophy() {
                   scale: 1.03,
                   transition: { duration: 0.3 },
                 }}
-                className="group relative rounded-2xl border border-[#3D3730] bg-[#1A1815] p-6 transition-colors duration-300 hover:border-[#D4944A]/30"
+                className="group relative rounded-2xl border border-[#564F48] bg-[#262320] p-6 transition-colors duration-300 hover:border-[#EDAB62]/30"
               >
                 {/* Icon */}
                 <motion.div
                   whileHover={{ rotate: 15, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="mb-4 inline-flex rounded-xl bg-[#D4944A]/10 p-3"
+                  className="mb-4 inline-flex rounded-xl bg-[#EDAB62]/10 p-3"
                 >
-                  <Icon className="h-6 w-6 text-[#D4944A]" />
+                  <Icon className="h-6 w-6 text-[#EDAB62]" />
                 </motion.div>
 
                 <h3 className="mb-3 text-lg font-bold text-[#FDFBF7]">
                   {belief.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#A09A94]">
+                <p className="text-sm leading-relaxed text-[#B8B2AC]">
                   {belief.text}
                 </p>
 
                 {/* Bottom glow on hover */}
-                <div className="pointer-events-none absolute bottom-0 left-1/2 h-12 w-3/4 -translate-x-1/2 rounded-b-2xl bg-[#D4944A]/0 blur-xl transition-all duration-500 group-hover:bg-[#D4944A]/10" />
+                <div className="pointer-events-none absolute bottom-0 left-1/2 h-12 w-3/4 -translate-x-1/2 rounded-b-2xl bg-[#EDAB62]/0 blur-xl transition-all duration-500 group-hover:bg-[#EDAB62]/10" />
               </motion.div>
             );
           })}
