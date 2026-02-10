@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 export default function MouseBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const prevMouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -24,24 +25,33 @@ export default function MouseBackground() {
     window.addEventListener("resize", resize);
 
     const handleMouseMove = (e: MouseEvent) => {
+      prevMouseRef.current = { ...mouseRef.current };
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    const shapes: {
+    // Particle system
+    interface Particle {
       x: number;
       y: number;
       size: number;
       rotation: number;
       rotationSpeed: number;
       speed: number;
-      type: "diamond" | "circle" | "hexagon" | "cross" | "ring";
+      type: "diamond" | "circle" | "hexagon" | "cross" | "ring" | "dot" | "triangle";
       opacity: number;
       wobblePhase: number;
       wobbleAmp: number;
-    }[] = [];
+      life: number;
+      maxLife: number;
+      vx: number;
+      vy: number;
+    }
 
-    for (let i = 0; i < 45; i++) {
+    const shapes: Particle[] = [];
+
+    // Background shapes
+    for (let i = 0; i < 55; i++) {
       shapes.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight * 3,
@@ -49,24 +59,46 @@ export default function MouseBackground() {
         rotation: Math.random() * Math.PI * 2,
         rotationSpeed: (Math.random() - 0.5) * 0.04,
         speed: Math.random() * 0.5 + 0.15,
-        type: (["diamond", "circle", "hexagon", "cross", "ring"] as const)[
-          Math.floor(Math.random() * 5)
-        ],
-        opacity: Math.random() * 0.1 + 0.03,
+        type: (
+          [
+            "diamond",
+            "circle",
+            "hexagon",
+            "cross",
+            "ring",
+            "dot",
+            "triangle",
+          ] as const
+        )[Math.floor(Math.random() * 7)],
+        opacity: Math.random() * 0.12 + 0.03,
         wobblePhase: Math.random() * Math.PI * 2,
         wobbleAmp: Math.random() * 30 + 10,
+        life: 0,
+        maxLife: Infinity,
+        vx: 0,
+        vy: 0,
       });
     }
 
-    const drawShape = (
-      shape: (typeof shapes)[0],
-      mouseInfluence: { dx: number; dy: number }
-    ) => {
+    // Mouse trail particles
+    const trailParticles: Particle[] = [];
+
+    const drawShape = (shape: Particle) => {
       ctx.save();
-      const wobble = Math.sin(time * 0.001 + shape.wobblePhase) * shape.wobbleAmp;
-      const offsetX = mouseInfluence.dx * shape.size * 0.04 + wobble * 0.3;
-      const offsetY = mouseInfluence.dy * shape.size * 0.04;
-      ctx.translate(shape.x + offsetX, shape.y + offsetY);
+      const wobble =
+        Math.sin(time * 0.001 + shape.wobblePhase) * shape.wobbleAmp;
+      const mouseInfluenceX =
+        ((mouseRef.current.x - canvas.width / 2) / canvas.width) *
+        shape.size *
+        0.04;
+      const mouseInfluenceY =
+        ((mouseRef.current.y - canvas.height / 2) / canvas.height) *
+        shape.size *
+        0.04;
+      ctx.translate(
+        shape.x + mouseInfluenceX + wobble * 0.3,
+        shape.y + mouseInfluenceY
+      );
       ctx.rotate(shape.rotation);
       ctx.lineWidth = 0.6;
 
@@ -75,10 +107,18 @@ export default function MouseBackground() {
         shape.y - mouseRef.current.y
       );
       const proximity = Math.max(0, 1 - dist / 400);
-      ctx.globalAlpha = shape.opacity + proximity * 0.15;
-      ctx.strokeStyle = proximity > 0.3
-        ? `rgba(237, 171, 98, ${0.3 + proximity * 0.5})`
-        : `rgba(237, 171, 98, ${0.15 + proximity * 0.3})`;
+      ctx.globalAlpha = shape.opacity + proximity * 0.2;
+
+      const r = proximity > 0.3 ? 237 : 237;
+      const g = proximity > 0.3 ? 171 : 171;
+      const b = proximity > 0.3 ? 98 : 98;
+      const a = proximity > 0.3 ? 0.35 + proximity * 0.5 : 0.15 + proximity * 0.3;
+      ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${a})`;
+
+      if (proximity > 0.5) {
+        ctx.shadowColor = `rgba(237, 171, 98, ${proximity * 0.3})`;
+        ctx.shadowBlur = proximity * 15;
+      }
 
       if (shape.type === "diamond") {
         ctx.beginPath();
@@ -98,8 +138,14 @@ export default function MouseBackground() {
         for (let n = 0; n < 8; n++) {
           const angle = (Math.PI / 4) * n;
           ctx.beginPath();
-          ctx.moveTo(Math.cos(angle) * shape.size * 0.85, Math.sin(angle) * shape.size * 0.85);
-          ctx.lineTo(Math.cos(angle) * shape.size, Math.sin(angle) * shape.size);
+          ctx.moveTo(
+            Math.cos(angle) * shape.size * 0.85,
+            Math.sin(angle) * shape.size * 0.85
+          );
+          ctx.lineTo(
+            Math.cos(angle) * shape.size,
+            Math.sin(angle) * shape.size
+          );
           ctx.stroke();
         }
       } else if (shape.type === "hexagon") {
@@ -130,6 +176,18 @@ export default function MouseBackground() {
         ctx.lineTo(-arm, -arm);
         ctx.closePath();
         ctx.stroke();
+      } else if (shape.type === "triangle") {
+        ctx.beginPath();
+        ctx.moveTo(0, -shape.size);
+        ctx.lineTo(shape.size * 0.866, shape.size * 0.5);
+        ctx.lineTo(-shape.size * 0.866, shape.size * 0.5);
+        ctx.closePath();
+        ctx.stroke();
+      } else if (shape.type === "dot") {
+        ctx.beginPath();
+        ctx.arc(0, 0, shape.size * 0.3, 0, Math.PI * 2);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
       } else {
         ctx.beginPath();
         ctx.arc(0, 0, shape.size, 0, Math.PI * 2);
@@ -139,6 +197,8 @@ export default function MouseBackground() {
         ctx.stroke();
       }
 
+      ctx.shadowColor = "transparent";
+      ctx.shadowBlur = 0;
       ctx.restore();
     };
 
@@ -146,11 +206,84 @@ export default function MouseBackground() {
       time++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-      const dx = (mouseRef.current.x - centerX) / centerX;
-      const dy = (mouseRef.current.y - centerY) / centerY;
+      // Draw aurora blobs
+      const auroraTime = time * 0.003;
+      ctx.globalAlpha = 0.015;
+      const grad1 = ctx.createRadialGradient(
+        canvas.width * 0.3 + Math.sin(auroraTime) * 100,
+        canvas.height * 0.4 + Math.cos(auroraTime * 0.7) * 80,
+        0,
+        canvas.width * 0.3,
+        canvas.height * 0.4,
+        400
+      );
+      grad1.addColorStop(0, "rgba(237, 171, 98, 0.8)");
+      grad1.addColorStop(1, "transparent");
+      ctx.fillStyle = grad1;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      const grad2 = ctx.createRadialGradient(
+        canvas.width * 0.7 + Math.cos(auroraTime * 0.8) * 120,
+        canvas.height * 0.6 + Math.sin(auroraTime * 0.6) * 90,
+        0,
+        canvas.width * 0.7,
+        canvas.height * 0.6,
+        350
+      );
+      grad2.addColorStop(0, "rgba(96, 144, 232, 0.6)");
+      grad2.addColorStop(1, "transparent");
+      ctx.fillStyle = grad2;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.globalAlpha = 1;
+
+      // Spawn trail particles on fast mouse movement
+      const mouseVelocity = Math.hypot(
+        mouseRef.current.x - prevMouseRef.current.x,
+        mouseRef.current.y - prevMouseRef.current.y
+      );
+      if (mouseVelocity > 3 && trailParticles.length < 30) {
+        trailParticles.push({
+          x: mouseRef.current.x,
+          y: mouseRef.current.y,
+          size: Math.random() * 4 + 2,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.1,
+          speed: 0,
+          type: "dot",
+          opacity: 0.4,
+          wobblePhase: 0,
+          wobbleAmp: 0,
+          life: 0,
+          maxLife: 40,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+        });
+      }
+
+      // Update and draw trail particles
+      for (let i = trailParticles.length - 1; i >= 0; i--) {
+        const p = trailParticles[i];
+        p.life++;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.opacity = 0.4 * (1 - p.life / p.maxLife);
+        p.size *= 0.98;
+        if (p.life >= p.maxLife) {
+          trailParticles.splice(i, 1);
+          continue;
+        }
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.globalAlpha = p.opacity;
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(237, 171, 98, ${p.opacity})`;
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Update and draw shapes
       for (const shape of shapes) {
         shape.rotation += shape.rotationSpeed;
         shape.y -= shape.speed;
@@ -158,21 +291,44 @@ export default function MouseBackground() {
           shape.y = canvas.height + shape.size * 2;
           shape.x = Math.random() * canvas.width;
         }
-        drawShape(shape, { dx, dy });
+        drawShape(shape);
       }
 
+      // Connection lines
       ctx.lineWidth = 0.3;
       for (let i = 0; i < shapes.length; i++) {
         for (let j = i + 1; j < shapes.length; j++) {
-          const dist = Math.hypot(shapes[i].x - shapes[j].x, shapes[i].y - shapes[j].y);
+          const dist = Math.hypot(
+            shapes[i].x - shapes[j].x,
+            shapes[i].y - shapes[j].y
+          );
           if (dist < 150) {
-            ctx.globalAlpha = (1 - dist / 150) * 0.06;
-            ctx.strokeStyle = "rgba(237, 171, 98, 0.04)";
+            const alpha = (1 - dist / 150) * 0.06;
+            ctx.globalAlpha = alpha;
+            ctx.strokeStyle = `rgba(237, 171, 98, 0.06)`;
             ctx.beginPath();
             ctx.moveTo(shapes[i].x, shapes[i].y);
             ctx.lineTo(shapes[j].x, shapes[j].y);
             ctx.stroke();
           }
+        }
+      }
+
+      // Mouse-to-shape connections
+      ctx.lineWidth = 0.4;
+      for (const shape of shapes) {
+        const dist = Math.hypot(
+          shape.x - mouseRef.current.x,
+          shape.y - mouseRef.current.y
+        );
+        if (dist < 200) {
+          const alpha = (1 - dist / 200) * 0.1;
+          ctx.globalAlpha = alpha;
+          ctx.strokeStyle = `rgba(237, 171, 98, 0.15)`;
+          ctx.beginPath();
+          ctx.moveTo(mouseRef.current.x, mouseRef.current.y);
+          ctx.lineTo(shape.x, shape.y);
+          ctx.stroke();
         }
       }
 
