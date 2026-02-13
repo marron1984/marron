@@ -11,6 +11,7 @@ const uz: SiteLocale = {
     birthDate: "1984-yil 2-may tug'ilgan",
     origin: "Osaka, Yaponiya",
     hobby: "Poker",
+    hobbyLabel: "Sevimli mashg'ulot",
     keywords: [
       "Serial Entrepreneur",
       "Social Problem Solver",
@@ -136,7 +137,7 @@ const uz: SiteLocale = {
       tags: ["Hospitality", "Luxury Ryokan", "Staytous", "Nara"],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "dhpケアマネジメント",
@@ -147,7 +148,7 @@ const uz: SiteLocale = {
       tags: ["Healthcare", "Care Management", "Real Estate", "Senior Living"],
       accent: "navy",
       span: "tall",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "dhp都市開発",
@@ -159,7 +160,7 @@ const uz: SiteLocale = {
       tags: ["Urban Development", "Marriott", "Luxury Resort", "Global"],
       accent: "neutral",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "株式会社DHPホスピタリティ",
@@ -176,7 +177,7 @@ const uz: SiteLocale = {
       ],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "株式会社FUDOKI",
@@ -188,7 +189,7 @@ const uz: SiteLocale = {
       tags: ["Branding", "Consulting", "Primary Industry", "Agriculture"],
       accent: "navy",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "株式会社100doors",
@@ -200,7 +201,7 @@ const uz: SiteLocale = {
       tags: ["Web3", "DID/VC", "PropTech", "Hospitality Tech"],
       accent: "marron",
       span: "wide",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "合同会社ウニクラフトカンパニー",
@@ -211,7 +212,7 @@ const uz: SiteLocale = {
       tags: ["Aquaculture", "Sea Urchin", "Sustainability", "Innovation"],
       accent: "navy",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "株式会社ミッチーノ",
@@ -227,7 +228,7 @@ const uz: SiteLocale = {
       ],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHP guruhi",
     },
     {
       company: "一般財団法人国際ピース・ラビング・ピープル財団",
@@ -314,13 +315,36 @@ const uz: SiteLocale = {
       },
     ],
   },
+  galleryImages: [
+    { src: "/gallery/01.jpg", alt: "Hashamatli restoran" },
+    { src: "/gallery/02.jpg", alt: "Restoran ichki ko'rinishi" },
+    { src: "/gallery/03.jpg", alt: "Ovqatlanish" },
+    { src: "/gallery/04.jpg", alt: "Taomlar" },
+    { src: "/gallery/05.jpg", alt: "Naradagi kiyiklar" },
+    { src: "/gallery/06.jpg", alt: "Mehmonxona" },
+    { src: "/gallery/07.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/08.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/09.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/10.png", alt: "Ee Kango AA-KANGO" },
+    { src: "/gallery/11.png", alt: "Ee Support" },
+    { src: "/gallery/12.png", alt: "Brend logotipi" },
+    { src: "/gallery/13.jpg", alt: "Jamoa a'zolari" },
+    { src: "/gallery/14.jpg", alt: "Jamoa a'zolari" },
+    { src: "/gallery/15.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/16.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/17.png", alt: "Brend logotipi" },
+    { src: "/gallery/18.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/19.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/20.jpg", alt: "Biznes manzarasi" },
+    { src: "/gallery/21.jpg", alt: "Jamoa a'zolari" },
+  ],
   ui: {
     scroll: "Scroll",
     portfolio: {
       label: "Portfolio",
       title: "Joriy loyihalar",
       subtitle: "2024 — 2025",
-      clickHint: "DHPグループ kiritilgan · Batafsil ma'lumot uchun kartani bosing",
+      clickHint: "DHP guruhi kiritilgan · Batafsil ma'lumot uchun kartani bosing",
     },
     history: {
       label: "Tarix",
@@ -359,6 +383,10 @@ const uz: SiteLocale = {
       messagePlaceholder: "Xabaringizni shu yerga yozing",
       submitButton: "Yuborish",
       submitHint: "Yuborish tugmasini bosganingizda pochta dasturi ochiladi",
+      emailSubjectTemplate: "[So'rov] {company}{name} dan",
+      emailBodyNameLabel: "Ism",
+      emailBodyCompanyLabel: "Kompaniya",
+      emailBodyEmailLabel: "Elektron pochta",
     },
     footer: {
       navLinks: [

@@ -407,7 +407,7 @@ export default function Hero() {
           {[
             t.personalInfo.birthDate,
             t.personalInfo.origin,
-            `趣味：${t.personalInfo.hobby}`,
+            `${t.personalInfo.hobbyLabel}：${t.personalInfo.hobby}`,
           ].map((info, i) => (
             <motion.span
               key={info}
