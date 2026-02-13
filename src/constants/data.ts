@@ -17,8 +17,8 @@ export const personalInfo = {
     "16歳で起業し、教師を目指すも挫折。引きこもりを経て独学で再起。現在は介護・ホテル・IT・国際事業を横断する複合ポートフォリオを経営する、自走型シリアルアントレプレナー。",
   stats: [
     { value: "20+", label: "起業家歴（年）" },
-    { value: "7", label: "現役事業数" },
-    { value: "5", label: "業種横断" },
+    { value: "10", label: "現役事業数" },
+    { value: "6", label: "業種横断" },
     { value: "16", label: "歳で初起業" },
   ],
 } as const;
@@ -110,6 +110,28 @@ export const portfolio: PortfolioItem[] = [
     group: "DHPグループ",
   },
   {
+    company: "株式会社DHPホスピタリティ",
+    role: "取締役",
+    description: "独自ブランド宿泊施設運営・大手ホテルグループMF",
+    longDescription:
+      "独自ブランドでの宿泊施設の運営を軸に、大手ホテルグループのマスターフランチャイザーとしても事業展開。ブランディングからオペレーション設計まで一貫した高品質ホスピタリティを実現。",
+    tags: ["Hospitality", "Master Franchisee", "Hotel Brand", "Operations"],
+    accent: "marron",
+    span: "normal",
+    group: "DHPグループ",
+  },
+  {
+    company: "株式会社FUDOKI",
+    role: "取締役",
+    description: "一次産業品のブランディング及びコンサルティング",
+    longDescription:
+      "一次産業品のブランディング及びコンサルティングを手掛ける。農産物・水産物の価値向上を通じて、生産者と消費者を結ぶ新しい流通・ブランド戦略を構築。地域の一次産業を世界基準へ引き上げる。",
+    tags: ["Branding", "Consulting", "Primary Industry", "Agriculture"],
+    accent: "navy",
+    span: "normal",
+    group: "DHPグループ",
+  },
+  {
     company: "株式会社100doors",
     role: "創業者・代表取締役",
     description: "VC/DIDを活用した次世代宿泊システム開発",
@@ -118,6 +140,7 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Web3", "DID/VC", "PropTech", "Hospitality Tech"],
     accent: "marron",
     span: "wide",
+    group: "DHPグループ",
   },
   {
     company: "合同会社ウニクラフトカンパニー",
@@ -128,6 +151,17 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Aquaculture", "Sea Urchin", "Sustainability", "Innovation"],
     accent: "navy",
     span: "normal",
+    group: "DHPグループ",
+  },
+  {
+    company: "一般財団法人国際ピース・ラビング・ピープル財団",
+    role: "事務局 ミャンマー担当",
+    description: "国際協力・国連支援事業",
+    longDescription:
+      "一般財団法人国際ピース・ラビング・ピープル財団（IPLPF）の事務局としてミャンマー担当を務める。国際協力および国連支援事業を通じて、ミャンマーの平和構築と持続可能な発展に貢献。社会起業家としての知見を国際舞台で活かす。",
+    tags: ["International", "UN Support", "Myanmar", "Peace Building"],
+    accent: "navy",
+    span: "wide",
   },
 ];
 
@@ -188,8 +222,8 @@ export const timeline: TimelineEvent[] = [
     year: "2024",
     title: "複合ポートフォリオ経営の確立",
     description:
-      "DHPグループ（リゾート開発・ケアマネジメント・都市開発）、株式会社AA、株式会社100doors、ウニクラフトカンパニー等、7つの事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際事業の5業種を統括。",
-    detail: "7事業体 × 5業種の統括経営",
+      "DHPグループ（リゾート開発・ケアマネジメント・都市開発・ホスピタリティ・FUDOKI・100doors・ウニクラフト）、株式会社AA、株式会社あん、IPLPF等、10の事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際協力・飲食の6業種を統括。",
+    detail: "10事業体 × 6業種の統括経営",
     highlight: true,
   },
 ];
