@@ -8,7 +8,7 @@ const en: SiteLocale = {
     catchphrase: "Solving social issues through business.",
     subcatchphrase: "The journey of a self-driven entrepreneur, since age 16.",
     birthDate: "Born May 2, 1984",
-    origin: "From Osaka, Japan",
+    origin: "From Tsurumi-ku, Osaka City, Osaka",
     hobby: "Poker",
     hobbyLabel: "Hobby",
     keywords: [
@@ -18,7 +18,7 @@ const en: SiteLocale = {
       "Resilient Leader",
     ],
     coreIdentity:
-      "Started his first business at 16, aspired to become a teacher but faced setbacks. After a period of withdrawal, he rebuilt himself through self-education. Today, he manages a diversified portfolio spanning care, hospitality, IT, and international operations as a self-driven serial entrepreneur.",
+      "Enrolled in Kenichi Ohmae's Attackers Business School during his first year of high school and started his first business at 16. After graduating high school, he experienced six months of social withdrawal (hikikomori) but rebuilt himself through self-education. From obtaining a financial license on the Isle of Man, to launching Jisha NOW magazine, acquiring an Aeon Group restaurant business, and developing temple stay hotels with renowned temples, he has pursued a diverse range of ventures. Today, he manages a composite portfolio of 12 business entities spanning care, hospitality, IT, and international operations as a self-driven serial entrepreneur.",
     stats: [
       { value: "20+", label: "Years as Entrepreneur" },
       { value: "12", label: "Active Businesses" },
@@ -43,10 +43,10 @@ const en: SiteLocale = {
     {
       company: "株式会社AA",
       role: "Co-founder & Executive Vice President",
-      description: "Housing refugee support & Myanmar operations",
+      description: "Housing refugee support, home nursing care & Myanmar operations",
       longDescription:
-        "Focused on providing housing support for people in need of housing security (housing refugees), tackling critical social challenges in Japan. Also drives international business expansion in Myanmar, pursuing both social impact and sustainable business growth. Operates the 'Ee Kaigo' and 'Ee Support' brands.",
-      tags: ["Social Impact", "Housing Support", "International", "Myanmar"],
+        "Operates supportive housing and home nursing care services for housing refugees (elderly, disabled). Plans to open a 71-bed residential nursing home in Nishinomiya, Hyogo and a 50-room supportive housing facility in Fushimi, Kyoto during fiscal 2025. In Myanmar, established and operates a Japanese language school and a care training school for specified skilled workers, building an international business model that addresses Japan's care workforce shortage while developing local human resources. Operates the 'Ee Kaigo' and 'Ee Support' brands.",
+      tags: ["Social Impact", "Housing Support", "Care", "Myanmar"],
       accent: "marron",
       span: "wide",
     },
@@ -63,10 +63,10 @@ const en: SiteLocale = {
     {
       company: "株式会社あん",
       role: "Founder & CEO",
-      description: "Hydroponic farming, restaurants & investment",
+      description: "Social issue-driven multi-project operations",
       longDescription:
-        "Operates a diversified portfolio spanning agricultural technology (hydroponics), restaurant management, and investment. Builds an integrated value chain from food production to consumer delivery, driving regional economic revitalization and sustainable business models.",
-      tags: ["Agriculture", "F&B", "Investment", "Hydroponic"],
+        "Runs multiple social issue-driven projects in parallel as a personal company. Pursues a hydroponic farming project for refugee intake from various countries, a Myanmar restaurant business, a guarantor agency, and the launch of a rent guarantee company specializing in housing refugees. Also advancing the creation of a comprehensive equity fund for film investment, new business investment, and startup investment.",
+      tags: ["Agriculture", "F&B", "Investment", "Guarantee"],
       accent: "navy",
       span: "normal",
     },
@@ -84,9 +84,9 @@ const en: SiteLocale = {
     {
       company: "dhpケアマネジメント",
       role: "CEO & Representative Director",
-      description: "Integrated care and housing services",
+      description: "Home nursing care & elderly real estate development",
       longDescription:
-        "Addresses the challenges of a super-aging society by building an innovative model that integrates care services with housing provision. Leverages care management expertise to create environments where elderly residents can live with peace of mind. Serves as a core business within the DHP Group, contributing to essential social infrastructure.",
+        "Operates home care and home nursing services, as well as real estate development and management for the elderly and disabled. Delivers comprehensive support by integrating care and housing into a unified service offering, serving as a core business within the DHP Group and contributing to essential social infrastructure.",
       tags: ["Healthcare", "Care Management", "Real Estate", "Senior Living"],
       accent: "navy",
       span: "tall",
@@ -94,11 +94,11 @@ const en: SiteLocale = {
     },
     {
       company: "dhp都市開発",
-      role: "Executive Officer",
-      description: "Luxury resort development with Marriott and others",
+      role: "Executive Officer, New Business Development",
+      description: "Marriott Group luxury resort development & villa development",
       longDescription:
-        "Advances luxury resort development projects in partnership with global brands such as Marriott International. Takes an urban development perspective to enhance regional value and create world-class hospitality destinations.",
-      tags: ["Urban Development", "Marriott", "Luxury Resort", "Global"],
+        "Drives the launch of a Marriott Group hotel at Tottori Sand Dunes, development of a Marriott Group hotel in Karuizawa, and villa development on Ishigaki Island, advancing multiple luxury resort projects. Also working on building a membership organization leveraging VC/DID and developing cutting-edge accommodation booking and customer management systems.",
+      tags: ["Urban Development", "Marriott", "Luxury Resort", "Villa"],
       accent: "neutral",
       span: "normal",
       group: "DHP Group",
@@ -106,10 +106,10 @@ const en: SiteLocale = {
     {
       company: "株式会社DHPホスピタリティ",
       role: "Director",
-      description: "Proprietary hotel brand operations & major hotel group MF",
+      description: "Proprietary hotel brand, temple stay hotels & major hotel group MF",
       longDescription:
-        "Operates proprietary-brand accommodation facilities while also serving as a master franchisee for major hotel groups. Delivers consistently high-quality hospitality across the entire chain, from branding to operational design.",
-      tags: ["Hospitality", "Master Franchisee", "Hotel Brand", "Operations"],
+        "Operates proprietary-brand accommodation facilities while also serving as a master franchisee for major hotel groups. Develops temple stay Japanese-style hotel projects in collaboration with renowned temples including Horyuji, Shitennoji, Naritasan Shinshoji, and Miidera, delivering end-to-end business development from land acquisition and construction to branding and operations across multiple locations.",
+      tags: ["Hospitality", "Master Franchisee", "Temple Hotel", "Operations"],
       accent: "marron",
       span: "normal",
       group: "DHP Group",
@@ -171,62 +171,77 @@ const en: SiteLocale = {
   ],
   timeline: [
     {
+      year: "2000",
+      title: "Enrolled in Kenichi Ohmae's Attackers Business School",
+      description:
+        "Enrolled in Attackers Business School, led by Kenichi Ohmae, during his first year of high school. Having spent his elementary and middle school years unable to find meaning in school and instead reading books at home, he resolved to become an entrepreneur and began learning the fundamentals of business.",
+      detail: "Entered business school as a high school freshman",
+    },
+    {
       year: "2001",
       title: "Founded 'Mash Japan' at age 16",
       description:
-        "Launched his first business while still in high school. During the same period, appeared as a regular on NHK's 'Shinken 10-dai Shaberiba' (a national youth debate show), gaining nationwide attention. Gained hands-on experience in both business operations and media relations as a teenager.",
+        "Co-founded the company with three friends while still in high school. Ran web development and systems development services alongside a student-targeted marketing agency. During the same period, appeared as a regular on NHK's 'Shinken 10-dai Shaberiba' (a national youth debate show), gaining nationwide attention. Dissolved in August 2003.",
       detail: "Regular on NHK's national youth debate show",
       highlight: true,
     },
     {
-      year: "\u2014",
+      year: "2003",
       title: "Setback, withdrawal, and comeback",
       description:
-        "Aspired to become a teacher but faced a major setback. Went through a period of social withdrawal (hikikomori), then rebuilt himself through self-directed learning. This experience became the foundation of his philosophy: 'Failure is highly reproducible.'",
-      detail: "A period of self-directed growth",
+        "Experienced complete social withdrawal (hikikomori) for six months immediately after graduating high school. Married a woman 15 years his senior at the age of 20. Later rebuilt himself through self-directed learning. This experience became the foundation of his philosophy: 'Failure is highly reproducible.'",
+      detail: "Rebuilt after six months of withdrawal",
     },
     {
       year: "\u2014",
       title: "Financial license negotiations with the Isle of Man government",
       description:
-        "Negotiated directly with the government of the Isle of Man, a British Crown Dependency, and successfully obtained a financial license. Demonstrated international negotiation skills and business-building capabilities, laying the foundation for overseas expansion.",
-      detail: "International financial license acquisition",
+        "As development lead, negotiated directly with the government of the Isle of Man, a British Crown Dependency. Led the comprehensive process of obtaining a financial license, establishing a company, optimizing tax structures, and developing and operating online businesses, laying the foundation for international business.",
+      detail: "Led end-to-end from company establishment to tax optimization",
       highlight: true,
     },
     {
       year: "\u2014",
       title: "Launched 'Jisha NOW', a free magazine for temples and shrines",
       description:
-        "Founded a free publication dedicated to Japanese temples and shrines as a platform for cultural outreach. Broadly communicated the appeal of Japan's sacred sites, pioneering a fusion of cultural programming and media business.",
-      detail: "Culture x Media venture",
+        "Founded a free publication dedicated to Japanese temples and shrines as planning, editorial, and publishing director. Oversaw monthly distribution to 15,000 temples and shrines nationwide, broadly communicating the appeal of Japan's sacred sites. Also involved in establishing and operating a temple and shrine tourism association, pioneering a fusion of cultural programming and media business.",
+      detail: "Monthly distribution to 15,000 locations nationwide",
     },
     {
       year: "\u2014",
-      title: "Built care meal & catering operations",
+      title: "Multi-business expansion: F&B, real estate & hotels",
       description:
-        "Designed and built food service operations for care facilities. Created an end-to-end system covering nutrition management, cooking processes, and delivery, establishing food infrastructure for the care industry. This became the origin of his current healthcare ventures.",
-      detail: "Healthcare x Food Service",
+        "Acquired and operated Aeon Group restaurant businesses, launched a bento delivery service for care facilities, and built care food operations. Engaged in income property trading, overseas coworking space development (Hong Kong, Manila, Osaka, Tokyo, etc.), and participated in temple stay Japanese-style hotel projects in collaboration with Horyuji, Shitennoji, and other renowned temples.",
+      detail: "F&B x Real Estate x Hospitality",
     },
     {
       year: "2022",
       title: "Co-founded TERAS-U LLC",
       description:
-        "Co-founded a new venture and led it through its growth phase before completing a strategic business transfer. Gained full-cycle startup experience from launch to exit.",
-      detail: "Business transferred \u2014 Exit experience",
+        "Co-founded as co-founder and deputy representative in July 2022, launching a sublease business and home care service for housing refugees (elderly, disabled). Built a business model specializing in support for socially vulnerable populations, drove the venture through its growth phase, then completed a strategic business transfer in August 2024.",
+      detail: "Aug 2024 Business transfer \u2014 Exit experience",
     },
     {
       year: "2024",
       title: "Established a diversified portfolio management model",
       description:
-        "Now manages 12 business entities across 6 industries, including the DHP Group (resort development, care management, urban development, hospitality, FUDOKI, 100doors, Uni Craft, Mitchino), 株式会社AA, AA Uzbekistan, 株式会社あん, IPLPF, and more. Spans care, hospitality, technology, primary industries, international cooperation, and food & beverage.",
+        "Founded 株式会社AA (Aug) and 株式会社あん (Sep). Now manages 12 business entities across 6 industries, including the DHP Group (resort development, care management, urban development, hospitality, FUDOKI, 100doors, Uni Craft, Mitchino), AA Uzbekistan, IPLPF, and more. Spans care, hospitality, technology, primary industries, international cooperation, and food & beverage.",
       detail: "12 entities x 6 industries under unified management",
+      highlight: true,
+    },
+    {
+      year: "2025",
+      title: "Care worker certification & business expansion",
+      description:
+        "Obtained the Practical Care Worker Training certification, establishing a framework to apply frontline knowledge to management. Appointed CEO of dhp Care Management (Jan) and Executive Officer of dhp Urban Development (Feb). Currently driving Marriott Group hotel developments at Tottori Sand Dunes and Karuizawa, Ishigaki Island villa development, and the opening of a 71-bed nursing home in Nishinomiya, Hyogo and 50-room supportive housing in Fushimi, Kyoto.",
+      detail: "Care certification x Multiple major projects launched",
       highlight: true,
     },
   ],
   philosophy: {
     mainQuote: "Success depends on luck, connections, and timing \u2014 but failure is highly reproducible.",
     subtext:
-      "Setbacks at 16, a period of withdrawal, and growth through self-education. Learning from failure to solve social issues through business.",
+      "Truancy during elementary and middle school, entrepreneurship at 16, and social withdrawal right after graduating high school. From there, he rebuilt himself through self-education and has continued solving social issues through business for over 20 years.",
     beliefs: [
       {
         title: "Learning from Failure",
@@ -234,7 +249,7 @@ const en: SiteLocale = {
       },
       {
         title: "The Power of Self-Reliance",
-        text: "Starting a business at 16, going through withdrawal, and rebuilding through self-education. Not waiting to be taught, but walking on your own feet and thinking with your own mind \u2014 that is the origin of a self-driven entrepreneur.",
+        text: "Unable to find meaning in school during elementary and middle school, he immersed himself in reading, started a business at 16, and after a period of withdrawal, rebuilt himself through self-education. Not waiting to be taught, but walking on your own feet and thinking with your own mind \u2014 that is the origin of a self-driven entrepreneur.",
       },
       {
         title: "Social Problems = Business Opportunities",
@@ -276,7 +291,7 @@ const en: SiteLocale = {
     history: {
       label: "History",
       title: "The Journey",
-      subtitle: "2001 \u2014 Present",
+      subtitle: "2000 \u2014 Present",
     },
     philosophy: {
       label: "Philosophy",

@@ -9,7 +9,7 @@ const uz: SiteLocale = {
     subcatchphrase:
       "16 yoshdan boshlab davom etayotgan, mustaqil tadbirkorlik yo'li.",
     birthDate: "1984-yil 2-may tug'ilgan",
-    origin: "Osaka, Yaponiya",
+    origin: "Osaka shahrining Tsurumi tumanidan",
     hobby: "Poker",
     hobbyLabel: "Sevimli mashg'ulot",
     keywords: [
@@ -19,7 +19,7 @@ const uz: SiteLocale = {
       "Resilient Leader",
     ],
     coreIdentity:
-      "16 yoshida tadbirkorlikni boshlagan, o'qituvchi bo'lishni orzu qilgan, ammo muvaffaqiyatsizlikka uchragan. Yolg'izlikni boshdan kechirib, mustaqil o'rganish orqali qayta tiklangan. Hozirda parvarish, mehmonxona, IT va xalqaro biznesni qamrab oluvchi ko'p tarmoqli portfelni boshqaruvchi mustaqil serial tadbirkor.",
+      "Litseyning 1-kursida Ohmae Kenichi rahbarligidagi Attackers Business School ga kirgan va 16 yoshida tadbirkorlikni boshlagan. Litsey bitirishi bilan bir vaqtda yarim yillik hikikomori (uydan chiqmaslik) davrini boshdan kechirgan, ammo mustaqil o'rganish orqali qayta tiklangan. Men orolida moliyaviy litsenziya olish, Jisha NOW jurnalini nashr etish, Aeon Group ovqatlanish biznesini sotib olish, mashhur ma'badlar bilan hamkorlikda shukubo (ma'bad mehmonxonasi) loyihalarini ishlab chiqish kabi turli xil faoliyatlarni amalga oshirib, hozirda parvarish, mehmondo'stlik, IT va xalqaro biznesni qamrab oluvchi 12 ta biznes tuzilmasidan iborat ko'p tarmoqli portfelni boshqaruvchi mustaqil serial tadbirkor.",
     stats: [
       { value: "20+", label: "Tadbirkorlik tajribasi (yil)" },
       { value: "12", label: "Faol bizneslar soni" },
@@ -99,10 +99,10 @@ const uz: SiteLocale = {
     {
       company: "株式会社AA",
       role: "Hammuassis va Bosh direktorning o'rinbosari",
-      description: "Uy-joy muhtojlariga yordam va Myanma biznes loyihasi",
+      description: "Uy-joy muhtojlariga yordam, parvarish xizmati va Myanma loyihasi",
       longDescription:
-        "Uy-joy ta'minoti zarur bo'lgan shaxslarga (uy-joy muhtojlari) turar joy yordamini asosiy faoliyat sifatida amalga oshiradi va Yaponiyadagi ijtimoiy muammolarni hal qiladi. Myanmadagi xalqaro biznesni rivojlantiradi, ijtimoiy ta'sir va biznesni uyg'unlashtiradi. \"Ee Kango\" va \"Ee Support\" brendlarini boshqaradi.",
-      tags: ["Social Impact", "Housing Support", "International", "Myanmar"],
+        "Uy-joy muhtojlari (keksalar, nogironlar) uchun qo'llab-quvvatlanadigan turar joy va uyga tashrif buyuruvchi parvarish-hamshiralik xizmatini boshqaradi. 2025-yilda Hyogo viloyati Nishinomiya shahrida 71 o'rinli turar joy tipidagi keksalar uyi va Kyoto Fushimida 50 xonali qo'llab-quvvatlanadigan turar joyni ochish rejalashtirilgan. Myanmada yapon tili maktabi va maxsus ko'nikma (tokutei gino) parvarish maktabini tashkil etib, Yaponiyadagi parvarish kadrlarini ta'minlash va mahalliy kadrlar tayyorlashni uyg'unlashtirgan xalqaro biznes modelini yaratgan. \"Ee Kango\" va \"Ee Support\" brendlarini boshqaradi.",
+      tags: ["Social Impact", "Housing Support", "Care", "Myanmar"],
       accent: "marron",
       span: "wide",
     },
@@ -120,10 +120,10 @@ const uz: SiteLocale = {
     {
       company: "株式会社あん",
       role: "Asoschisi va Bosh direktor",
-      description: "Gidroponika, restoran va investitsiya biznesi",
+      description: "Ijtimoiy muammolarni hal qiluvchi ko'p tarmoqli loyihalarni boshqarish",
       longDescription:
-        "Qishloq xo'jaligi texnologiyasi (gidroponika) dan restoran boshqaruvi va investitsiya biznesigacha ko'p tarmoqli faoliyat olib boradi. Oziq-ovqat ishlab chiqarishdan iste'molchiga yetkazib berishgacha yaxlit qiymat zanjirini yaratib, mintaqaviy iqtisodiyotni jonlantirish va barqaror biznes modelini amalga oshiradi.",
-      tags: ["Agriculture", "F&B", "Investment", "Hydroponic"],
+        "Shaxsiy kompaniya sifatida bir nechta ijtimoiy muammolarni hal qiluvchi loyihalarni parallel ravishda amalga oshiradi. Turli mamlakatlardan kelgan qochqinlarni qabul qilib gidroponika loyihasi, Myanma restoran biznesi, kafil vakilligi xizmati, uy-joy muhtojlari uchun ijaraga kafolat kompaniyasini tashkil etish ustida ishlaydi. Shuningdek, kino investitsiyalari, yangi biznes investitsiyalari va startap investitsiyalari uchun umumiy kapital fondini yaratishni ham amalga oshirmoqda.",
+      tags: ["Agriculture", "F&B", "Investment", "Guarantee"],
       accent: "navy",
       span: "normal",
     },
@@ -142,9 +142,9 @@ const uz: SiteLocale = {
     {
       company: "dhpケアマネジメント",
       role: "Bosh direktor",
-      description: "Parvarish va turar joyning birlashtirilgan xizmati",
+      description: "Uyga tashrif buyuruvchi parvarish-hamshiralik xizmati va keksalar uchun ko'chmas mulk",
       longDescription:
-        "O'ta keksaygan jamiyat muammolariga javob sifatida parvarish xizmatlari va turar joy ta'minotini birlashtirgan innovatsion modelni yaratadi. Parvarish boshqaruvi bo'yicha mutaxassislikdan foydalanib, keksa yoshdagi insonlar xotirjam yashashi uchun muhit yaratadi. DHP guruhining asosiy biznesi sifatida ijtimoiy infratuzilmaning bir qismini tashkil qiladi.",
+        "Uyga tashrif buyuruvchi parvarish va hamshiralik xizmatini boshqarishga qo'shimcha ravishda, keksalar va nogironlar uchun ko'chmas mulk ishlab chiqish va boshqarish bilan shug'ullanadi. Parvarish va turar joyni birlashtirgan xizmat ko'rsatish orqali keng qamrovli qo'llab-quvvatlashni amalga oshiradi va DHP guruhining asosiy biznesi sifatida ijtimoiy infratuzilmaning bir qismini tashkil qiladi.",
       tags: ["Healthcare", "Care Management", "Real Estate", "Senior Living"],
       accent: "navy",
       span: "tall",
@@ -152,12 +152,12 @@ const uz: SiteLocale = {
     },
     {
       company: "dhp都市開発",
-      role: "Ijrochi direktor",
+      role: "Ijrochi direktor, yangi biznes rivojlantirish bo'yicha mas'ul",
       description:
-        "Marriott guruhi va boshqa hashamatli kurort loyihalarini ishlab chiqish",
+        "Marriott guruhi va boshqa hashamatli kurort va villa loyihalarini ishlab chiqish",
       longDescription:
-        "Marriott International va boshqa global brendlar bilan hamkorlikda hashamatli kurortlarni ishlab chiqish loyihalarini amalga oshiradi. Shahar rivojlantirish nuqtai nazaridan mintaqaviy qiymatni oshirish va jahon darajasidagi mehmondo'stlik muhitini yaratish ustida ishlaydi.",
-      tags: ["Urban Development", "Marriott", "Luxury Resort", "Global"],
+        "Tottori qum tepaliklarida Marriott guruhi mehmonxonasini ochish, Karuizawada Marriott guruhi mehmonxonasini ishlab chiqish, Ishigaki orolida villa loyihasini ishlab chiqish va ochish kabi bir nechta hashamatli kurort loyihalarini amalga oshirmoqda. Shuningdek, VC/DID texnologiyalaridan foydalangan turar joy a'zolik tashkilotini yaratish va zamonaviy texnologiyalar yordamida bron boshqaruvi va mijozlar bilan ishlash tizimini ishlab chiqish ustida ham ishlaydi.",
+      tags: ["Urban Development", "Marriott", "Luxury Resort", "Villa"],
       accent: "neutral",
       span: "normal",
       group: "DHP guruhi",
@@ -166,15 +166,10 @@ const uz: SiteLocale = {
       company: "株式会社DHPホスピタリティ",
       role: "Direktor",
       description:
-        "O'z brendidagi turar joy ob'ektlarini boshqarish va yirik mehmonxona guruhlari uchun master-franshiza",
+        "O'z brendidagi turar joy boshqaruvi, shukubo yapon uslubidagi mehmonxona, yirik master-franshiza",
       longDescription:
-        "O'z brendi ostida turar joy ob'ektlarini boshqarishni asosiy faoliyat sifatida olib boradi, shuningdek yirik mehmonxona guruhlarining master-franchiyzeri sifatida biznesni kengaytiradi. Brendlashtirishdan operatsion loyihalashtirishgacha yuqori sifatli mehmondo'stlikni ta'minlaydi.",
-      tags: [
-        "Hospitality",
-        "Master Franchisee",
-        "Hotel Brand",
-        "Operations",
-      ],
+        "O'z brendi ostida turar joy ob'ektlarini boshqarishni asosiy faoliyat sifatida olib boradi, shuningdek yirik mehmonxona guruhlarining master-franchiyzeri sifatida biznesni kengaytiradi. Horyuji, Shitennoji, Naritasan Shinshoji, Miidera kabi mashhur ma'badlar bilan hamkorlikda shukubo yapon uslubidagi mehmonxona biznesini ham amalga oshiradi. Yer sotib olishdan qurilish, brendlashtirish va operatsiyalargacha yaxlit biznes rivojlantirish va ko'p joylarda kengayishni ta'minlaydi.",
+      tags: ["Hospitality", "Master Franchisee", "Temple Hotel", "Operations"],
       accent: "marron",
       span: "normal",
       group: "DHP guruhi",
@@ -243,55 +238,70 @@ const uz: SiteLocale = {
   ],
   timeline: [
     {
-      year: "2001",
-      title: "16 yoshida \"Mash Japan\" shirkatini tashkil etdi",
+      year: "2000",
+      title: "Ohmae Kenichi Attackers Business School ga kirish",
       description:
-        "O'rta maktabda o'qish davrida tadbirkorlikni boshladi. Shu davrda NHK \"Shinken 10-dai Shaberiba\" ko'rsatuvida doimiy ishtirok etib, butun mamlakat e'tiborini tortdi. O'smir yoshida biznes tashkil etishdan media bilan ishlashgacha tajriba orttirdi.",
+        "Litseyning 1-kursida Ohmae Kenichi rahbarligidagi Attackers Business School ga kirdi. Boshlang'ich va o'rta maktab davrlarida maktabga borishning ma'nosini topa olmay, uyda kitob o'qish bilan kun o'tkazgan, ammo tadbirkorlik yo'lini tanlash qarorini qat'iy qilib, biznesning asoslarini o'rganishni boshladi.",
+      detail: "Litsey 1-kursida biznes maktabiga kirish",
+    },
+    {
+      year: "2001",
+      title: "16 yoshida \"合資会社マッシュジャパン\" ni tashkil etdi",
+      description:
+        "Litseyda o'qish davrida 3 nafar do'sti bilan hamkorlikda tashkil etdi. Veb-sayt yaratish, tizim ishlab chiqish va talabalar uchun marketing vakilligi xizmatini amalga oshirdi. Shu davrda NHK \"Shinken 10-dai Shaberiba\" ko'rsatuvida doimiy ishtirok etib, butun mamlakat e'tiborini tortdi. 2003-yil avgust oyida tarqatib yuborildi.",
       detail: "NHK \"Shinken 10-dai Shaberiba\" doimiy ishtirokchisi",
       highlight: true,
     },
     {
-      year: "—",
-      title: "Muvaffaqiyatsizlik va yolg'izlik, so'ngra qayta tiklanish",
+      year: "2003",
+      title: "Muvaffaqiyatsizlik va hikikomori, so'ngra qayta tiklanish",
       description:
-        "O'qituvchi bo'lishni maqsad qilgan, ammo muvaffaqiyatsizlikka uchragan. Yolg'izlik davrini boshdan kechirib, mustaqil o'rganish orqali qayta tiklandi. Bu tajriba \"muvaffaqiyatsizlik takrorlanish xususiyatiga ega\" degan falsafasining asoschisi bo'ldi.",
-      detail: "Mustaqil o'sish davri",
+        "Litsey bitirishi bilan bir vaqtda yarim yillik to'liq hikikomori (uydan chiqmaslik) davrini boshdan kechirdi. 20 yoshida o'zidan 15 yosh katta ayolga uylanib nikoh qo'ydi. Shundan so'ng mustaqil o'rganish orqali qayta tiklandi. Bu tajriba \"muvaffaqiyatsizlik takrorlanish xususiyatiga ega\" degan falsafasining boshlang'ich nuqtasi bo'ldi.",
+      detail: "Yarim yillik hikikomori davridan qayta tiklanish",
     },
     {
       year: "—",
       title: "Men oroli hukumati bilan moliyaviy litsenziya muzokaralari",
       description:
-        "Buyuk Britaniya qirollik mulki bo'lmish Men oroli hukumati bilan bevosita muzokaralar olib borib, moliyaviy litsenziyani muvaffaqiyatli qo'lga kiritdi. Xalqaro moliya sohasida muzokaralar olib borish va biznes qurish qobiliyatini namoyish etib, xorijdagi biznes kengaytirishning poydevorini qo'ydi.",
-      detail: "Xalqaro moliyaviy litsenziya olish",
+        "Ishlab chiqish rahbari sifatida Buyuk Britaniya qirollik mulki bo'lmish Men oroli hukumati bilan bevosita muzokaralar olib bordi. Moliyaviy litsenziyani olish, kompaniya tashkil etish, soliq optimallashtirish va onlayn biznesni keng qamrovli ishlab chiqish va boshqarishni amalga oshirib, xalqaro biznesning poydevorini qo'ydi.",
+      detail: "Kompaniya tashkil etishdan soliq optimallashtirish gacha keng qamrovli rahbarlik",
       highlight: true,
     },
     {
       year: "—",
       title: "Ma'bad va ibodatxonalarga bag'ishlangan bepul jurnal \"Jisha NOW\" nashr etildi",
       description:
-        "Yaponiya madaniyatini targ'ib qiluvchi media sifatida ma'bad va ibodatxonalarga bag'ishlangan bepul jurnalni nashr etdi. Ma'bad va ibodatxonalarning jozibadorligini keng omma orasida yoyib, madaniy faoliyat va media biznesini uyg'unlashtirdi.",
-      detail: "Madaniyat va media biznesi",
+        "Rejalashtirish, tahrirlash va nashr etish mas'uli sifatida ma'bad va ibodatxonalarga bag'ishlangan bepul jurnalni nashr etdi. Butun Yaponiya bo'ylab 15,000 ta ma'bad va ibodatxonaga har oylik tarqatishni boshqarib, ma'bad va ibodatxonalarning jozibadorligini keng omma orasida yoydi. Ma'bad turizm assotsiatsiyasini tashkil etish va boshqarishda ham ishtirok etib, madaniy faoliyat va media biznesini uyg'unlashtirdi.",
+      detail: "Butun mamlakat bo'ylab 15,000 joyga har oy tarqatish",
     },
     {
       year: "—",
-      title: "Parvarish ovqati va umumiy ovqatlanish operatsiyalarini yaratish",
+      title: "Ovqatlanish, ko'chmas mulk va mehmonxona biznesining ko'p tarmoqli kengayishi",
       description:
-        "Parvarish muassasalari uchun ovqatlanish operatsiyalarini yaratdi. Ozuqaviy boshqaruvdan pishirish jarayoni va yetkazib berishgacha yaxlit tizimni loyihalashtirib, parvarish sohasidagi ovqatlanish infratuzilmasini tashkil etdi. Hozirgi sog'liqni saqlash biznesining boshlang'ich nuqtasi.",
-      detail: "Sog'liqni saqlash va ovqatlanish xizmati",
+        "Aeon Group ovqatlanish biznesini sotib olish va boshqarish, parvarish muassasalari uchun bento (ovqat) xizmatini tashkil etish, parvarish ovqati operatsiyasini yaratish kabi faoliyatlarni amalga oshirdi. Daromad keltiradigan ko'chmas mulk savdosi, xorijdagi kovorking bizneslarini (Gonkong, Manila, Osaka, Tokyo va boshqalar) ishlab chiqish, Horyuji va Shitennoji kabi mashhur ma'badlar bilan hamkorlikda shukubo yapon uslubidagi mehmonxona loyihasida ham ishtirok etdi.",
+      detail: "Ovqatlanish x ko'chmas mulk x mehmondo'stlik",
     },
     {
       year: "2022",
-      title: "TERAS-U kompaniyasini hamkorlikda tashkil etdi",
+      title: "合同会社TERAS-U hamkorlikda tashkil etildi",
       description:
-        "Hammuassis sifatida yangi biznesni boshladi. Biznesni o'sish bosqichiga olib chiqqandan so'ng, strategik ravishda biznesni topshirishni yakunladi. Startapni tashkil etishdan EXIT bosqichigacha barcha jarayonlarni boshdan kechirdi.",
-      detail: "Biznes topshirildi — EXIT tajribasi",
+        "2022-yil iyul oyida hammuassis va bosh direktorning o'rinbosari sifatida uy-joy muhtojlari (keksalar, nogironlar) uchun subliz biznesi va uyga tashrif buyuruvchi parvarish xizmatini boshladi. Ijtimoiy zaif qatlamlarni qo'llab-quvvatlashga yo'naltirilgan biznes modelini yaratib, o'sish bosqichiga olib chiqqandan so'ng, 2024-yil avgust oyida strategik biznes topshirishni yakunladi.",
+      detail: "2024-yil avgust — biznes topshirildi — EXIT tajribasi",
     },
     {
       year: "2024",
       title: "Ko'p tarmoqli portfel boshqaruvining shakllanishi",
       description:
-        "DHP guruhi (kurort ishlab chiqish, parvarish boshqaruvi, shahar rivojlantirish, mehmondo'stlik, FUDOKI, 100doors, Uni Craft, Mitchino), 株式会社AA, AA O'zbekiston, 株式会社あん, IPLPF va boshqalar — 12 ta biznes tuzilmasini boshqaradi. Parvarish, mehmondo'stlik, texnologiya, birlamchi sanoat, xalqaro hamkorlik va ovqatlanish — 6 ta sohani nazorat qiladi.",
-      detail: "12 ta biznes tuzilmasi va 6 ta sohani boshqarish",
+        "株式会社AA (avgust~) va 株式会社あん (sentabr~) ni tashkil etdi. DHP guruhi (kurort ishlab chiqish, parvarish boshqaruvi, shahar rivojlantirish, mehmondo'stlik, FUDOKI, 100doors, Uni Craft, Mitchino), AA O'zbekiston, IPLPF va boshqalar — 12 ta biznes tuzilmasini boshqaradi. Parvarish, mehmondo'stlik, texnologiya, birlamchi sanoat, xalqaro hamkorlik va ovqatlanish — 6 ta sohani nazorat qiladi.",
+      detail: "12 ta biznes tuzilmasi x 6 ta sohani boshqarish",
+      highlight: true,
+    },
+    {
+      year: "2025",
+      title: "Parvarish xodimi amaliyot malaka guvohnomasi olish va biznesni kengaytirish",
+      description:
+        "Parvarish xodimi amaliyot malaka guvohnomasini olib, amaliy tajribani boshqaruvga tatbiq etish tizimini yaratdi. dhpケアマネジメント bosh direktori lavozimiga tayinlandi (yanvardan~), dhp都市開発 ijrochi direktori lavozimiga tayinlandi (fevraldan~). Tottori qum tepaliklari va Karuizawada Marriott guruhi mehmonxonalarini ishlab chiqish, Ishigaki orolida villa loyihasi, Hyogo viloyati Nishinomiya shahrida 71 o'rinli keksalar uyi va Kyoto Fushimida 50 xonali qo'llab-quvvatlanadigan turar joyni ochishni amalga oshirmoqda.",
+      detail: "Parvarish malakasi olish x bir nechta yirik loyihalar boshlandi",
       highlight: true,
     },
   ],
@@ -299,7 +309,7 @@ const uz: SiteLocale = {
     mainQuote:
       "Muvaffaqiyat — omad, uchrashuvlar va vaqtga bog'liq, ammo muvaffaqiyatsizlik takrorlanish xususiyatiga ega",
     subtext:
-      "16 yoshdagi muvaffaqiyatsizlik, yolg'izlik tajribasi va mustaqil o'sish. Xatolardan saboq olib, ijtimoiy muammolarni biznes orqali hal qilish.",
+      "Boshlang'ich va o'rta maktab davrlarida maktabga bormaslik, 16 yoshida tadbirkorlik, litsey bitirishi bilan bir vaqtda hikikomori. Shundan mustaqil o'rganish orqali qayta tiklanib, 20 yildan ortiq vaqt davomida ijtimoiy muammolarni biznes orqali hal qilib kelmoqda.",
     beliefs: [
       {
         title: "Xatolardan o'rganish",
@@ -307,7 +317,7 @@ const uz: SiteLocale = {
       },
       {
         title: "Mustaqil harakat qilish kuchi",
-        text: "16 yoshida tadbirkorlikni boshladi, yolg'izlikni boshdan kechirdi va mustaqil o'rganish orqali qayta tiklandi. Boshqalardan o'rganish emas, balki o'z oyog'ida yurish va o'z boshi bilan o'ylash — mustaqil tadbirkorning asosidir.",
+        text: "Boshlang'ich va o'rta maktabda ma'no topa olmay kitob o'qishga berilgan, 16 yoshida tadbirkorlikni boshlagan, hikikomori davridan o'tib mustaqil o'rganish orqali qayta tiklangan. Boshqalardan o'rganish emas, balki o'z oyog'ida yurish va o'z boshi bilan o'ylash — mustaqil tadbirkorning asosidir.",
       },
       {
         title: "Ijtimoiy muammo = biznes imkoniyati",
@@ -349,7 +359,7 @@ const uz: SiteLocale = {
     history: {
       label: "Tarix",
       title: "Hayot yo'li",
-      subtitle: "2001 — Hozir",
+      subtitle: "2000 — Hozir",
     },
     philosophy: {
       label: "Falsafa",
