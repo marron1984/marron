@@ -49,6 +49,17 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
+        <Contact />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-xl px-6"
+        >
+          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
+        </motion.div>
+
         <Achievements />
 
         <motion.div
@@ -105,17 +116,6 @@ export default function Home() {
         </motion.div>
 
         <Gallery />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
-        </motion.div>
-
-        <Contact />
       </main>
       <Footer />
     </div>

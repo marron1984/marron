@@ -10,7 +10,8 @@ import {
   MessageSquare,
   Building,
   ArrowRight,
-  Heart,
+  Phone,
+  MapPin,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -172,10 +173,21 @@ export default function Contact() {
         >
           {[
             {
-              icon: Heart,
-              label: t.ui.contact.familyLabel,
-              value: t.ui.contact.family,
-              colSpan: true,
+              icon: Phone,
+              label: t.ui.contact.phoneLabel,
+              value: t.ui.contact.phone,
+              href: `tel:${t.ui.contact.phone.replace(/-/g, "")}`,
+            },
+            {
+              icon: Mail,
+              label: "Email",
+              value: t.ui.contact.emailAddress,
+              href: `mailto:${t.ui.contact.emailAddress}`,
+            },
+            {
+              icon: MapPin,
+              label: t.ui.contact.addressLabel,
+              value: t.ui.contact.address,
             },
           ].map((item, idx) => (
             <motion.div
@@ -184,7 +196,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 + idx * 0.08 }}
-              className={`group rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-marron/30 hover:shadow-lg hover:shadow-marron/5 ${item.colSpan ? "sm:col-span-2" : ""}`}
+              className="group rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-marron/30 hover:shadow-lg hover:shadow-marron/5"
             >
               <div className="mb-2 flex items-center gap-2">
                 <item.icon className="h-4 w-4 text-marron" />
@@ -192,9 +204,18 @@ export default function Contact() {
                   {item.label}
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-foreground">
-                {item.value}
-              </p>
+              {"href" in item && item.href ? (
+                <a
+                  href={item.href}
+                  className="text-sm text-foreground transition-colors hover:text-marron"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="text-sm leading-relaxed text-foreground">
+                  {item.value}
+                </p>
+              )}
             </motion.div>
           ))}
         </motion.div>
