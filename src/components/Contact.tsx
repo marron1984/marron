@@ -12,8 +12,6 @@ import {
   ArrowRight,
   Phone,
   MapPin,
-  Home,
-  Heart,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -191,17 +189,6 @@ export default function Contact() {
               label: t.ui.contact.addressLabel,
               value: t.ui.contact.address,
             },
-            {
-              icon: Home,
-              label: t.ui.contact.residenceLabel,
-              value: t.ui.contact.residence,
-            },
-            {
-              icon: Heart,
-              label: t.ui.contact.familyLabel,
-              value: t.ui.contact.family,
-              colSpan: true,
-            },
           ].map((item, idx) => (
             <motion.div
               key={idx}
@@ -209,7 +196,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 + idx * 0.08 }}
-              className={`group rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-marron/30 hover:shadow-lg hover:shadow-marron/5 ${item.colSpan ? "sm:col-span-2" : ""}`}
+              className="group rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-marron/30 hover:shadow-lg hover:shadow-marron/5"
             >
               <div className="mb-2 flex items-center gap-2">
                 <item.icon className="h-4 w-4 text-marron" />
@@ -217,7 +204,7 @@ export default function Contact() {
                   {item.label}
                 </span>
               </div>
-              {item.href ? (
+              {"href" in item && item.href ? (
                 <a
                   href={item.href}
                   className="text-sm text-foreground transition-colors hover:text-marron"
