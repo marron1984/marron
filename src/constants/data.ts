@@ -17,7 +17,7 @@ export const personalInfo = {
     "16歳で起業し、教師を目指すも挫折。引きこもりを経て独学で再起。現在は介護・ホテル・IT・国際事業を横断する複合ポートフォリオを経営する、自走型シリアルアントレプレナー。",
   stats: [
     { value: "20+", label: "起業家歴（年）" },
-    { value: "11", label: "現役事業数" },
+    { value: "12", label: "現役事業数" },
     { value: "6", label: "業種横断" },
     { value: "16", label: "歳で初起業" },
   ],
@@ -65,6 +65,16 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Social Impact", "Housing Support", "International", "Myanmar"],
     accent: "marron",
     span: "wide",
+  },
+  {
+    company: "株式会社AAウズベキスタン",
+    role: "代表取締役",
+    description: "ウズベキスタン国内の介護事業提供・普及・コンサルティング",
+    longDescription:
+      "ウズベキスタン国内における介護事業の提供、普及及びコンサルティングを展開。日本で培った介護ノウハウを中央アジアに移転し、現地の高齢化社会に向けた介護インフラの構築と人材育成を推進する。",
+    tags: ["Healthcare", "Uzbekistan", "Care Consulting", "International"],
+    accent: "marron",
+    span: "normal",
   },
   {
     company: "株式会社あん",
@@ -233,8 +243,8 @@ export const timeline: TimelineEvent[] = [
     year: "2024",
     title: "複合ポートフォリオ経営の確立",
     description:
-      "DHPグループ（リゾート開発・ケアマネジメント・都市開発・ホスピタリティ・FUDOKI・100doors・ウニクラフト・ミッチーノ）、株式会社AA、株式会社あん、IPLPF等、11の事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際協力・飲食の6業種を統括。",
-    detail: "11事業体 × 6業種の統括経営",
+      "DHPグループ（リゾート開発・ケアマネジメント・都市開発・ホスピタリティ・FUDOKI・100doors・ウニクラフト・ミッチーノ）、株式会社AA、AAウズベキスタン、株式会社あん、IPLPF等、12の事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際協力・飲食の6業種を統括。",
+    detail: "12事業体 × 6業種の統括経営",
     highlight: true,
   },
 ];
