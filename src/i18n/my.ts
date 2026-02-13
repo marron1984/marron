@@ -442,7 +442,7 @@ const my: SiteLocale = {
       title: "ဆက်သွယ်ရန်",
       subtitle: "မည်သည့်အချိန်မဆို ဆက်သွယ်နိုင်ပါသည်",
       phoneLabel: "ဖုန်းနံပါတ်",
-      phone: "070-9003-1984",
+      phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
       addressLabel: "ရုံးလိပ်စာ",
       address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",
