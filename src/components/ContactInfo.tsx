@@ -2,7 +2,7 @@
 
 import { useLanguage } from "./LanguageProvider";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export default function ContactInfo() {
   const { t } = useLanguage();
@@ -13,6 +13,20 @@ export default function ContactInfo() {
       label: t.ui.contact.phoneLabel,
       value: t.ui.contact.phone,
       href: `tel:${t.ui.contact.phone.replace(/-/g, "")}`,
+      extras: [
+        {
+          icon: MessageCircle,
+          label: "LINE Works",
+          href: "https://works.do/R/ti/p/syoshida@aaworks",
+          color: "#00C73C",
+        },
+        {
+          icon: MessageCircle,
+          label: "LINE",
+          href: "https://line.me/ti/p/0F2Yv5Je6b",
+          color: "#06C755",
+        },
+      ],
     },
     {
       icon: Mail,
@@ -63,6 +77,23 @@ export default function ContactInfo() {
                 <p className="text-sm leading-relaxed text-foreground">
                   {item.value}
                 </p>
+              )}
+              {"extras" in item && item.extras && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {item.extras.map((ex, i) => (
+                    <a
+                      key={i}
+                      href={ex.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: ex.color, backgroundColor: `${ex.color}15` }}
+                      className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-75"
+                    >
+                      <ex.icon className="h-3.5 w-3.5" />
+                      {ex.label}
+                    </a>
+                  ))}
+                </div>
               )}
             </motion.div>
           ))}
