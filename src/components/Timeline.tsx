@@ -65,11 +65,11 @@ function TimelineItem({
           }}
           className={`inline-block rounded-2xl border ${
             event.highlight
-              ? "border-[#EDAB62]/40 bg-[#EDAB62]/8"
-              : "border-[#564F48] bg-[#262320]"
+              ? "border-marron/40 bg-marron/8"
+              : "border-line bg-elevated"
           } p-6 transition-all duration-500 hover:shadow-xl ${
             event.highlight
-              ? "hover:shadow-[#EDAB62]/15"
+              ? "hover:shadow-marron/15"
               : "hover:shadow-white/5"
           }`}
           style={{ perspective: "600px" }}
@@ -87,18 +87,18 @@ function TimelineItem({
             }}
             className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold tracking-widest ${
               event.highlight
-                ? "bg-[#EDAB62]/15 text-[#EDAB62]"
-                : "bg-[#3B3632] text-[#8C8780]"
+                ? "bg-marron/15 text-marron"
+                : "bg-subtle text-dimmer"
             }`}
           >
             {event.year}
           </motion.span>
 
-          <h3 className="mb-2 text-lg font-bold text-[#FDFBF7]">
+          <h3 className="mb-2 text-lg font-bold text-foreground">
             {event.title}
           </h3>
 
-          <p className="mb-3 text-sm leading-relaxed text-[#B8B2AC]">
+          <p className="mb-3 text-sm leading-relaxed text-muted">
             {event.description}
           </p>
 
@@ -117,7 +117,7 @@ function TimelineItem({
                 type: "spring",
                 stiffness: 200,
               }}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#EDAB62]/10 px-3 py-1"
+              className="inline-flex items-center gap-1.5 rounded-full bg-marron/10 px-3 py-1"
             >
               <motion.div
                 animate={{ rotate: [0, 15, -15, 0] }}
@@ -127,9 +127,9 @@ function TimelineItem({
                   ease: "easeInOut",
                 }}
               >
-                <Zap className="h-3 w-3 text-[#EDAB62]" />
+                <Zap className="h-3 w-3 text-marron" />
               </motion.div>
-              <span className="text-xs font-medium text-[#EDAB62]">
+              <span className="text-xs font-medium text-marron">
                 {event.detail}
               </span>
             </motion.div>
@@ -165,20 +165,20 @@ function TimelineItem({
                 ease: "easeOut",
               }}
               className={`absolute inset-0 rounded-full ${
-                event.highlight ? "bg-[#EDAB62]" : "bg-[#635C56]"
+                event.highlight ? "bg-marron" : "bg-dimmest"
               }`}
             />
           )}
           <div
             className={`flex h-5 w-5 items-center justify-center rounded-full ${
               event.highlight
-                ? "bg-[#EDAB62] shadow-lg shadow-[#EDAB62]/40"
-                : "bg-[#635C56]"
+                ? "bg-marron shadow-lg shadow-marron/40"
+                : "bg-dimmest"
             }`}
           >
             <Circle
               className={`h-2 w-2 ${
-                event.highlight ? "text-[#101018]" : "text-[#8C8780]"
+                event.highlight ? "text-background" : "text-dimmer"
               }`}
               fill="currentColor"
             />
@@ -231,7 +231,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-[#EDAB62]"
+            className="mb-4 block text-sm uppercase text-marron"
           >
             History
           </motion.span>
@@ -245,7 +245,7 @@ export default function Timeline() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+            className="text-3xl font-bold text-foreground md:text-5xl"
           >
             The Journey
           </motion.h2>
@@ -254,7 +254,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="mt-4 text-[#B8B2AC]"
+            className="mt-4 text-muted"
           >
             2001 &mdash; Present
           </motion.p>
@@ -267,41 +267,41 @@ export default function Timeline() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
           />
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line (desktop) */}
-          <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-[#3B3632]/50 md:left-1/2 md:block md:-translate-x-1/2">
+          <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-subtle/50 md:left-1/2 md:block md:-translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#EDAB62] via-[#EDAB62] to-[#6090E8]/50"
+              className="w-full bg-gradient-to-b from-marron via-marron to-navy/50"
             />
             {/* Glow trail */}
             <motion.div
               style={{ height: lineHeight, opacity: glowOpacity }}
-              className="absolute -left-1 top-0 w-[6px] bg-[#EDAB62] blur-md"
+              className="absolute -left-1 top-0 w-[6px] bg-marron blur-md"
             />
             {/* Moving dot */}
             <motion.div
               style={{ top: lineHeight }}
-              className="absolute -left-[5px] h-3 w-3 rounded-full bg-[#EDAB62] shadow-lg shadow-[#EDAB62]/50"
+              className="absolute -left-[5px] h-3 w-3 rounded-full bg-marron shadow-lg shadow-marron/50"
             >
               <motion.div
                 animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="absolute inset-0 rounded-full bg-[#EDAB62]"
+                className="absolute inset-0 rounded-full bg-marron"
               />
             </motion.div>
           </div>
 
           {/* Vertical line (mobile) */}
-          <div className="absolute left-[9px] top-0 h-full w-[2px] bg-[#3B3632]/50 md:hidden">
+          <div className="absolute left-[9px] top-0 h-full w-[2px] bg-subtle/50 md:hidden">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#EDAB62] to-[#EDAB62]/20"
+              className="w-full bg-gradient-to-b from-marron to-marron/20"
             />
           </div>
 

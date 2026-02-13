@@ -46,7 +46,7 @@ function TypewriterQuote({
         <motion.span
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.5, repeat: Infinity }}
-          className="inline-block h-[1em] w-[2px] translate-y-[2px] bg-[#EDAB62]"
+          className="inline-block h-[1em] w-[2px] translate-y-[2px] bg-marron"
         />
       )}
     </span>
@@ -98,7 +98,7 @@ export default function Philosophy() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-[#EDAB62]"
+            className="mb-4 block text-sm uppercase text-marron"
           >
             Philosophy
           </motion.span>
@@ -112,7 +112,7 @@ export default function Philosophy() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+            className="text-3xl font-bold text-foreground md:text-5xl"
           >
             信念
           </motion.h2>
@@ -125,7 +125,7 @@ export default function Philosophy() {
               delay: 0.4,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
           />
         </motion.div>
 
@@ -166,7 +166,7 @@ export default function Philosophy() {
             className="absolute -inset-[1px] rounded-3xl"
           />
 
-          <div className="relative rounded-3xl bg-[#191714] p-8 md:p-16">
+          <div className="relative rounded-3xl bg-surface p-8 md:p-16">
             {/* Floating dots */}
             <motion.div
               animate={{
@@ -179,7 +179,7 @@ export default function Philosophy() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute right-8 top-8 h-2 w-2 rounded-full bg-[#EDAB62]/30"
+              className="absolute right-8 top-8 h-2 w-2 rounded-full bg-marron/30"
             />
             <motion.div
               animate={{ y: [0, 10, 0], x: [0, -10, 0] }}
@@ -188,7 +188,7 @@ export default function Philosophy() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute bottom-12 left-12 h-3 w-3 rounded-full bg-[#6090E8]/20"
+              className="absolute bottom-12 left-12 h-3 w-3 rounded-full bg-navy/20"
             />
 
             {/* Quote icon */}
@@ -215,7 +215,7 @@ export default function Philosophy() {
                   ease: "easeInOut",
                 }}
               >
-                <Quote className="h-16 w-16 text-[#EDAB62]/40" />
+                <Quote className="h-16 w-16 text-marron/40" />
               </motion.div>
             </motion.div>
 
@@ -227,7 +227,7 @@ export default function Philosophy() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mb-8"
             >
-              <p className="animate-shimmer bg-gradient-to-r from-[#FDFBF7] via-[#EDAB62] to-[#FDFBF7] bg-clip-text text-2xl font-bold leading-relaxed text-transparent md:text-4xl">
+              <p className="animate-shimmer bg-gradient-to-r from-foreground via-marron to-foreground bg-clip-text text-2xl font-bold leading-relaxed text-transparent md:text-4xl">
                 {isQuoteInView ? (
                   <>
                     「
@@ -255,7 +255,7 @@ export default function Philosophy() {
                 delay: 0.6,
                 ease: [0.22, 1, 0.36, 1] as const,
               }}
-              className="mb-8 h-[1px] bg-gradient-to-r from-[#EDAB62]/50 via-[#EDAB62]/20 to-transparent"
+              className="mb-8 h-[1px] bg-gradient-to-r from-marron/50 via-marron/20 to-transparent"
             />
 
             {/* Subtext */}
@@ -264,7 +264,7 @@ export default function Philosophy() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-lg leading-relaxed text-[#B8B2AC] md:text-xl"
+              className="text-lg leading-relaxed text-muted md:text-xl"
             >
               {philosophy.subtext}
             </motion.p>
@@ -308,7 +308,7 @@ export default function Philosophy() {
                     damping: 15,
                   },
                 }}
-                className="group relative rounded-2xl border border-[#564F48] bg-[#262320] p-6 transition-colors duration-300 hover:border-[#EDAB62]/40"
+                className="group relative rounded-2xl border border-line bg-elevated p-6 transition-colors duration-300 hover:border-marron/40"
                 style={{ perspective: "600px" }}
               >
                 <motion.div
@@ -321,19 +321,19 @@ export default function Philosophy() {
                       damping: 8,
                     },
                   }}
-                  className="mb-4 inline-flex rounded-xl bg-[#EDAB62]/10 p-3"
+                  className="mb-4 inline-flex rounded-xl bg-marron/10 p-3"
                 >
-                  <Icon className="h-6 w-6 text-[#EDAB62]" />
+                  <Icon className="h-6 w-6 text-marron" />
                 </motion.div>
 
-                <h3 className="mb-3 text-lg font-bold text-[#FDFBF7]">
+                <h3 className="mb-3 text-lg font-bold text-foreground">
                   {belief.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#B8B2AC]">
+                <p className="text-sm leading-relaxed text-muted">
                   {belief.text}
                 </p>
 
-                <div className="pointer-events-none absolute bottom-0 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-b-2xl bg-[#EDAB62]/0 blur-2xl transition-all duration-700 group-hover:bg-[#EDAB62]/15" />
+                <div className="pointer-events-none absolute bottom-0 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-b-2xl bg-marron/0 blur-2xl transition-all duration-700 group-hover:bg-marron/15" />
 
                 <motion.div
                   initial={{ scale: 0 }}
@@ -344,7 +344,7 @@ export default function Philosophy() {
                     type: "spring",
                     stiffness: 300,
                   }}
-                  className="absolute right-4 top-4 h-1 w-6 rounded-full bg-[#EDAB62]/20"
+                  className="absolute right-4 top-4 h-1 w-6 rounded-full bg-marron/20"
                 />
               </motion.div>
             );

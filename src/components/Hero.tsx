@@ -150,12 +150,12 @@ function StatCounter({
       }}
       className="group relative text-center"
     >
-      <div className="absolute -inset-4 rounded-xl bg-[#EDAB62]/5 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-      <motion.p className="relative text-4xl font-bold text-[#EDAB62] md:text-5xl">
+      <div className="absolute -inset-4 rounded-xl bg-marron/5 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+      <motion.p className="relative text-4xl font-bold text-marron md:text-5xl">
         {displayNum}
         {suffix}
       </motion.p>
-      <p className="relative mt-2 text-xs text-[#B8B2AC] md:text-sm">
+      <p className="relative mt-2 text-xs text-muted md:text-sm">
         {label}
       </p>
     </motion.div>
@@ -204,26 +204,26 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-        className="animate-morph pointer-events-none absolute left-[5%] top-[15%] h-[500px] w-[500px] bg-[#EDAB62]/[0.03] blur-[80px]"
+        className="animate-morph pointer-events-none absolute left-[5%] top-[15%] h-[500px] w-[500px] bg-marron/[0.03] blur-[80px]"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, delay: 0.8, ease: "easeOut" }}
-        className="animate-morph pointer-events-none absolute right-[10%] top-[25%] h-[400px] w-[400px] bg-[#6090E8]/[0.04] blur-[60px]"
+        className="animate-morph pointer-events-none absolute right-[10%] top-[25%] h-[400px] w-[400px] bg-navy/[0.04] blur-[60px]"
         style={{ animationDelay: "2s" }}
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, delay: 1.1, ease: "easeOut" }}
-        className="animate-morph pointer-events-none absolute bottom-[15%] left-[25%] h-[300px] w-[300px] bg-[#EDAB62]/[0.02] blur-[50px]"
+        className="animate-morph pointer-events-none absolute bottom-[15%] left-[25%] h-[300px] w-[300px] bg-marron/[0.02] blur-[50px]"
         style={{ animationDelay: "4s" }}
       />
 
       {/* Radial gradient */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(237,171,98,0.08)_0%,_transparent_70%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#101018]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
       <motion.div
         style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
@@ -256,7 +256,7 @@ export default function Hero() {
             <motion.div
               animate={{ scale: [1, 1.4, 1.4], opacity: [0.5, 0, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
-              className="absolute -inset-4 rounded-full border-2 border-[#EDAB62]/30"
+              className="absolute -inset-4 rounded-full border-2 border-marron/30"
             />
             <motion.div
               animate={{ scale: [1, 1.6, 1.6], opacity: [0.3, 0, 0] }}
@@ -266,7 +266,7 @@ export default function Hero() {
                 ease: "easeOut",
                 delay: 0.5,
               }}
-              className="absolute -inset-4 rounded-full border border-[#6090E8]/20"
+              className="absolute -inset-4 rounded-full border border-navy/20"
             />
 
             {/* Animated outer glow */}
@@ -276,15 +276,15 @@ export default function Hero() {
                 opacity: [0.5, 0.9, 0.5],
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -inset-3 rounded-full bg-gradient-to-br from-[#EDAB62]/60 via-[#EDAB62]/20 to-[#6090E8]/40 blur-lg"
+              className="absolute -inset-3 rounded-full bg-gradient-to-br from-marron/60 via-marron/20 to-navy/40 blur-lg"
             />
 
             {/* Spinning rings */}
-            <div className="animate-spin-slow absolute -inset-6 rounded-full border border-dashed border-[#EDAB62]/15" />
-            <div className="animate-spin-reverse absolute -inset-10 rounded-full border border-dotted border-[#6090E8]/10" />
+            <div className="animate-spin-slow absolute -inset-6 rounded-full border border-dashed border-marron/15" />
+            <div className="animate-spin-reverse absolute -inset-10 rounded-full border border-dotted border-navy/10" />
 
             {/* Photo */}
-            <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-[#EDAB62]/50 shadow-2xl shadow-[#EDAB62]/20 md:h-48 md:w-48">
+            <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-marron/50 shadow-2xl shadow-marron/20 md:h-48 md:w-48">
               <Image
                 src="/profile.jpeg"
                 alt={personalInfo.nameJa}
@@ -301,7 +301,7 @@ export default function Hero() {
                   ease: "linear",
                   repeatDelay: 4,
                 }}
-                className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#EDAB62]/40 to-transparent"
+                className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-marron/40 to-transparent"
               />
             </div>
           </motion.div>
@@ -318,23 +318,23 @@ export default function Hero() {
             stiffness: 200,
             damping: 12,
           }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#EDAB62]/40 bg-[#EDAB62]/10 px-6 py-2.5 backdrop-blur-sm"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-marron/40 bg-marron/10 px-6 py-2.5 backdrop-blur-sm"
         >
           <motion.div
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           >
-            <Sparkles className="h-4 w-4 text-[#EDAB62]" />
+            <Sparkles className="h-4 w-4 text-marron" />
           </motion.div>
           <TextScramble
             text={personalInfo.alias}
-            className="text-sm font-medium tracking-[0.2em] text-[#EDAB62]"
+            className="text-sm font-medium tracking-[0.2em] text-marron"
             delay={0.8}
           />
         </motion.div>
 
         {/* Name */}
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-[#FDFBF7] md:text-7xl lg:text-8xl">
+        <h1 className="mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
           <SplitText text={personalInfo.nameJa} delay={0.9} />
         </h1>
 
@@ -343,7 +343,7 @@ export default function Hero() {
           initial={{ opacity: 0, letterSpacing: "0em" }}
           animate={{ opacity: 1, letterSpacing: "0.35em" }}
           transition={{ duration: 1.5, delay: 1.4 }}
-          className="mb-6 text-lg text-[#B8B2AC] md:text-xl"
+          className="mb-6 text-lg text-muted md:text-xl"
         >
           <TextScramble text={personalInfo.nameEn} className="" delay={1.5} />
         </motion.p>
@@ -359,7 +359,7 @@ export default function Hero() {
               type: "spring",
               stiffness: 100,
             }}
-            className="animate-shimmer bg-gradient-to-r from-[#FDFBF7] via-[#EDAB62] to-[#FDFBF7] bg-clip-text text-2xl font-bold text-transparent md:text-4xl"
+            className="animate-shimmer bg-gradient-to-r from-foreground via-marron to-foreground bg-clip-text text-2xl font-bold text-transparent md:text-4xl"
           >
             {personalInfo.catchphrase}
           </motion.p>
@@ -369,7 +369,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 2.0 }}
-          className="mx-auto mb-6 max-w-3xl text-lg leading-relaxed text-[#EAE2DA] md:text-xl"
+          className="mx-auto mb-6 max-w-3xl text-lg leading-relaxed text-secondary md:text-xl"
         >
           {personalInfo.subcatchphrase}
         </motion.p>
@@ -379,7 +379,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 2.2 }}
-          className="mx-auto mb-14 max-w-2xl text-sm leading-relaxed text-[#A09B95] md:text-base"
+          className="mx-auto mb-14 max-w-2xl text-sm leading-relaxed text-dim md:text-base"
         >
           {personalInfo.coreIdentity}
         </motion.p>
@@ -424,7 +424,7 @@ export default function Hero() {
                 y: -4,
                 transition: { type: "spring", stiffness: 400, damping: 10 },
               }}
-              className="rounded-full border border-[#564F48] bg-[#262320] px-5 py-2 text-sm text-[#B8B2AC]"
+              className="rounded-full border border-line bg-elevated px-5 py-2 text-sm text-muted"
             >
               {info}
             </motion.span>
@@ -455,7 +455,7 @@ export default function Hero() {
                 textShadow: "0 0 20px rgba(237,171,98,0.5)",
                 transition: { type: "spring", stiffness: 300 },
               }}
-              className="cursor-default text-xs font-medium uppercase tracking-[0.2em] text-[#EDAB62]/50"
+              className="cursor-default text-xs font-medium uppercase tracking-[0.2em] text-marron/50"
             >
               {keyword}
             </motion.span>
@@ -481,7 +481,7 @@ export default function Hero() {
             <motion.span
               animate={{ opacity: [0.3, 0.8, 0.3] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="text-[10px] uppercase tracking-[0.3em] text-[#EDAB62]/40"
+              className="text-[10px] uppercase tracking-[0.3em] text-marron/40"
             >
               Scroll
             </motion.span>
@@ -493,7 +493,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="h-full w-full origin-top bg-gradient-to-b from-[#EDAB62] to-transparent"
+                className="h-full w-full origin-top bg-gradient-to-b from-marron to-transparent"
               />
             </div>
           </motion.div>

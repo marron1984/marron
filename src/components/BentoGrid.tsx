@@ -8,31 +8,31 @@ import { useState, useRef } from "react";
 
 const accentColors = {
   marron: {
-    border: "border-[#EDAB62]/20",
-    bg: "bg-[#EDAB62]/5",
-    hoverBorder: "hover:border-[#EDAB62]/50",
-    tag: "text-[#EDAB62]",
-    tagBg: "bg-[#EDAB62]/10",
+    border: "border-marron/20",
+    bg: "bg-marron/5",
+    hoverBorder: "hover:border-marron/50",
+    tag: "text-marron",
+    tagBg: "bg-marron/10",
     glow: "#EDAB62",
-    iconBg: "bg-[#EDAB62]/15",
+    iconBg: "bg-marron/15",
   },
   navy: {
-    border: "border-[#6090E8]/20",
-    bg: "bg-[#6090E8]/5",
-    hoverBorder: "hover:border-[#6090E8]/50",
+    border: "border-navy/20",
+    bg: "bg-navy/5",
+    hoverBorder: "hover:border-navy/50",
     tag: "text-[#90B8FF]",
-    tagBg: "bg-[#6090E8]/10",
+    tagBg: "bg-navy/10",
     glow: "#6090E8",
-    iconBg: "bg-[#6090E8]/15",
+    iconBg: "bg-navy/15",
   },
   neutral: {
-    border: "border-[#635C56]/20",
-    bg: "bg-[#262320]/80",
+    border: "border-dimmest/20",
+    bg: "bg-elevated/80",
     hoverBorder: "hover:border-[#6A6560]/40",
-    tag: "text-[#B8B2AC]",
-    tagBg: "bg-[#635C56]/20",
+    tag: "text-muted",
+    tagBg: "bg-dimmest/20",
     glow: "#8C8780",
-    iconBg: "bg-[#635C56]/20",
+    iconBg: "bg-dimmest/20",
   },
 };
 
@@ -116,7 +116,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
         initial={{ y: "-100%" }}
         whileHover={{ y: "200%" }}
         transition={{ duration: 1.5, ease: "linear" }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent opacity-0 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-marron/20 to-transparent opacity-0 group-hover:opacity-100"
       />
 
       {/* Group label */}
@@ -130,7 +130,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
             type: "spring",
             stiffness: 200,
           }}
-          className="mb-3 inline-block rounded-full bg-[#EDAB62]/10 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-[#EDAB62]"
+          className="mb-3 inline-block rounded-full bg-marron/10 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-marron"
         >
           {item.group}
         </motion.span>
@@ -169,7 +169,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
             scale: isExpanded ? 1.2 : 1,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          className="text-[#635C56] transition-colors group-hover:text-[#EDAB62]"
+          className="text-dimmest transition-colors group-hover:text-marron"
         >
           <ArrowUpRight className="h-5 w-5" />
         </motion.div>
@@ -177,11 +177,11 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
 
       {/* Content */}
       <div style={{ transform: "translateZ(30px)" }}>
-        <h3 className="mb-1 text-lg font-bold text-[#FDFBF7]">
+        <h3 className="mb-1 text-lg font-bold text-foreground">
           {item.company}
         </h3>
-        <p className="mb-3 text-sm font-medium text-[#B8B2AC]">{item.role}</p>
-        <p className="mb-2 text-sm leading-relaxed text-[#EAE2DA]">
+        <p className="mb-3 text-sm font-medium text-muted">{item.role}</p>
+        <p className="mb-2 text-sm leading-relaxed text-secondary">
           {item.description}
         </p>
       </div>
@@ -197,7 +197,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
         className="overflow-hidden"
         style={{ transform: "translateZ(25px)" }}
       >
-        <p className="mb-4 text-sm leading-relaxed text-[#A09B95]">
+        <p className="mb-4 text-sm leading-relaxed text-dim">
           {item.longDescription}
         </p>
       </motion.div>
@@ -253,7 +253,7 @@ export default function BentoGrid() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
-            className="mb-4 block text-sm uppercase text-[#EDAB62]"
+            className="mb-4 block text-sm uppercase text-marron"
           >
             Portfolio
           </motion.span>
@@ -267,7 +267,7 @@ export default function BentoGrid() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+            className="text-3xl font-bold text-foreground md:text-5xl"
           >
             Current Ventures
           </motion.h2>
@@ -276,7 +276,7 @@ export default function BentoGrid() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-4 text-[#B8B2AC]"
+            className="mt-4 text-muted"
           >
             2024 &mdash; 2025
           </motion.p>
@@ -289,7 +289,7 @@ export default function BentoGrid() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
           />
         </motion.div>
 
@@ -301,7 +301,7 @@ export default function BentoGrid() {
           transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
           className="mb-6 text-center"
         >
-          <span className="inline-block rounded-full border border-[#564F48] bg-[#262320] px-4 py-1 text-xs tracking-widest text-[#B8B2AC]">
+          <span className="inline-block rounded-full border border-line bg-elevated px-4 py-1 text-xs tracking-widest text-muted">
             DHPグループ included &middot; Click cards for details
           </span>
         </motion.div>

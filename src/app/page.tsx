@@ -3,6 +3,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import MouseBackground from "@/components/MouseBackground";
 import PageLoader from "@/components/PageLoader";
+import ThemeToggle from "@/components/ThemeToggle";
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Timeline from "@/components/Timeline";
@@ -21,9 +22,10 @@ export default function Home() {
   });
 
   return (
-    <div className="grain-overlay relative min-h-screen bg-[#101018]">
+    <div className="grain-overlay relative min-h-screen bg-background">
       <PageLoader />
       <MouseBackground />
+      <ThemeToggle />
 
       {/* Scroll progress bar */}
       <motion.div
@@ -41,7 +43,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
         <BentoGrid />
@@ -52,7 +54,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#6090E8]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
         </motion.div>
 
         <Timeline />
@@ -63,7 +65,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
         <Philosophy />
@@ -74,7 +76,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#6090E8]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
         </motion.div>
 
         <WebPortfolio />
@@ -85,7 +87,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
         <Gallery />
@@ -96,7 +98,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl px-6"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
         <Contact />

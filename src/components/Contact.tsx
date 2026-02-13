@@ -70,7 +70,7 @@ export default function Contact() {
   };
 
   const inputClasses =
-    "w-full rounded-xl border border-[#564F48] bg-[#262320] px-4 py-3 text-[#FDFBF7] placeholder-[#635C56] outline-none transition-all duration-300 focus:border-[#EDAB62]/60 focus:shadow-lg focus:shadow-[#EDAB62]/10 focus:ring-1 focus:ring-[#EDAB62]/20";
+    "w-full rounded-xl border border-line bg-elevated px-4 py-3 text-foreground placeholder-dimmest outline-none transition-all duration-300 focus:border-marron/60 focus:shadow-lg focus:shadow-marron/10 focus:ring-1 focus:ring-marron/20";
 
   const fields = [
     {
@@ -117,7 +117,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-[#EDAB62]"
+            className="mb-4 block text-sm uppercase text-marron"
           >
             Contact
           </motion.span>
@@ -131,7 +131,7 @@ export default function Contact() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+            className="text-3xl font-bold text-foreground md:text-5xl"
           >
             お問い合わせ
           </motion.h2>
@@ -140,7 +140,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="mt-4 text-[#B8B2AC]"
+            className="mt-4 text-muted"
           >
             お気軽にご連絡ください
           </motion.p>
@@ -153,7 +153,7 @@ export default function Contact() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
           />
         </motion.div>
 
@@ -196,7 +196,7 @@ export default function Contact() {
 
           <form
             onSubmit={handleSubmit}
-            className="relative rounded-3xl bg-[#191714] p-8 md:p-12"
+            className="relative rounded-3xl bg-surface p-8 md:p-12"
           >
             <div className="space-y-6">
               {fields.map((field, idx) => (
@@ -214,12 +214,12 @@ export default function Contact() {
                 >
                   <label
                     htmlFor={field.id}
-                    className="mb-2 flex items-center gap-2 text-sm font-medium text-[#EAE2DA]"
+                    className="mb-2 flex items-center gap-2 text-sm font-medium text-secondary"
                   >
-                    <field.icon className="h-4 w-4 text-[#EDAB62]" />
+                    <field.icon className="h-4 w-4 text-marron" />
                     {field.label}
                     {field.required && (
-                      <span className="text-[#EDAB62]">*</span>
+                      <span className="text-marron">*</span>
                     )}
                   </label>
                   <input
@@ -249,10 +249,10 @@ export default function Contact() {
               >
                 <label
                   htmlFor="message"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-[#EAE2DA]"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-secondary"
                 >
-                  <MessageSquare className="h-4 w-4 text-[#EDAB62]" />
-                  メッセージ <span className="text-[#EDAB62]">*</span>
+                  <MessageSquare className="h-4 w-4 text-marron" />
+                  メッセージ <span className="text-marron">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -284,7 +284,7 @@ export default function Contact() {
                   animate={
                     isSubmitting ? { scale: [1, 0.95, 1] } : undefined
                   }
-                  className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#EDAB62] to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-[#EDAB62]/20 transition-all"
+                  className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-marron to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-marron/20 transition-all"
                 >
                   <Send className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                   送信する
@@ -300,7 +300,7 @@ export default function Contact() {
               </motion.div>
             </div>
 
-            <p className="mt-4 text-center text-xs text-[#8C8780]">
+            <p className="mt-4 text-center text-xs text-dimmer">
               送信ボタンをクリックするとメーラーが起動します
             </p>
           </form>

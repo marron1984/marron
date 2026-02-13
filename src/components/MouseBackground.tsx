@@ -1,11 +1,45 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "./ThemeProvider";
+
+const THEMES = {
+  dark: {
+    shapeR: 237, shapeG: 171, shapeB: 98,
+    shapeAlpha: 0.15,
+    shapeHoverAlpha: 0.35,
+    auroraMarronAlpha: 0.8,
+    auroraNavyAlpha: 0.6,
+    auroraBgAlpha: 0.015,
+    trailAlpha: 0.4,
+    connectionAlpha: 0.06,
+    mouseLineAlpha: 0.15,
+    glowMultiplier: 0.3,
+  },
+  light: {
+    shapeR: 180, shapeG: 140, shapeB: 80,
+    shapeAlpha: 0.08,
+    shapeHoverAlpha: 0.2,
+    auroraMarronAlpha: 0.5,
+    auroraNavyAlpha: 0.3,
+    auroraBgAlpha: 0.008,
+    trailAlpha: 0.25,
+    connectionAlpha: 0.03,
+    mouseLineAlpha: 0.08,
+    glowMultiplier: 0.15,
+  },
+};
 
 export default function MouseBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const prevMouseRef = useRef({ x: 0, y: 0 });
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -84,6 +118,7 @@ export default function MouseBackground() {
     const trailParticles: Particle[] = [];
 
     const drawShape = (shape: Particle) => {
+      const t = THEMES[themeRef.current];
       ctx.save();
       const wobble =
         Math.sin(time * 0.001 + shape.wobblePhase) * shape.wobbleAmp;
@@ -109,14 +144,11 @@ export default function MouseBackground() {
       const proximity = Math.max(0, 1 - dist / 400);
       ctx.globalAlpha = shape.opacity + proximity * 0.2;
 
-      const r = proximity > 0.3 ? 237 : 237;
-      const g = proximity > 0.3 ? 171 : 171;
-      const b = proximity > 0.3 ? 98 : 98;
-      const a = proximity > 0.3 ? 0.35 + proximity * 0.5 : 0.15 + proximity * 0.3;
-      ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${a})`;
+      const a = proximity > 0.3 ? t.shapeHoverAlpha + proximity * 0.5 : t.shapeAlpha + proximity * 0.3;
+      ctx.strokeStyle = `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${a})`;
 
       if (proximity > 0.5) {
-        ctx.shadowColor = `rgba(237, 171, 98, ${proximity * 0.3})`;
+        ctx.shadowColor = `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${proximity * t.glowMultiplier})`;
         ctx.shadowBlur = proximity * 15;
       }
 
@@ -203,12 +235,13 @@ export default function MouseBackground() {
     };
 
     const animate = () => {
+      const t = THEMES[themeRef.current];
       time++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw aurora blobs
       const auroraTime = time * 0.003;
-      ctx.globalAlpha = 0.015;
+      ctx.globalAlpha = t.auroraBgAlpha;
       const grad1 = ctx.createRadialGradient(
         canvas.width * 0.3 + Math.sin(auroraTime) * 100,
         canvas.height * 0.4 + Math.cos(auroraTime * 0.7) * 80,
@@ -217,7 +250,7 @@ export default function MouseBackground() {
         canvas.height * 0.4,
         400
       );
-      grad1.addColorStop(0, "rgba(237, 171, 98, 0.8)");
+      grad1.addColorStop(0, `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${t.auroraMarronAlpha})`);
       grad1.addColorStop(1, "transparent");
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -230,7 +263,7 @@ export default function MouseBackground() {
         canvas.height * 0.6,
         350
       );
-      grad2.addColorStop(0, "rgba(96, 144, 232, 0.6)");
+      grad2.addColorStop(0, `rgba(96, 144, 232, ${t.auroraNavyAlpha})`);
       grad2.addColorStop(1, "transparent");
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -251,7 +284,7 @@ export default function MouseBackground() {
           rotationSpeed: (Math.random() - 0.5) * 0.1,
           speed: 0,
           type: "dot",
-          opacity: 0.4,
+          opacity: t.trailAlpha,
           wobblePhase: 0,
           wobbleAmp: 0,
           life: 0,
@@ -267,7 +300,7 @@ export default function MouseBackground() {
         p.life++;
         p.x += p.vx;
         p.y += p.vy;
-        p.opacity = 0.4 * (1 - p.life / p.maxLife);
+        p.opacity = t.trailAlpha * (1 - p.life / p.maxLife);
         p.size *= 0.98;
         if (p.life >= p.maxLife) {
           trailParticles.splice(i, 1);
@@ -278,7 +311,7 @@ export default function MouseBackground() {
         ctx.globalAlpha = p.opacity;
         ctx.beginPath();
         ctx.arc(0, 0, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(237, 171, 98, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${p.opacity})`;
         ctx.fill();
         ctx.restore();
       }
@@ -303,9 +336,9 @@ export default function MouseBackground() {
             shapes[i].y - shapes[j].y
           );
           if (dist < 150) {
-            const alpha = (1 - dist / 150) * 0.06;
+            const alpha = (1 - dist / 150) * t.connectionAlpha;
             ctx.globalAlpha = alpha;
-            ctx.strokeStyle = `rgba(237, 171, 98, 0.06)`;
+            ctx.strokeStyle = `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${t.connectionAlpha})`;
             ctx.beginPath();
             ctx.moveTo(shapes[i].x, shapes[i].y);
             ctx.lineTo(shapes[j].x, shapes[j].y);
@@ -324,7 +357,7 @@ export default function MouseBackground() {
         if (dist < 200) {
           const alpha = (1 - dist / 200) * 0.1;
           ctx.globalAlpha = alpha;
-          ctx.strokeStyle = `rgba(237, 171, 98, 0.15)`;
+          ctx.strokeStyle = `rgba(${t.shapeR}, ${t.shapeG}, ${t.shapeB}, ${t.mouseLineAlpha})`;
           ctx.beginPath();
           ctx.moveTo(mouseRef.current.x, mouseRef.current.y);
           ctx.lineTo(shape.x, shape.y);

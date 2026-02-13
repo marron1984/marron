@@ -59,7 +59,7 @@ function AutoScrollTrack({ speed = 0.6 }: { speed?: number }) {
         return (
           <div
             key={`${img.src}-${i}`}
-            className={`relative flex-shrink-0 overflow-hidden rounded-xl border border-[#564F48]/50 transition-all duration-500 hover:border-[#EDAB62]/40 ${
+            className={`relative flex-shrink-0 overflow-hidden rounded-xl border border-line/50 transition-all duration-500 hover:border-marron/40 ${
               isLogo
                 ? "h-48 w-48 bg-white md:h-56 md:w-56"
                 : "h-48 w-72 md:h-56 md:w-80"
@@ -122,7 +122,7 @@ function DragScrollRow() {
                 rotate: 0,
                 transition: { type: "spring", stiffness: 300, damping: 12 },
               }}
-              className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-[#564F48] transition-colors duration-300 hover:border-[#EDAB62]/50 ${
+              className={`group relative flex-shrink-0 overflow-hidden rounded-xl border border-line transition-colors duration-300 hover:border-marron/50 ${
                 isLogo
                   ? "h-56 w-56 bg-white md:h-64 md:w-64"
                   : "h-56 w-80 md:h-64 md:w-96"
@@ -176,7 +176,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-[#EDAB62]"
+            className="mb-4 block text-sm uppercase text-marron"
           >
             Gallery
           </motion.span>
@@ -190,7 +190,7 @@ export default function Gallery() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-3xl font-bold text-[#FDFBF7] md:text-5xl"
+            className="text-3xl font-bold text-foreground md:text-5xl"
           >
             Recent Photos
           </motion.h2>
@@ -203,14 +203,14 @@ export default function Gallery() {
               delay: 0.4,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62] to-transparent"
+            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="mt-4 text-sm text-[#8C8780]"
+            className="mt-4 text-sm text-dimmer"
           >
             Drag to scroll &middot; ドラッグでスクロール
           </motion.p>

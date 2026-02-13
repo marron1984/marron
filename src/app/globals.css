@@ -3,22 +3,52 @@
 :root {
   --background: #101018;
   --foreground: #FDFBF7;
+  --surface: #191714;
+  --elevated: #262320;
+  --subtle: #3B3632;
+  --secondary: #EAE2DA;
+  --muted: #B8B2AC;
+  --dim: #A09B95;
+  --dimmer: #8C8780;
+  --dimmest: #635C56;
+  --line: #564F48;
   --marron: #EDAB62;
   --navy: #6090E8;
-  --muted: #B8B2AC;
+}
+
+[data-theme="light"] {
+  --background: #F8F6F3;
+  --foreground: #1C1917;
+  --surface: #FFFFFF;
+  --elevated: #F0EDE8;
+  --subtle: #E5E0DA;
+  --secondary: #3D3833;
+  --muted: #6B6560;
+  --dim: #8C8780;
+  --dimmer: #A09B95;
+  --dimmest: #C8C3BD;
+  --line: #DDD8D2;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-subtle: var(--subtle);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-dimmer: var(--dimmer);
+  --color-dimmest: var(--dimmest);
+  --color-line: var(--line);
   --color-marron: var(--marron);
   --color-navy: var(--navy);
-  --color-muted: var(--muted);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #564F48 transparent;
+  scrollbar-color: var(--line) transparent;
 }
 
 html {
@@ -29,12 +59,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Inter", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Selection color */
 ::selection {
   background: rgba(237, 171, 98, 0.4);
-  color: #FDFBF7;
+  color: var(--foreground);
 }
 
 /* Smooth scrollbar */
@@ -47,7 +78,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #564F48;
+  background: var(--line);
   border-radius: 3px;
 }
 
@@ -211,6 +242,10 @@ body {
   opacity: 0.4;
 }
 
+[data-theme="light"] .grain-overlay::after {
+  opacity: 0.15;
+}
+
 /* Stagger cascade utility */
 .stagger-1 { animation-delay: 0.05s; }
 .stagger-2 { animation-delay: 0.1s; }
@@ -233,4 +268,9 @@ body {
   background: linear-gradient(90deg, #EDAB62, #6090E8, #EDAB62);
   background-size: 200% 100%;
   animation: shimmer 3s linear infinite;
+}
+
+/* Theme transition for components */
+.theme-transition {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }

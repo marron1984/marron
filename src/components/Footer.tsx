@@ -41,7 +41,7 @@ function MagneticLink({
       style={{ x: springX, y: springY }}
       whileHover={{ color: "#EDAB62" }}
       transition={{ duration: 0.2 }}
-      className="text-sm text-[#B8B2AC]"
+      className="text-sm text-muted"
     >
       {children}
     </motion.a>
@@ -50,9 +50,9 @@ function MagneticLink({
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#564F48]/50 px-6 py-16">
+    <footer className="relative border-t border-line/50 px-6 py-16">
       {/* Subtle top glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#EDAB62]/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
 
       <div className="mx-auto max-w-6xl">
         <motion.div
@@ -71,10 +71,10 @@ export default function Footer() {
             whileHover={{ x: 6 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
           >
-            <p className="text-lg font-bold text-[#FDFBF7]">
+            <p className="text-lg font-bold text-foreground">
               {personalInfo.nameJa}
             </p>
-            <p className="mt-1 text-sm text-[#8C8780]">
+            <p className="mt-1 text-sm text-dimmer">
               {personalInfo.nameEn} / {personalInfo.alias}
             </p>
           </motion.div>
@@ -100,7 +100,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="text-xs text-[#635C56]"
+            className="text-xs text-dimmest"
           >
             &copy; {new Date().getFullYear()} {personalInfo.alias}. All rights
             reserved.

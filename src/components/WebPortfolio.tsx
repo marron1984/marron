@@ -94,7 +94,7 @@ function PortfolioCard({
         rotateY,
         transformPerspective: 600,
       }}
-      className="group relative block overflow-hidden rounded-2xl border border-[#564F48]/40 bg-[#161414]/70 p-5 backdrop-blur-sm transition-colors duration-300 hover:border-[#EDAB62]/50"
+      className="group relative block overflow-hidden rounded-2xl border border-line/40 bg-surface/70 p-5 backdrop-blur-sm transition-colors duration-300 hover:border-marron/50"
     >
       {/* Dynamic radial glow */}
       <motion.div
@@ -112,29 +112,29 @@ function PortfolioCard({
       <div className="pointer-events-none absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
 
       {/* Top border glow on hover */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#EDAB62]/0 to-transparent transition-all duration-500 group-hover:via-[#EDAB62]/40" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-marron/0 to-transparent transition-all duration-500 group-hover:via-marron/40" />
 
       <div className="relative flex items-start gap-4">
         {/* Icon */}
         <motion.div
           whileHover={{ rotate: 360 }}
           transition={{ duration: 0.6 }}
-          className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#EDAB62]/15 to-[#6090E8]/10 transition-all duration-300 group-hover:from-[#EDAB62]/25 group-hover:to-[#6090E8]/15 group-hover:shadow-lg group-hover:shadow-[#EDAB62]/10"
+          className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-marron/15 to-navy/10 transition-all duration-300 group-hover:from-marron/25 group-hover:to-navy/15 group-hover:shadow-lg group-hover:shadow-marron/10"
         >
-          <Globe className="h-5 w-5 text-[#EDAB62]/70 transition-colors duration-300 group-hover:text-[#EDAB62]" />
+          <Globe className="h-5 w-5 text-marron/70 transition-colors duration-300 group-hover:text-marron" />
         </motion.div>
 
         {/* Content */}
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex items-center gap-2.5">
-            <h3 className="truncate text-base font-semibold text-[#FDFBF7] transition-colors duration-300 group-hover:text-[#EDAB62]">
+            <h3 className="truncate text-base font-semibold text-foreground transition-colors duration-300 group-hover:text-marron">
               {site.name}
             </h3>
-            <span className="flex-shrink-0 rounded-full border border-[#EDAB62]/20 bg-[#EDAB62]/8 px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-[#EDAB62]/80">
+            <span className="flex-shrink-0 rounded-full border border-marron/20 bg-marron/8 px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-marron/80">
               {site.tag}
             </span>
           </div>
-          <p className="truncate text-xs text-[#8C8780] transition-colors duration-300 group-hover:text-[#B8B2AC]">
+          <p className="truncate text-xs text-dimmer transition-colors duration-300 group-hover:text-muted">
             {site.domain}
           </p>
         </div>
@@ -143,9 +143,9 @@ function PortfolioCard({
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileHover={{ scale: 1.2 }}
-          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg opacity-0 transition-all duration-300 group-hover:bg-[#EDAB62]/10 group-hover:opacity-100"
+          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg opacity-0 transition-all duration-300 group-hover:bg-marron/10 group-hover:opacity-100"
         >
-          <ExternalLink className="h-4 w-4 text-[#EDAB62]" />
+          <ExternalLink className="h-4 w-4 text-marron" />
         </motion.div>
       </div>
     </motion.a>
@@ -170,20 +170,20 @@ export default function WebPortfolio() {
               stiffness: 200,
               damping: 12,
             }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#6090E8]/30 bg-[#6090E8]/8 px-5 py-2"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-navy/30 bg-navy/8 px-5 py-2"
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             >
-              <Sparkles className="h-4 w-4 text-[#6090E8]" />
+              <Sparkles className="h-4 w-4 text-navy" />
             </motion.div>
-            <span className="text-xs font-medium tracking-[0.15em] text-[#6090E8]">
+            <span className="text-xs font-medium tracking-[0.15em] text-navy">
               AI CRAFTED
             </span>
           </motion.div>
 
-          <h2 className="mb-4 text-4xl font-bold text-[#FDFBF7] md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
             <AnimatedTitle text="Web Portfolio" />
           </h2>
 
@@ -192,7 +192,7 @@ export default function WebPortfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mx-auto max-w-xl text-base text-[#A09B95] md:text-lg"
+            className="mx-auto max-w-xl text-base text-dim md:text-lg"
           >
             AIを活用して制作したウェブサイト。デザインから実装まで、最先端の技術で構築。
           </motion.p>
@@ -207,7 +207,7 @@ export default function WebPortfolio() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="mx-auto mt-8 h-[1px] w-32 bg-gradient-to-r from-transparent via-[#EDAB62]/40 to-transparent"
+            className="mx-auto mt-8 h-[1px] w-32 bg-gradient-to-r from-transparent via-marron/40 to-transparent"
           />
         </div>
 
@@ -237,10 +237,10 @@ export default function WebPortfolio() {
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
               className="text-center"
             >
-              <p className="text-2xl font-bold text-[#EDAB62] md:text-3xl">
+              <p className="text-2xl font-bold text-marron md:text-3xl">
                 {stat.value}
               </p>
-              <p className="text-xs tracking-wider text-[#8C8780]">
+              <p className="text-xs tracking-wider text-dimmer">
                 {stat.label}
               </p>
             </motion.div>
