@@ -260,7 +260,7 @@ const uz: SiteLocale = {
       detail: "Yarim yillik hikikomori davridan qayta tiklanish",
     },
     {
-      year: "—",
+      year: "2017",
       title: "Men oroli hukumati bilan moliyaviy litsenziya muzokaralari",
       description:
         "Ishlab chiqish rahbari sifatida Buyuk Britaniya qirollik mulki bo'lmish Men oroli hukumati bilan bevosita muzokaralar olib bordi. Moliyaviy litsenziyani olish, kompaniya tashkil etish, soliq optimallashtirish va onlayn biznesni keng qamrovli ishlab chiqish va boshqarishni amalga oshirib, xalqaro biznesning poydevorini qo'ydi.",
@@ -268,14 +268,14 @@ const uz: SiteLocale = {
       highlight: true,
     },
     {
-      year: "—",
+      year: "2016",
       title: "Ma'bad va ibodatxonalarga bag'ishlangan bepul jurnal \"Jisha NOW\" nashr etildi",
       description:
         "Rejalashtirish, tahrirlash va nashr etish mas'uli sifatida ma'bad va ibodatxonalarga bag'ishlangan bepul jurnalni nashr etdi. Butun Yaponiya bo'ylab 15,000 ta ma'bad va ibodatxonaga har oylik tarqatishni boshqarib, ma'bad va ibodatxonalarning jozibadorligini keng omma orasida yoydi. Ma'bad turizm assotsiatsiyasini tashkil etish va boshqarishda ham ishtirok etib, madaniy faoliyat va media biznesini uyg'unlashtirdi.",
       detail: "Butun mamlakat bo'ylab 15,000 joyga har oy tarqatish",
     },
     {
-      year: "—",
+      year: "2010",
       title: "Ovqatlanish, ko'chmas mulk va mehmonxona biznesining ko'p tarmoqli kengayishi",
       description:
         "Aeon Group ovqatlanish biznesini sotib olish va boshqarish, parvarish muassasalari uchun bento (ovqat) xizmatini tashkil etish, parvarish ovqati operatsiyasini yaratish kabi faoliyatlarni amalga oshirdi. Daromad keltiradigan ko'chmas mulk savdosi, xorijdagi kovorking bizneslarini (Gonkong, Manila, Osaka, Tokyo va boshqalar) ishlab chiqish, Horyuji va Shitennoji kabi mashhur ma'badlar bilan hamkorlikda shukubo yapon uslubidagi mehmonxona loyihasida ham ishtirok etdi.",

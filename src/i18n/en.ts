@@ -193,7 +193,7 @@ const en: SiteLocale = {
       detail: "Rebuilt after six months of withdrawal",
     },
     {
-      year: "\u2014",
+      year: "2017",
       title: "Financial license negotiations with the Isle of Man government",
       description:
         "As development lead, negotiated directly with the government of the Isle of Man, a British Crown Dependency. Led the comprehensive process of obtaining a financial license, establishing a company, optimizing tax structures, and developing and operating online businesses, laying the foundation for international business.",
@@ -201,14 +201,14 @@ const en: SiteLocale = {
       highlight: true,
     },
     {
-      year: "\u2014",
+      year: "2016",
       title: "Launched 'Jisha NOW', a free magazine for temples and shrines",
       description:
         "Founded a free publication dedicated to Japanese temples and shrines as planning, editorial, and publishing director. Oversaw monthly distribution to 15,000 temples and shrines nationwide, broadly communicating the appeal of Japan's sacred sites. Also involved in establishing and operating a temple and shrine tourism association, pioneering a fusion of cultural programming and media business.",
       detail: "Monthly distribution to 15,000 locations nationwide",
     },
     {
-      year: "\u2014",
+      year: "2010",
       title: "Multi-business expansion: F&B, real estate & hotels",
       description:
         "Acquired and operated Aeon Group restaurant businesses, launched a bento delivery service for care facilities, and built care food operations. Engaged in income property trading, overseas coworking space development (Hong Kong, Manila, Osaka, Tokyo, etc.), and participated in temple stay Japanese-style hotel projects in collaboration with Horyuji, Shitennoji, and other renowned temples.",
