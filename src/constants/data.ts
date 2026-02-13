@@ -17,7 +17,7 @@ export const personalInfo = {
     "16歳で起業し、教師を目指すも挫折。引きこもりを経て独学で再起。現在は介護・ホテル・IT・国際事業を横断する複合ポートフォリオを経営する、自走型シリアルアントレプレナー。",
   stats: [
     { value: "20+", label: "起業家歴（年）" },
-    { value: "10", label: "現役事業数" },
+    { value: "11", label: "現役事業数" },
     { value: "6", label: "業種横断" },
     { value: "16", label: "歳で初起業" },
   ],
@@ -154,6 +154,17 @@ export const portfolio: PortfolioItem[] = [
     group: "DHPグループ",
   },
   {
+    company: "株式会社ミッチーノ",
+    role: "取締役",
+    description: "特定支援機関",
+    longDescription:
+      "特定支援機関として、外国人材の受入れ支援や在留資格に関する各種サポートを提供。行政手続きから生活支援まで一貫した支援体制を構築し、多文化共生社会の実現に貢献する。",
+    tags: ["Support Agency", "Immigration", "Multicultural", "Consulting"],
+    accent: "marron",
+    span: "normal",
+    group: "DHPグループ",
+  },
+  {
     company: "一般財団法人国際ピース・ラビング・ピープル財団",
     role: "事務局 ミャンマー担当",
     description: "国際協力・国連支援事業",
@@ -222,8 +233,8 @@ export const timeline: TimelineEvent[] = [
     year: "2024",
     title: "複合ポートフォリオ経営の確立",
     description:
-      "DHPグループ（リゾート開発・ケアマネジメント・都市開発・ホスピタリティ・FUDOKI・100doors・ウニクラフト）、株式会社AA、株式会社あん、IPLPF等、10の事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際協力・飲食の6業種を統括。",
-    detail: "10事業体 × 6業種の統括経営",
+      "DHPグループ（リゾート開発・ケアマネジメント・都市開発・ホスピタリティ・FUDOKI・100doors・ウニクラフト・ミッチーノ）、株式会社AA、株式会社あん、IPLPF等、11の事業体を横断的に経営。介護・ホスピタリティ・テクノロジー・第一次産業・国際協力・飲食の6業種を統括。",
+    detail: "11事業体 × 6業種の統括経営",
     highlight: true,
   },
 ];
