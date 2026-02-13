@@ -60,10 +60,12 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     const subject = encodeURIComponent(
-      `【お問い合わせ】${form.company ? form.company + " " : ""}${form.name}様より`
+      t.ui.contact.emailSubjectTemplate
+        .replace("{company}", form.company ? form.company + " " : "")
+        .replace("{name}", form.name)
     );
     const body = encodeURIComponent(
-      `お名前: ${form.name}\n会社名: ${form.company || "—"}\nメール: ${form.email}\n\n${form.message}`
+      `${t.ui.contact.emailBodyNameLabel}: ${form.name}\n${t.ui.contact.emailBodyCompanyLabel}: ${form.company || "—"}\n${t.ui.contact.emailBodyEmailLabel}: ${form.email}\n\n${form.message}`
     );
     setTimeout(() => {
       window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${body}`;

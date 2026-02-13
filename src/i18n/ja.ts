@@ -10,6 +10,7 @@ const ja: SiteLocale = {
     birthDate: "1984年5月2日生",
     origin: "大阪府出身",
     hobby: "ポーカー",
+    hobbyLabel: "趣味",
     keywords: [
       "Serial Entrepreneur",
       "Social Problem Solver",
@@ -241,6 +242,29 @@ const ja: SiteLocale = {
       },
     ],
   },
+  galleryImages: [
+    { src: "/gallery/01.jpg", alt: "高級レストラン" },
+    { src: "/gallery/02.jpg", alt: "レストラン内観" },
+    { src: "/gallery/03.jpg", alt: "ダイニング" },
+    { src: "/gallery/04.jpg", alt: "料理" },
+    { src: "/gallery/05.jpg", alt: "奈良の鹿" },
+    { src: "/gallery/06.jpg", alt: "旅館" },
+    { src: "/gallery/07.jpg", alt: "事業風景" },
+    { src: "/gallery/08.jpg", alt: "事業風景" },
+    { src: "/gallery/09.jpg", alt: "事業風景" },
+    { src: "/gallery/10.png", alt: "ええかんご AA-KANGO" },
+    { src: "/gallery/11.png", alt: "ええさぽーと" },
+    { src: "/gallery/12.png", alt: "ブランドロゴ" },
+    { src: "/gallery/13.jpg", alt: "チームメンバー" },
+    { src: "/gallery/14.jpg", alt: "チームメンバー" },
+    { src: "/gallery/15.jpg", alt: "ビジネスシーン" },
+    { src: "/gallery/16.jpg", alt: "事業風景" },
+    { src: "/gallery/17.png", alt: "ブランドロゴ" },
+    { src: "/gallery/18.jpg", alt: "事業風景" },
+    { src: "/gallery/19.jpg", alt: "事業風景" },
+    { src: "/gallery/20.jpg", alt: "事業風景" },
+    { src: "/gallery/21.jpg", alt: "チームメンバー" },
+  ],
   ui: {
     scroll: "Scroll",
     portfolio: {
@@ -286,6 +310,10 @@ const ja: SiteLocale = {
       messagePlaceholder: "お問い合わせ内容をご記入ください",
       submitButton: "送信する",
       submitHint: "送信ボタンをクリックするとメーラーが起動します",
+      emailSubjectTemplate: "【お問い合わせ】{company}{name}様より",
+      emailBodyNameLabel: "お名前",
+      emailBodyCompanyLabel: "会社名",
+      emailBodyEmailLabel: "メール",
     },
     footer: {
       navLinks: [

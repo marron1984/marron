@@ -49,6 +49,7 @@ export interface SiteLocale {
     birthDate: string;
     origin: string;
     hobby: string;
+    hobbyLabel: string;
     keywords: string[];
     coreIdentity: string;
     stats: { value: string; label: string }[];
@@ -61,6 +62,7 @@ export interface SiteLocale {
     subtext: string;
     beliefs: { title: string; text: string }[];
   };
+  galleryImages: { src: string; alt: string }[];
   ui: {
     scroll: string;
     portfolio: {
@@ -105,6 +107,10 @@ export interface SiteLocale {
       messagePlaceholder: string;
       submitButton: string;
       submitHint: string;
+      emailSubjectTemplate: string;
+      emailBodyNameLabel: string;
+      emailBodyCompanyLabel: string;
+      emailBodyEmailLabel: string;
     };
     footer: {
       navLinks: { label: string; href: string }[];

@@ -11,6 +11,7 @@ const my: SiteLocale = {
     birthDate: "၁၉၈၄ ခုနှစ် မေလ ၂ ရက်ဖွား",
     origin: "ဂျပန်နိုင်ငံ အိုဆာကာမြို့",
     hobby: "ပိုကာ",
+    hobbyLabel: "ဝါသနာ",
     keywords: [
       "Serial Entrepreneur",
       "Social Problem Solver",
@@ -136,7 +137,7 @@ const my: SiteLocale = {
       tags: ["Hospitality", "Luxury Ryokan", "Staytous", "Nara"],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "dhpケアマネジメント",
@@ -148,7 +149,7 @@ const my: SiteLocale = {
       tags: ["Healthcare", "Care Management", "Real Estate", "Senior Living"],
       accent: "navy",
       span: "tall",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "dhp都市開発",
@@ -160,7 +161,7 @@ const my: SiteLocale = {
       tags: ["Urban Development", "Marriott", "Luxury Resort", "Global"],
       accent: "neutral",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "株式会社DHPホスピタリティ",
@@ -172,7 +173,7 @@ const my: SiteLocale = {
       tags: ["Hospitality", "Master Franchisee", "Hotel Brand", "Operations"],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "株式会社FUDOKI",
@@ -183,7 +184,7 @@ const my: SiteLocale = {
       tags: ["Branding", "Consulting", "Primary Industry", "Agriculture"],
       accent: "navy",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "株式会社100doors",
@@ -195,7 +196,7 @@ const my: SiteLocale = {
       tags: ["Web3", "DID/VC", "PropTech", "Hospitality Tech"],
       accent: "marron",
       span: "wide",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "合同会社ウニクラフトカンパニー",
@@ -206,7 +207,7 @@ const my: SiteLocale = {
       tags: ["Aquaculture", "Sea Urchin", "Sustainability", "Innovation"],
       accent: "navy",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "株式会社ミッチーノ",
@@ -217,7 +218,7 @@ const my: SiteLocale = {
       tags: ["Support Agency", "Immigration", "Multicultural", "Consulting"],
       accent: "marron",
       span: "normal",
-      group: "DHPグループ",
+      group: "DHPအုပ်စု",
     },
     {
       company: "一般財団法人国際ピース・ラビング・ピープル財団",
@@ -304,13 +305,36 @@ const my: SiteLocale = {
       },
     ],
   },
+  galleryImages: [
+    { src: "/gallery/01.jpg", alt: "အဆင့်မြင့်စားသောက်ဆိုင်" },
+    { src: "/gallery/02.jpg", alt: "စားသောက်ဆိုင်အတွင်းပိုင်း" },
+    { src: "/gallery/03.jpg", alt: "စားသောက်ခြင်း" },
+    { src: "/gallery/04.jpg", alt: "အစားအစာ" },
+    { src: "/gallery/05.jpg", alt: "နာရာမြို့မှသမင်များ" },
+    { src: "/gallery/06.jpg", alt: "ဂျပန်ဧည့်ရိပ်သာ" },
+    { src: "/gallery/07.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/08.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/09.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/10.png", alt: "Ee Kango AA-KANGO" },
+    { src: "/gallery/11.png", alt: "Ee Support" },
+    { src: "/gallery/12.png", alt: "ဘရန့်လိုဂို" },
+    { src: "/gallery/13.jpg", alt: "အဖွဲ့ဝင်များ" },
+    { src: "/gallery/14.jpg", alt: "အဖွဲ့ဝင်များ" },
+    { src: "/gallery/15.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/16.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/17.png", alt: "ဘရန့်လိုဂို" },
+    { src: "/gallery/18.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/19.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/20.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
+    { src: "/gallery/21.jpg", alt: "အဖွဲ့ဝင်များ" },
+  ],
   ui: {
     scroll: "Scroll",
     portfolio: {
       label: "လုပ်ငန်းစု",
       title: "လက်ရှိလုပ်ငန်းများ",
       subtitle: "2024 — 2025",
-      clickHint: "DHPグループ ပါဝင်သည် · ကတ်များကိုနှိပ်၍ အသေးစိတ်ကြည့်ပါ",
+      clickHint: "DHPအုပ်စု ပါဝင်သည် · ကတ်များကိုနှိပ်၍ အသေးစိတ်ကြည့်ပါ",
     },
     history: {
       label: "သမိုင်း",
@@ -349,6 +373,10 @@ const my: SiteLocale = {
       messagePlaceholder: "မေးမြန်းလိုသည့်အကြောင်းအရာကို ရေးသားပါ",
       submitButton: "ပေးပို့ရန်",
       submitHint: "ပေးပို့ရန်ခလုတ်ကို နှိပ်လိုက်ပါက အီးမေးလ်အက်ပ် ပွင့်လာပါမည်",
+      emailSubjectTemplate: "[စုံစမ်းမေးမြန်းခြင်း] {company}{name} ထံမှ",
+      emailBodyNameLabel: "အမည်",
+      emailBodyCompanyLabel: "ကုမ္ပဏီ",
+      emailBodyEmailLabel: "အီးမေးလ်",
     },
     footer: {
       navLinks: [

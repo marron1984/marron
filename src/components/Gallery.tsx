@@ -12,32 +12,8 @@ import {
 import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 
-const galleryImages = [
-  { src: "/gallery/01.jpg", alt: "高級レストラン" },
-  { src: "/gallery/02.jpg", alt: "レストラン内観" },
-  { src: "/gallery/03.jpg", alt: "ダイニング" },
-  { src: "/gallery/04.jpg", alt: "料理" },
-  { src: "/gallery/05.jpg", alt: "奈良の鹿" },
-  { src: "/gallery/06.jpg", alt: "旅館" },
-  { src: "/gallery/07.jpg", alt: "事業風景" },
-  { src: "/gallery/08.jpg", alt: "事業風景" },
-  { src: "/gallery/09.jpg", alt: "事業風景" },
-  { src: "/gallery/10.png", alt: "ええかんご AA-KANGO" },
-  { src: "/gallery/11.png", alt: "ええさぽーと" },
-  { src: "/gallery/12.png", alt: "ブランドロゴ" },
-  { src: "/gallery/13.jpg", alt: "チームメンバー" },
-  { src: "/gallery/14.jpg", alt: "チームメンバー" },
-  { src: "/gallery/15.jpg", alt: "ビジネスシーン" },
-  { src: "/gallery/16.jpg", alt: "事業風景" },
-  { src: "/gallery/17.png", alt: "ブランドロゴ" },
-  { src: "/gallery/18.jpg", alt: "事業風景" },
-  { src: "/gallery/19.jpg", alt: "事業風景" },
-  { src: "/gallery/20.jpg", alt: "事業風景" },
-  { src: "/gallery/21.jpg", alt: "チームメンバー" },
-];
-
 /* ---- Auto-scrolling track ---- */
-function AutoScrollTrack({ speed = 0.6 }: { speed?: number }) {
+function AutoScrollTrack({ speed = 0.6, galleryImages }: { speed?: number; galleryImages: { src: string; alt: string }[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const xRef = useRef(0);
 
@@ -83,7 +59,7 @@ function AutoScrollTrack({ speed = 0.6 }: { speed?: number }) {
 }
 
 /* ---- Drag-scrollable row with momentum ---- */
-function DragScrollRow() {
+function DragScrollRow({ galleryImages }: { galleryImages: { src: string; alt: string }[] }) {
   const constraintRef = useRef<HTMLDivElement>(null);
   const dragX = useMotionValue(0);
   const springX = useSpring(dragX, { stiffness: 100, damping: 30 });
@@ -227,7 +203,7 @@ export default function Gallery() {
         transition={{ duration: 1.2, type: "spring", stiffness: 40 }}
         className="mb-10 overflow-hidden"
       >
-        <AutoScrollTrack speed={0.5} />
+        <AutoScrollTrack speed={0.5} galleryImages={t.galleryImages} />
       </motion.div>
 
       {/* Drag-scrollable row */}
@@ -238,7 +214,7 @@ export default function Gallery() {
         transition={{ duration: 1.2, delay: 0.2, type: "spring", stiffness: 40 }}
         className="mx-auto max-w-7xl px-6"
       >
-        <DragScrollRow />
+        <DragScrollRow galleryImages={t.galleryImages} />
       </motion.div>
     </section>
   );

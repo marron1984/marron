@@ -10,6 +10,7 @@ const en: SiteLocale = {
     birthDate: "Born May 2, 1984",
     origin: "From Osaka, Japan",
     hobby: "Poker",
+    hobbyLabel: "Hobby",
     keywords: [
       "Serial Entrepreneur",
       "Social Problem Solver",
@@ -241,6 +242,29 @@ const en: SiteLocale = {
       },
     ],
   },
+  galleryImages: [
+    { src: "/gallery/01.jpg", alt: "Fine dining restaurant" },
+    { src: "/gallery/02.jpg", alt: "Restaurant interior" },
+    { src: "/gallery/03.jpg", alt: "Dining" },
+    { src: "/gallery/04.jpg", alt: "Cuisine" },
+    { src: "/gallery/05.jpg", alt: "Deer in Nara" },
+    { src: "/gallery/06.jpg", alt: "Ryokan" },
+    { src: "/gallery/07.jpg", alt: "Business scene" },
+    { src: "/gallery/08.jpg", alt: "Business scene" },
+    { src: "/gallery/09.jpg", alt: "Business scene" },
+    { src: "/gallery/10.png", alt: "Ee Kango AA-KANGO" },
+    { src: "/gallery/11.png", alt: "Ee Support" },
+    { src: "/gallery/12.png", alt: "Brand logo" },
+    { src: "/gallery/13.jpg", alt: "Team members" },
+    { src: "/gallery/14.jpg", alt: "Team members" },
+    { src: "/gallery/15.jpg", alt: "Business scene" },
+    { src: "/gallery/16.jpg", alt: "Business scene" },
+    { src: "/gallery/17.png", alt: "Brand logo" },
+    { src: "/gallery/18.jpg", alt: "Business scene" },
+    { src: "/gallery/19.jpg", alt: "Business scene" },
+    { src: "/gallery/20.jpg", alt: "Business scene" },
+    { src: "/gallery/21.jpg", alt: "Team members" },
+  ],
   ui: {
     scroll: "Scroll",
     portfolio: {
@@ -286,6 +310,10 @@ const en: SiteLocale = {
       messagePlaceholder: "Please enter your message here",
       submitButton: "Send Message",
       submitHint: "Clicking the send button will open your email client",
+      emailSubjectTemplate: "[Inquiry] From {company}{name}",
+      emailBodyNameLabel: "Name",
+      emailBodyCompanyLabel: "Company",
+      emailBodyEmailLabel: "Email",
     },
     footer: {
       navLinks: [
