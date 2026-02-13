@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "./LanguageProvider";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   Mail,
@@ -15,6 +16,7 @@ import { useRef } from "react";
 const MAILTO = "yoshida@aska-g.com";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -75,27 +77,27 @@ export default function Contact() {
   const fields = [
     {
       id: "name",
-      label: "お名前",
+      label: t.ui.contact.nameLabel,
       icon: User,
       required: true,
       type: "text",
-      placeholder: "山田 太郎",
+      placeholder: t.ui.contact.namePlaceholder,
     },
     {
       id: "company",
-      label: "会社名",
+      label: t.ui.contact.companyLabel,
       icon: Building,
       required: false,
       type: "text",
-      placeholder: "株式会社〇〇",
+      placeholder: t.ui.contact.companyPlaceholder,
     },
     {
       id: "email",
-      label: "メールアドレス",
+      label: t.ui.contact.emailLabel,
       icon: Mail,
       required: true,
       type: "email",
-      placeholder: "your@email.com",
+      placeholder: t.ui.contact.emailPlaceholder,
     },
   ];
 
@@ -119,7 +121,7 @@ export default function Contact() {
             transition={{ duration: 1.5 }}
             className="mb-4 block text-sm uppercase text-marron"
           >
-            Contact
+            {t.ui.contact.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -133,7 +135,7 @@ export default function Contact() {
             }}
             className="text-3xl font-bold text-foreground md:text-5xl"
           >
-            お問い合わせ
+            {t.ui.contact.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, filter: "blur(4px)" }}
@@ -142,7 +144,7 @@ export default function Contact() {
             transition={{ delay: 0.4 }}
             className="mt-4 text-muted"
           >
-            お気軽にご連絡ください
+            {t.ui.contact.subtitle}
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -252,7 +254,7 @@ export default function Contact() {
                   className="mb-2 flex items-center gap-2 text-sm font-medium text-secondary"
                 >
                   <MessageSquare className="h-4 w-4 text-marron" />
-                  メッセージ <span className="text-marron">*</span>
+                  {t.ui.contact.messageLabel} <span className="text-marron">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -261,7 +263,7 @@ export default function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="お問い合わせ内容をご記入ください"
+                  placeholder={t.ui.contact.messagePlaceholder}
                   className={`${inputClasses} resize-none`}
                 />
               </motion.div>
@@ -287,7 +289,7 @@ export default function Contact() {
                   className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-marron to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-marron/20 transition-all"
                 >
                   <Send className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                  送信する
+                  {t.ui.contact.submitButton}
                   <motion.div
                     className="overflow-hidden"
                     initial={{ width: 0, opacity: 0 }}
@@ -301,7 +303,7 @@ export default function Contact() {
             </div>
 
             <p className="mt-4 text-center text-xs text-dimmer">
-              送信ボタンをクリックするとメーラーが起動します
+              {t.ui.contact.submitHint}
             </p>
           </form>
         </motion.div>

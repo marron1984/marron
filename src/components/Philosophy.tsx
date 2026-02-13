@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { philosophy } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
 import { Quote, Lightbulb, Footprints, Rocket } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
@@ -54,6 +54,7 @@ function TypewriterQuote({
 }
 
 export default function Philosophy() {
+  const { t } = useLanguage();
   const quoteRef = useRef<HTMLDivElement>(null);
   const [isQuoteInView, setIsQuoteInView] = useState(false);
 
@@ -100,7 +101,7 @@ export default function Philosophy() {
             transition={{ duration: 1.5 }}
             className="mb-4 block text-sm uppercase text-marron"
           >
-            Philosophy
+            {t.ui.philosophy.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -114,7 +115,7 @@ export default function Philosophy() {
             }}
             className="text-3xl font-bold text-foreground md:text-5xl"
           >
-            信念
+            {t.ui.philosophy.title}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -232,14 +233,14 @@ export default function Philosophy() {
                   <>
                     「
                     <TypewriterQuote
-                      text={philosophy.mainQuote}
+                      text={t.philosophy.mainQuote}
                       delay={0.6}
                     />
                     」
                   </>
                 ) : (
                   <span className="opacity-0">
-                    「{philosophy.mainQuote}」
+                    「{t.philosophy.mainQuote}」
                   </span>
                 )}
               </p>
@@ -266,14 +267,14 @@ export default function Philosophy() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-lg leading-relaxed text-muted md:text-xl"
             >
-              {philosophy.subtext}
+              {t.philosophy.subtext}
             </motion.p>
           </div>
         </motion.div>
 
         {/* Belief cards with 3D flip entrance */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {philosophy.beliefs.map((belief, i) => {
+          {t.philosophy.beliefs.map((belief, i) => {
             const Icon = beliefIcons[i];
             return (
               <motion.div

@@ -10,6 +10,7 @@ import {
   PanInfo,
 } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "./LanguageProvider";
 
 const galleryImages = [
   { src: "/gallery/01.jpg", alt: "高級レストラン" },
@@ -158,6 +159,7 @@ function DragScrollRow() {
 }
 
 export default function Gallery() {
+  const { t } = useLanguage();
   return (
     <section className="relative py-32" id="gallery">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(96,144,232,0.04)_0%,_transparent_60%)]" />
@@ -178,7 +180,7 @@ export default function Gallery() {
             transition={{ duration: 1.5 }}
             className="mb-4 block text-sm uppercase text-marron"
           >
-            Gallery
+            {t.ui.gallery.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -192,7 +194,7 @@ export default function Gallery() {
             }}
             className="text-3xl font-bold text-foreground md:text-5xl"
           >
-            Recent Photos
+            {t.ui.gallery.title}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -212,7 +214,7 @@ export default function Gallery() {
             transition={{ delay: 0.6 }}
             className="mt-4 text-sm text-dimmer"
           >
-            Drag to scroll &middot; ドラッグでスクロール
+            {t.ui.gallery.dragHint}
           </motion.p>
         </motion.div>
       </div>

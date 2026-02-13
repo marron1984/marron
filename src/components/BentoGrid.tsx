@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { portfolio } from "@/constants/data";
-import type { PortfolioItem } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
+import type { PortfolioItem } from "@/i18n/types";
 import { Building2, Briefcase, ArrowUpRight } from "lucide-react";
 import { useState, useRef } from "react";
 
@@ -235,6 +235,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
 }
 
 export default function BentoGrid() {
+  const { t } = useLanguage();
   return (
     <section className="relative px-6 py-32" id="portfolio">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(237,171,98,0.04)_0%,_transparent_60%)]" />
@@ -255,7 +256,7 @@ export default function BentoGrid() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
             className="mb-4 block text-sm uppercase text-marron"
           >
-            Portfolio
+            {t.ui.portfolio.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -269,7 +270,7 @@ export default function BentoGrid() {
             }}
             className="text-3xl font-bold text-foreground md:text-5xl"
           >
-            Current Ventures
+            {t.ui.portfolio.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, filter: "blur(4px)" }}
@@ -278,7 +279,7 @@ export default function BentoGrid() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-4 text-muted"
           >
-            2024 &mdash; 2025
+            {t.ui.portfolio.subtitle}
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -302,13 +303,13 @@ export default function BentoGrid() {
           className="mb-6 text-center"
         >
           <span className="inline-block rounded-full border border-line bg-elevated px-4 py-1 text-xs tracking-widest text-muted">
-            DHPグループ included &middot; Click cards for details
+            {t.ui.portfolio.clickHint}
           </span>
         </motion.div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {portfolio.map((item, index) => (
+          {t.portfolio.map((item, index) => (
             <BentoCard key={item.company} item={item} index={index} />
           ))}
         </div>

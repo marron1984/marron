@@ -6,7 +6,8 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
-import { webPortfolio } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
+import type { WebSite } from "@/i18n/types";
 import { ExternalLink, Globe, Sparkles } from "lucide-react";
 import { useRef } from "react";
 
@@ -39,7 +40,7 @@ function PortfolioCard({
   site,
   index,
 }: {
-  site: (typeof webPortfolio)[number];
+  site: WebSite;
   index: number;
 }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
@@ -153,6 +154,7 @@ function PortfolioCard({
 }
 
 export default function WebPortfolio() {
+  const { t } = useLanguage();
   return (
     <section className="relative px-6 py-24 md:py-32">
       {/* Background accent */}
@@ -179,12 +181,12 @@ export default function WebPortfolio() {
               <Sparkles className="h-4 w-4 text-navy" />
             </motion.div>
             <span className="text-xs font-medium tracking-[0.15em] text-navy">
-              AI CRAFTED
+              {t.ui.webPortfolio.badge}
             </span>
           </motion.div>
 
           <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-            <AnimatedTitle text="Web Portfolio" />
+            <AnimatedTitle text={t.ui.webPortfolio.title} />
           </h2>
 
           <motion.p
@@ -194,7 +196,7 @@ export default function WebPortfolio() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto max-w-xl text-base text-dim md:text-lg"
           >
-            AIを活用して制作したウェブサイト。デザインから実装まで、最先端の技術で構築。
+            {t.ui.webPortfolio.description}
           </motion.p>
 
           {/* Decorative line */}
@@ -213,7 +215,7 @@ export default function WebPortfolio() {
 
         {/* Portfolio grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {webPortfolio.map((site, i) => (
+          {t.webPortfolio.map((site, i) => (
             <PortfolioCard key={site.domain} site={site} index={i} />
           ))}
         </div>
@@ -227,9 +229,9 @@ export default function WebPortfolio() {
           className="mt-14 flex flex-wrap items-center justify-center gap-8"
         >
           {[
-            { value: `${webPortfolio.length}`, label: "Websites" },
-            { value: "AI", label: "Powered" },
-            { value: "Full", label: "Stack" },
+            { value: `${t.webPortfolio.length}`, label: t.ui.webPortfolio.websites },
+            { value: "AI", label: t.ui.webPortfolio.powered },
+            { value: "Full", label: t.ui.webPortfolio.stack },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

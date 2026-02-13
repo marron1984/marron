@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import LanguageProvider from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "吉田 俊輔 (Marron) | Serial Entrepreneur & Social Problem Solver",
@@ -46,7 +47,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-background">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

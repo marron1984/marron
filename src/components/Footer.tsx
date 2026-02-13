@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { personalInfo } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
 import { useRef } from "react";
 
 /* ---- Magnetic Link ---- */
@@ -49,6 +49,7 @@ function MagneticLink({
 }
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="relative border-t border-line/50 px-6 py-16">
       {/* Subtle top glow */}
@@ -72,22 +73,16 @@ export default function Footer() {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
           >
             <p className="text-lg font-bold text-foreground">
-              {personalInfo.nameJa}
+              {t.personalInfo.nameJa}
             </p>
             <p className="mt-1 text-sm text-dimmer">
-              {personalInfo.nameEn} / {personalInfo.alias}
+              {t.personalInfo.nameEn} / {t.personalInfo.alias}
             </p>
           </motion.div>
 
           {/* Nav with magnetic links */}
           <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
-            {[
-              { label: "Portfolio", href: "#portfolio" },
-              { label: "History", href: "#history" },
-              { label: "Philosophy", href: "#philosophy" },
-              { label: "Gallery", href: "#gallery" },
-              { label: "Contact", href: "#contact" },
-            ].map((link) => (
+            {t.ui.footer.navLinks.map((link) => (
               <MagneticLink key={link.href} href={link.href}>
                 {link.label}
               </MagneticLink>
@@ -102,7 +97,7 @@ export default function Footer() {
             transition={{ delay: 0.5 }}
             className="text-xs text-dimmest"
           >
-            &copy; {new Date().getFullYear()} {personalInfo.alias}. All rights
+            &copy; {new Date().getFullYear()} {t.personalInfo.alias}. All rights
             reserved.
           </motion.p>
         </motion.div>

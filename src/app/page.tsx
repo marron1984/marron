@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import MouseBackground from "@/components/MouseBackground";
 import PageLoader from "@/components/PageLoader";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Timeline from "@/components/Timeline";
@@ -26,6 +27,7 @@ export default function Home() {
       <PageLoader />
       <MouseBackground />
       <ThemeToggle />
+      <LanguageSwitcher />
 
       {/* Scroll progress bar */}
       <motion.div

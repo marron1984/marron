@@ -8,20 +8,23 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import { timeline } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
+import type { TimelineEvent } from "@/i18n/types";
 import { Circle, Zap } from "lucide-react";
 
 function TimelineItem({
   event,
   index,
+  total,
   scrollProgress,
 }: {
-  event: (typeof timeline)[0];
+  event: TimelineEvent;
   index: number;
+  total: number;
   scrollProgress: number;
 }) {
   const isEven = index % 2 === 0;
-  const itemThreshold = index / timeline.length;
+  const itemThreshold = index / total;
   const isActive = scrollProgress > itemThreshold;
 
   return (
@@ -192,6 +195,7 @@ function TimelineItem({
 }
 
 export default function Timeline() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -233,7 +237,7 @@ export default function Timeline() {
             transition={{ duration: 1.5 }}
             className="mb-4 block text-sm uppercase text-marron"
           >
-            History
+            {t.ui.history.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -247,7 +251,7 @@ export default function Timeline() {
             }}
             className="text-3xl font-bold text-foreground md:text-5xl"
           >
-            The Journey
+            {t.ui.history.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, filter: "blur(4px)" }}
@@ -256,7 +260,7 @@ export default function Timeline() {
             transition={{ delay: 0.4 }}
             className="mt-4 text-muted"
           >
-            2001 &mdash; Present
+            {t.ui.history.subtitle}
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -306,11 +310,12 @@ export default function Timeline() {
           </div>
 
           <div className="space-y-14 pl-10 md:space-y-20 md:pl-0">
-            {timeline.map((event, index) => (
+            {t.timeline.map((event, index) => (
               <TimelineItem
                 key={event.title}
                 event={event}
                 index={index}
+                total={t.timeline.length}
                 scrollProgress={progress}
               />
             ))}

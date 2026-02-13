@@ -8,7 +8,7 @@ import {
   useScroll,
 } from "framer-motion";
 import Image from "next/image";
-import { personalInfo } from "@/constants/data";
+import { useLanguage } from "./LanguageProvider";
 import { Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -163,6 +163,7 @@ function StatCounter({
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
   /* ---- Mouse parallax for photo (magnetic effect) ---- */
@@ -287,7 +288,7 @@ export default function Hero() {
             <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-marron/50 shadow-2xl shadow-marron/20 md:h-48 md:w-48">
               <Image
                 src="/profile.jpeg"
-                alt={personalInfo.nameJa}
+                alt={t.personalInfo.nameJa}
                 fill
                 className="object-cover object-top"
                 priority
@@ -327,7 +328,7 @@ export default function Hero() {
             <Sparkles className="h-4 w-4 text-marron" />
           </motion.div>
           <TextScramble
-            text={personalInfo.alias}
+            text={t.personalInfo.alias}
             className="text-sm font-medium tracking-[0.2em] text-marron"
             delay={0.8}
           />
@@ -335,7 +336,7 @@ export default function Hero() {
 
         {/* Name */}
         <h1 className="mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
-          <SplitText text={personalInfo.nameJa} delay={0.9} />
+          <SplitText text={t.personalInfo.nameJa} delay={0.9} />
         </h1>
 
         {/* English name with scramble */}
@@ -345,7 +346,7 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 1.4 }}
           className="mb-6 text-lg text-muted md:text-xl"
         >
-          <TextScramble text={personalInfo.nameEn} className="" delay={1.5} />
+          <TextScramble text={t.personalInfo.nameEn} className="" delay={1.5} />
         </motion.p>
 
         {/* Catchphrase */}
@@ -361,7 +362,7 @@ export default function Hero() {
             }}
             className="animate-shimmer bg-gradient-to-r from-foreground via-marron to-foreground bg-clip-text text-2xl font-bold text-transparent md:text-4xl"
           >
-            {personalInfo.catchphrase}
+            {t.personalInfo.catchphrase}
           </motion.p>
         </div>
 
@@ -371,7 +372,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 2.0 }}
           className="mx-auto mb-6 max-w-3xl text-lg leading-relaxed text-secondary md:text-xl"
         >
-          {personalInfo.subcatchphrase}
+          {t.personalInfo.subcatchphrase}
         </motion.p>
 
         {/* Core identity */}
@@ -381,12 +382,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 2.2 }}
           className="mx-auto mb-14 max-w-2xl text-sm leading-relaxed text-dim md:text-base"
         >
-          {personalInfo.coreIdentity}
+          {t.personalInfo.coreIdentity}
         </motion.p>
 
         {/* Stats */}
         <div className="mb-14 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
-          {personalInfo.stats.map((stat, i) => (
+          {t.personalInfo.stats.map((stat, i) => (
             <StatCounter
               key={stat.label}
               value={stat.value}
@@ -404,9 +405,9 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-4"
         >
           {[
-            personalInfo.birthDate,
-            personalInfo.origin,
-            `趣味：${personalInfo.hobby}`,
+            t.personalInfo.birthDate,
+            t.personalInfo.origin,
+            `趣味：${t.personalInfo.hobby}`,
           ].map((info, i) => (
             <motion.span
               key={info}
@@ -438,7 +439,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 3.4 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-5"
         >
-          {personalInfo.keywords.map((keyword, i) => (
+          {t.personalInfo.keywords.map((keyword, i) => (
             <motion.span
               key={keyword}
               initial={{ opacity: 0, scale: 0, rotate: -20 }}
@@ -483,7 +484,7 @@ export default function Hero() {
               transition={{ duration: 2, repeat: Infinity }}
               className="text-[10px] uppercase tracking-[0.3em] text-marron/40"
             >
-              Scroll
+              {t.ui.scroll}
             </motion.span>
             <div className="relative h-10 w-[2px]">
               <motion.div
