@@ -23,6 +23,27 @@ export const personalInfo = {
   ],
 } as const;
 
+export interface WebSite {
+  name: string;
+  url: string;
+  domain: string;
+  tag: string;
+}
+
+export const webPortfolio: WebSite[] = [
+  { name: "Kanoya", url: "https://kanoya.vercel.app/", domain: "kanoya.vercel.app", tag: "旅館" },
+  { name: "Nara Kasuga", url: "https://www.instagram.com/stories/narakasuga/3831596670253123007?utm_source=ig_story_item_share&igsh=MWtqMnV3bjl0bDNtaw==", domain: "instagram.com", tag: "SNS" },
+  { name: "DHP Hospitality", url: "https://dhp-hospi.com/ja", domain: "dhp-hospi.com", tag: "ホスピタリティ" },
+  { name: "焼肉 Arata", url: "https://yakiniku-arata.com/", domain: "yakiniku-arata.com", tag: "飲食" },
+  { name: "Hero", url: "https://hero-tau-pink.vercel.app/", domain: "hero-tau-pink.vercel.app", tag: "LP" },
+  { name: "退職サービス", url: "https://taishoku-delta.vercel.app/", domain: "taishoku-delta.vercel.app", tag: "サービス" },
+  { name: "Holy Ko", url: "https://holy-ko.vercel.app/", domain: "holy-ko.vercel.app", tag: "LP" },
+  { name: "AA Adapt", url: "https://aa-adapt.com/", domain: "aa-adapt.com", tag: "コーポレート" },
+  { name: "IPLPF", url: "https://iplpf.vercel.app/", domain: "iplpf.vercel.app", tag: "プラットフォーム" },
+  { name: "AA 介護", url: "https://www.aa-kaigo.com/", domain: "aa-kaigo.com", tag: "介護" },
+  { name: "AA 求人", url: "https://aa-kyujin2.vercel.app/", domain: "aa-kyujin2.vercel.app", tag: "求人" },
+];
+
 export interface PortfolioItem {
   company: string;
   role: string;
