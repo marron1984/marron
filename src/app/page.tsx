@@ -8,6 +8,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Timeline from "@/components/Timeline";
+import ContactInfo from "@/components/ContactInfo";
 import Achievements from "@/components/Achievements";
 import Philosophy from "@/components/Philosophy";
 import WebPortfolio from "@/components/WebPortfolio";
@@ -49,7 +50,7 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
         </motion.div>
 
-        <Contact />
+        <ContactInfo />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -116,6 +117,17 @@ export default function Home() {
         </motion.div>
 
         <Gallery />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-xl px-6"
+        >
+          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
+        </motion.div>
+
+        <Contact />
       </main>
       <Footer />
     </div>
