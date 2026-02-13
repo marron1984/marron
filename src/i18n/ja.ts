@@ -71,7 +71,7 @@ const ja: SiteLocale = {
       span: "normal",
     },
     {
-      company: "dhpリゾート開発",
+      company: "株式会社dhpリゾート開発",
       role: "執行役員",
       description: "Staytousブランド・奈良の高級旅館運営",
       longDescription:
@@ -82,7 +82,7 @@ const ja: SiteLocale = {
       group: "DHPグループ",
     },
     {
-      company: "dhpケアマネジメント",
+      company: "株式会社dhpケアマネジメント",
       role: "代表取締役",
       description: "訪問介護看護・高齢者向け不動産開発",
       longDescription:
@@ -93,7 +93,7 @@ const ja: SiteLocale = {
       group: "DHPグループ",
     },
     {
-      company: "dhp都市開発",
+      company: "株式会社dhp都市開発",
       role: "執行役員・新規事業推進担当",
       description: "マリオットグループ等の高級リゾート開発・ヴィラ開発",
       longDescription:
@@ -104,7 +104,7 @@ const ja: SiteLocale = {
       group: "DHPグループ",
     },
     {
-      company: "株式会社DHPホスピタリティ",
+      company: "株式会社dhpホスピタリティ",
       role: "取締役",
       description: "独自ブランド宿泊施設運営・宿坊和風ホテル・大手MF",
       longDescription:
