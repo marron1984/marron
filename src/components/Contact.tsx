@@ -10,9 +10,6 @@ import {
   MessageSquare,
   Building,
   ArrowRight,
-  Phone,
-  MapPin,
-  Home,
   Heart,
 } from "lucide-react";
 import { useRef } from "react";
@@ -175,28 +172,6 @@ export default function Contact() {
         >
           {[
             {
-              icon: Phone,
-              label: t.ui.contact.phoneLabel,
-              value: t.ui.contact.phone,
-              href: `tel:${t.ui.contact.phone.replace(/-/g, "")}`,
-            },
-            {
-              icon: Mail,
-              label: "Email",
-              value: t.ui.contact.emailAddress,
-              href: `mailto:${t.ui.contact.emailAddress}`,
-            },
-            {
-              icon: MapPin,
-              label: t.ui.contact.addressLabel,
-              value: t.ui.contact.address,
-            },
-            {
-              icon: Home,
-              label: t.ui.contact.residenceLabel,
-              value: t.ui.contact.residence,
-            },
-            {
               icon: Heart,
               label: t.ui.contact.familyLabel,
               value: t.ui.contact.family,
@@ -217,18 +192,9 @@ export default function Contact() {
                   {item.label}
                 </span>
               </div>
-              {item.href ? (
-                <a
-                  href={item.href}
-                  className="text-sm text-foreground transition-colors hover:text-marron"
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <p className="text-sm leading-relaxed text-foreground">
-                  {item.value}
-                </p>
-              )}
+              <p className="text-sm leading-relaxed text-foreground">
+                {item.value}
+              </p>
             </motion.div>
           ))}
         </motion.div>
