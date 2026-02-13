@@ -379,7 +379,7 @@ const en: SiteLocale = {
       title: "Get in Touch",
       subtitle: "Feel free to reach out",
       phoneLabel: "Phone",
-      phone: "070-9003-1984",
+      phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
       addressLabel: "Office Address",
       address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",

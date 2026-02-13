@@ -447,7 +447,7 @@ const uz: SiteLocale = {
       title: "Biz bilan bog'laning",
       subtitle: "Bemalol murojaat qiling",
       phoneLabel: "Telefon raqami",
-      phone: "070-9003-1984",
+      phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
       addressLabel: "Ofis manzili",
       address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",
