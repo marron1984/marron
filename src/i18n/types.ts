@@ -57,6 +57,10 @@ export interface SiteLocale {
   webPortfolio: WebSite[];
   portfolio: PortfolioItem[];
   timeline: TimelineEvent[];
+  achievements: {
+    category: string;
+    items: string[];
+  }[];
   philosophy: {
     mainQuote: string;
     subtext: string;
@@ -75,6 +79,10 @@ export interface SiteLocale {
       label: string;
       title: string;
       subtitle: string;
+    };
+    achievements: {
+      label: string;
+      title: string;
     };
     philosophy: {
       label: string;

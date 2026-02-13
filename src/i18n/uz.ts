@@ -305,6 +305,65 @@ const uz: SiteLocale = {
       highlight: true,
     },
   ],
+  achievements: [
+    {
+      category: "Men oroli",
+      items: [
+        "Ishlab chiqish rahbari sifatida Men oroli hukumati bilan bevosita muzokaralar olib borib, moliyaviy litsenziya olish, kompaniya tashkil etish, soliq optimallashtirish va onlayn biznesni keng qamrovli ishlab chiqish va boshqarishni amalga oshirdi.",
+      ],
+    },
+    {
+      category: "Itai kostyum (Anime kostyum)",
+      items: [
+        "Seed bosqichidagi fonddan investitsiya jalb qilish, Parij Japan Expo ko'rgazmasida ishtirok etishni qo'llab-quvvatlash va xalqaro biznesni kengaytirish.",
+      ],
+    },
+    {
+      category: "Media",
+      items: [
+        "Bepul jurnalni rejalashtirish, ishga tushirish va boshqarish.",
+        "\"Jisha NOW\" jurnalining rejalashtirish, tahrirlash va nashr etish mas'uli sifatida butun Yaponiya bo'ylab 15,000 ta ma'bad va ibodatxonaga har oylik tarqatishni boshqarish.",
+      ],
+    },
+    {
+      category: "Tadbirlar va tashkilotlar",
+      items: [
+        "Osaka Minamida san'at tadbirlarini rejalashtirish va ishga tushirish; ma'bad turizm assotsiatsiyasini tashkil etish va boshqarish.",
+      ],
+    },
+    {
+      category: "IT",
+      items: [
+        "Ijara server biznesini ishga tushirish, SEO konsalting kompaniyasini boshqarishda ishtirok etish.",
+      ],
+    },
+    {
+      category: "Moliya",
+      items: [
+        "Investitsiya fondlarini ishlab chiqish va boshqarish.",
+      ],
+    },
+    {
+      category: "Ovqatlanish",
+      items: [
+        "Aeon Group ovqatlanish biznesini sotib olish va boshqarish.",
+        "Parvarish muassasalari va uy sharoitidagi parvarish oluvchilar uchun maxsus bento yetkazib berish xizmatini tashkil etish, parvarish ovqati operatsiyasini yaratish, muassasa ichidagi oshxonani tashkil etishni qo'llab-quvvatlash.",
+      ],
+    },
+    {
+      category: "Ko'chmas mulk",
+      items: [
+        "Daromad keltiradigan ko'chmas mulk savdosi, xorijdagi kovorking bizneslarini ishlab chiqish (Gonkong, Manila, Osaka, Tokyo va boshqalar).",
+      ],
+    },
+    {
+      category: "Mehmonxona",
+      items: [
+        "Mashhur ma'badlar (Horyuji, Shitennoji, Naritasan Shinshoji, Miidera) bilan hamkorlikda shukubo yapon uslubidagi mehmonxona loyihasini amalga oshirish.",
+        "Yer sotib olishdan qurilish, brend yaratish va operatsiyalargacha yaxlit biznes ishlab chiqish va ko'p joyda kengaytirish.",
+      ],
+    },
+  ],
   philosophy: {
     mainQuote:
       "Muvaffaqiyat — omad, uchrashuvlar va vaqtga bog'liq, ammo muvaffaqiyatsizlik takrorlanish xususiyatiga ega",
@@ -361,6 +420,10 @@ const uz: SiteLocale = {
       title: "Hayot yo'li",
       subtitle: "2000 — Hozir",
     },
+    achievements: {
+      label: "Yutuqlar",
+      title: "Asosiy biznes yutuqlari",
+    },
     philosophy: {
       label: "Falsafa",
       title: "E'tiqod",
@@ -411,6 +474,7 @@ const uz: SiteLocale = {
       navLinks: [
         { label: "Portfolio", href: "#portfolio" },
         { label: "Tarix", href: "#history" },
+        { label: "Yutuqlar", href: "#achievements" },
         { label: "Falsafa", href: "#philosophy" },
         { label: "Galereya", href: "#gallery" },
         { label: "Aloqa", href: "#contact" },

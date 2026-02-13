@@ -238,6 +238,65 @@ const ja: SiteLocale = {
       highlight: true,
     },
   ],
+  achievements: [
+    {
+      category: "マン島事業",
+      items: [
+        "開発責任者として、マン島政府との直接交渉による金融ライセンス取得、法人設立、税務最適化、オンライン事業の包括的開発・運営を主導。",
+      ],
+    },
+    {
+      category: "痛スーツ事業",
+      items: [
+        "シードラウンドのファンドからの出資アレンジメント、パリジャパンEXPOでの出展支援、国際ビジネス展開。",
+      ],
+    },
+    {
+      category: "メディア事業",
+      items: [
+        "フリーペーパーの企画・立ち上げ・運営。",
+        "「寺社NOW」の企画・編集・発行責任者として、全国1.5万箇所の寺社への毎月の配布を統括。",
+      ],
+    },
+    {
+      category: "イベント・団体",
+      items: [
+        "大阪ミナミでのアートイベントの企画・立ち上げ、寺社観光協会の立ち上げ・運営。",
+      ],
+    },
+    {
+      category: "IT事業",
+      items: [
+        "レンタルサーバー事業の立ち上げ、SEO対策会社の経営参画。",
+      ],
+    },
+    {
+      category: "金融事業",
+      items: [
+        "投資ファンドの開発・運営。",
+      ],
+    },
+    {
+      category: "飲食事業",
+      items: [
+        "イオングループ飲食事業の買収・運営。",
+        "介護施設・在宅介護者専門のお弁当事業立ち上げ、介護食オペレーション構築、施設内給食室の立ち上げ支援。",
+      ],
+    },
+    {
+      category: "不動産事業",
+      items: [
+        "収益不動産の売買、海外コワーキング事業の開発（香港・マニラ・大阪・東京等）。",
+      ],
+    },
+    {
+      category: "ホテル事業",
+      items: [
+        "有名寺院（法隆寺・四天王寺・成田山新勝寺・三井寺）と協業した宿坊和風ホテル事業の展開。",
+        "底地購入から建築、ブランド構築、オペレーションまで一貫した事業開発と多拠点展開。",
+      ],
+    },
+  ],
   philosophy: {
     mainQuote: "成功は運や出会い、タイミングだけど、失敗は再現性が高い",
     subtext:
@@ -293,6 +352,10 @@ const ja: SiteLocale = {
       title: "The Journey",
       subtitle: "2000 — Present",
     },
+    achievements: {
+      label: "Track Record",
+      title: "主な事業実績",
+    },
     philosophy: {
       label: "Philosophy",
       title: "信念",
@@ -343,6 +406,7 @@ const ja: SiteLocale = {
       navLinks: [
         { label: "Portfolio", href: "#portfolio" },
         { label: "History", href: "#history" },
+        { label: "Track Record", href: "#achievements" },
         { label: "Philosophy", href: "#philosophy" },
         { label: "Gallery", href: "#gallery" },
         { label: "Contact", href: "#contact" },

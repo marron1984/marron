@@ -238,6 +238,65 @@ const en: SiteLocale = {
       highlight: true,
     },
   ],
+  achievements: [
+    {
+      category: "Isle of Man",
+      items: [
+        "As development lead, spearheaded direct negotiations with the Isle of Man government for financial license acquisition, company establishment, tax optimization, and comprehensive online business development and operations.",
+      ],
+    },
+    {
+      category: "Itai Suit (Anime Suit)",
+      items: [
+        "Arranged seed-round fund investment, supported exhibition at Paris Japan Expo, and drove international business expansion.",
+      ],
+    },
+    {
+      category: "Media",
+      items: [
+        "Planned, launched, and operated a free paper publication.",
+        "As planning, editorial, and publishing director of 'Jisha NOW', oversaw monthly distribution to 15,000 temples and shrines nationwide.",
+      ],
+    },
+    {
+      category: "Events & Organizations",
+      items: [
+        "Planned and launched art events in Osaka Minami; established and operated a temple and shrine tourism association.",
+      ],
+    },
+    {
+      category: "IT",
+      items: [
+        "Launched a rental server business and participated in managing an SEO consulting company.",
+      ],
+    },
+    {
+      category: "Finance",
+      items: [
+        "Developed and operated investment funds.",
+      ],
+    },
+    {
+      category: "Food & Beverage",
+      items: [
+        "Acquired and operated Aeon Group's F&B business.",
+        "Launched a bento delivery service specializing in care facilities and home care recipients; built care food operations and supported in-facility kitchen setup.",
+      ],
+    },
+    {
+      category: "Real Estate",
+      items: [
+        "Bought and sold income-generating properties; developed overseas co-working spaces (Hong Kong, Manila, Osaka, Tokyo, etc.).",
+      ],
+    },
+    {
+      category: "Hotels",
+      items: [
+        "Developed temple-stay Japanese-style hotel business in collaboration with renowned temples (Horyuji, Shitennoji, Naritasan Shinshoji, Miidera).",
+        "End-to-end business development from land acquisition to construction, branding, and operations across multiple locations.",
+      ],
+    },
+  ],
   philosophy: {
     mainQuote: "Success depends on luck, connections, and timing \u2014 but failure is highly reproducible.",
     subtext:
@@ -293,6 +352,10 @@ const en: SiteLocale = {
       title: "The Journey",
       subtitle: "2000 \u2014 Present",
     },
+    achievements: {
+      label: "Track Record",
+      title: "Key Achievements",
+    },
     philosophy: {
       label: "Philosophy",
       title: "Beliefs",
@@ -343,6 +406,7 @@ const en: SiteLocale = {
       navLinks: [
         { label: "Portfolio", href: "#portfolio" },
         { label: "History", href: "#history" },
+        { label: "Track Record", href: "#achievements" },
         { label: "Philosophy", href: "#philosophy" },
         { label: "Gallery", href: "#gallery" },
         { label: "Contact", href: "#contact" },
