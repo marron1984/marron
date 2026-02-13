@@ -97,6 +97,15 @@ export interface SiteLocale {
       label: string;
       title: string;
       subtitle: string;
+      phoneLabel: string;
+      phone: string;
+      emailAddress: string;
+      addressLabel: string;
+      address: string;
+      residenceLabel: string;
+      residence: string;
+      familyLabel: string;
+      family: string;
       nameLabel: string;
       namePlaceholder: string;
       companyLabel: string;
