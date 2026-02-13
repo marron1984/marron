@@ -8,8 +8,8 @@ import {
   useScroll,
 } from "framer-motion";
 import Image from "next/image";
-import { personalInfo, webPortfolio } from "@/constants/data";
-import { Sparkles, ExternalLink, Globe } from "lucide-react";
+import { personalInfo } from "@/constants/data";
+import { Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 /* ---- Text Scramble Effect ---- */
@@ -162,111 +162,6 @@ function StatCounter({
   );
 }
 
-/* ---- Web Portfolio Card ---- */
-function WebPortfolioCard({
-  site,
-  index,
-}: {
-  site: (typeof webPortfolio)[number];
-  index: number;
-}) {
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const springMx = useSpring(mx, { stiffness: 300, damping: 20 });
-  const springMy = useSpring(my, { stiffness: 300, damping: 20 });
-
-  const handleMouse = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    mx.set((e.clientX - rect.left) / rect.width - 0.5);
-    my.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handleLeave = () => {
-    mx.set(0);
-    my.set(0);
-  };
-
-  const rotateX = useTransform(springMy, [-0.5, 0.5], [6, -6]);
-  const rotateY = useTransform(springMx, [-0.5, 0.5], [-6, 6]);
-  const glowX = useTransform(springMx, [-0.5, 0.5], [0, 100]);
-  const glowY = useTransform(springMy, [-0.5, 0.5], [0, 100]);
-
-  return (
-    <motion.a
-      ref={cardRef}
-      href={site.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 30, scale: 0.8, rotateX: -15 }}
-      animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-      transition={{
-        duration: 0.7,
-        delay: 1.5 + index * 0.08,
-        type: "spring",
-        stiffness: 120,
-        damping: 14,
-      }}
-      whileHover={{
-        scale: 1.05,
-        y: -4,
-        transition: { type: "spring", stiffness: 400, damping: 15 },
-      }}
-      whileTap={{ scale: 0.97 }}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformPerspective: 600,
-      }}
-      className="group relative block overflow-hidden rounded-xl border border-[#564F48]/60 bg-[#1A1816]/80 px-4 py-3 backdrop-blur-sm transition-colors duration-300 hover:border-[#EDAB62]/50"
-    >
-      {/* Dynamic glow following mouse */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: useTransform(
-            [glowX, glowY],
-            ([x, y]) =>
-              `radial-gradient(circle at ${x}% ${y}%, rgba(237,171,98,0.12) 0%, transparent 60%)`
-          ),
-        }}
-      />
-
-      {/* Shine sweep */}
-      <div className="pointer-events-none absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
-
-      <div className="relative flex items-center gap-3">
-        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#EDAB62]/10 transition-colors duration-300 group-hover:bg-[#EDAB62]/20">
-          <Globe className="h-3.5 w-3.5 text-[#EDAB62]/70 transition-colors duration-300 group-hover:text-[#EDAB62]" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2">
-            <p className="truncate text-sm font-medium text-[#FDFBF7] transition-colors duration-300 group-hover:text-[#EDAB62]">
-              {site.name}
-            </p>
-            <span className="flex-shrink-0 rounded-full bg-[#EDAB62]/10 px-2 py-0.5 text-[10px] font-medium text-[#EDAB62]/80">
-              {site.tag}
-            </span>
-          </div>
-          <p className="truncate text-[11px] text-[#8C8780] transition-colors duration-300 group-hover:text-[#B8B2AC]">
-            {site.domain}
-          </p>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, x: -5 }}
-          whileHover={{ opacity: 1, x: 0 }}
-          className="flex-shrink-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        >
-          <ExternalLink className="h-3.5 w-3.5 text-[#EDAB62]" />
-        </motion.div>
-      </div>
-    </motion.a>
-  );
-}
-
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -332,167 +227,85 @@ export default function Hero() {
 
       <motion.div
         style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
-        className="relative z-10 mx-auto max-w-6xl text-center"
+        className="relative z-10 mx-auto max-w-5xl text-center"
       >
-        {/* ===== Photo + Web Portfolio side-by-side ===== */}
-        <div className="mb-12 flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:justify-center lg:gap-16">
-          {/* Profile photo with magnetic 3D effect */}
+        {/* Profile photo with magnetic 3D effect */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{
+            duration: 1.2,
+            delay: 0.3,
+            type: "spring",
+            stiffness: 80,
+            damping: 12,
+          }}
+          className="mb-12 flex justify-center"
+          style={{ perspective: "800px" }}
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{
-              duration: 1.2,
-              delay: 0.3,
-              type: "spring",
-              stiffness: 80,
-              damping: 12,
+            className="relative"
+            style={{
+              x: photoX,
+              y: photoY,
+              rotateX: photoRotateX,
+              rotateY: photoRotateY,
             }}
-            className="flex flex-shrink-0 justify-center"
-            style={{ perspective: "800px" }}
           >
+            {/* Pulse rings */}
             <motion.div
-              className="relative"
-              style={{
-                x: photoX,
-                y: photoY,
-                rotateX: photoRotateX,
-                rotateY: photoRotateY,
+              animate={{ scale: [1, 1.4, 1.4], opacity: [0.5, 0, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
+              className="absolute -inset-4 rounded-full border-2 border-[#EDAB62]/30"
+            />
+            <motion.div
+              animate={{ scale: [1, 1.6, 1.6], opacity: [0.3, 0, 0] }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeOut",
+                delay: 0.5,
               }}
-            >
-              {/* Pulse rings */}
-              <motion.div
-                animate={{ scale: [1, 1.4, 1.4], opacity: [0.5, 0, 0] }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                }}
-                className="absolute -inset-4 rounded-full border-2 border-[#EDAB62]/30"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.6, 1.6], opacity: [0.3, 0, 0] }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                  delay: 0.5,
-                }}
-                className="absolute -inset-4 rounded-full border border-[#6090E8]/20"
-              />
+              className="absolute -inset-4 rounded-full border border-[#6090E8]/20"
+            />
 
-              {/* Animated outer glow */}
+            {/* Animated outer glow */}
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                opacity: [0.5, 0.9, 0.5],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-3 rounded-full bg-gradient-to-br from-[#EDAB62]/60 via-[#EDAB62]/20 to-[#6090E8]/40 blur-lg"
+            />
+
+            {/* Spinning rings */}
+            <div className="animate-spin-slow absolute -inset-6 rounded-full border border-dashed border-[#EDAB62]/15" />
+            <div className="animate-spin-reverse absolute -inset-10 rounded-full border border-dotted border-[#6090E8]/10" />
+
+            {/* Photo */}
+            <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-[#EDAB62]/50 shadow-2xl shadow-[#EDAB62]/20 md:h-48 md:w-48">
+              <Image
+                src="/profile.jpeg"
+                alt={personalInfo.nameJa}
+                fill
+                className="object-cover object-top"
+                priority
+              />
+              {/* Scan line effect */}
               <motion.div
-                animate={{
-                  scale: [1, 1.08, 1],
-                  opacity: [0.5, 0.9, 0.5],
-                }}
+                animate={{ y: ["-100%", "200%"] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -inset-3 rounded-full bg-gradient-to-br from-[#EDAB62]/60 via-[#EDAB62]/20 to-[#6090E8]/40 blur-lg"
-              />
-
-              {/* Spinning rings */}
-              <div className="animate-spin-slow absolute -inset-6 rounded-full border border-dashed border-[#EDAB62]/15" />
-              <div className="animate-spin-reverse absolute -inset-10 rounded-full border border-dotted border-[#6090E8]/10" />
-
-              {/* Photo */}
-              <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-[#EDAB62]/50 shadow-2xl shadow-[#EDAB62]/20 md:h-48 md:w-48">
-                <Image
-                  src="/profile.jpeg"
-                  alt={personalInfo.nameJa}
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-                {/* Scan line effect */}
-                <motion.div
-                  animate={{ y: ["-100%", "200%"] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatDelay: 4,
-                  }}
-                  className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#EDAB62]/40 to-transparent"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Web Portfolio Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 1,
-              delay: 1.0,
-              type: "spring",
-              stiffness: 60,
-              damping: 15,
-            }}
-            className="w-full max-w-md lg:max-w-lg"
-          >
-            {/* Portfolio header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="mb-4 flex items-center gap-3"
-            >
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
                   ease: "linear",
+                  repeatDelay: 4,
                 }}
-                className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#EDAB62]/30 bg-[#EDAB62]/10"
-              >
-                <Globe className="h-3.5 w-3.5 text-[#EDAB62]" />
-              </motion.div>
-              <div>
-                <h3 className="text-sm font-semibold text-[#FDFBF7]">
-                  Web Portfolio
-                </h3>
-                <p className="text-[11px] text-[#8C8780]">
-                  AI-crafted websites &middot; {webPortfolio.length} sites
-                </p>
-              </div>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1, delay: 1.4, ease: [0.22, 1, 0.36, 1] as const }}
-                className="ml-auto h-[1px] flex-1 bg-gradient-to-r from-[#EDAB62]/30 to-transparent"
+                className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#EDAB62]/40 to-transparent"
               />
-            </motion.div>
-
-            {/* Portfolio cards */}
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {webPortfolio.map((site, i) => (
-                <WebPortfolioCard key={site.domain} site={site} index={i} />
-              ))}
             </div>
-
-            {/* Bottom decoration */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5 }}
-              className="mt-3 text-center"
-            >
-              <motion.p
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="text-[10px] uppercase tracking-[0.2em] text-[#635C56]"
-              >
-                Hover to explore &middot; Click to visit
-              </motion.p>
-            </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Alias badge */}
         <motion.div
