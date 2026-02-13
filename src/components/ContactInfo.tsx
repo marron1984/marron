@@ -13,11 +13,20 @@ export default function ContactInfo() {
       label: t.ui.contact.phoneLabel,
       value: t.ui.contact.phone,
       href: `tel:${t.ui.contact.phone.replace(/-/g, "")}`,
-      extra: {
-        icon: MessageCircle,
-        label: "LINE Works",
-        href: "https://works.do/R/ti/p/syoshida@aaworks",
-      },
+      extras: [
+        {
+          icon: MessageCircle,
+          label: "LINE Works",
+          href: "https://works.do/R/ti/p/syoshida@aaworks",
+          color: "#00C73C",
+        },
+        {
+          icon: MessageCircle,
+          label: "LINE",
+          href: "https://line.me/ti/p/0F2Yv5Je6b",
+          color: "#06C755",
+        },
+      ],
     },
     {
       icon: Mail,
@@ -69,16 +78,22 @@ export default function ContactInfo() {
                   {item.value}
                 </p>
               )}
-              {"extra" in item && item.extra && (
-                <a
-                  href={item.extra.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-[#00C73C]/10 px-3 py-1.5 text-xs font-medium text-[#00C73C] transition-colors hover:bg-[#00C73C]/20"
-                >
-                  <item.extra.icon className="h-3.5 w-3.5" />
-                  {item.extra.label}
-                </a>
+              {"extras" in item && item.extras && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {item.extras.map((ex, i) => (
+                    <a
+                      key={i}
+                      href={ex.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: ex.color, backgroundColor: `${ex.color}15` }}
+                      className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-75"
+                    >
+                      <ex.icon className="h-3.5 w-3.5" />
+                      {ex.label}
+                    </a>
+                  ))}
+                </div>
               )}
             </motion.div>
           ))}
