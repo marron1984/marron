@@ -2,7 +2,7 @@
 
 import { useLanguage } from "./LanguageProvider";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export default function ContactInfo() {
   const { t } = useLanguage();
@@ -13,6 +13,11 @@ export default function ContactInfo() {
       label: t.ui.contact.phoneLabel,
       value: t.ui.contact.phone,
       href: `tel:${t.ui.contact.phone.replace(/-/g, "")}`,
+      extra: {
+        icon: MessageCircle,
+        label: "LINE Works",
+        href: "https://works.do/R/ti/p/syoshida@aaworks",
+      },
     },
     {
       icon: Mail,
@@ -63,6 +68,17 @@ export default function ContactInfo() {
                 <p className="text-sm leading-relaxed text-foreground">
                   {item.value}
                 </p>
+              )}
+              {"extra" in item && item.extra && (
+                <a
+                  href={item.extra.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-[#00C73C]/10 px-3 py-1.5 text-xs font-medium text-[#00C73C] transition-colors hover:bg-[#00C73C]/20"
+                >
+                  <item.extra.icon className="h-3.5 w-3.5" />
+                  {item.extra.label}
+                </a>
               )}
             </motion.div>
           ))}
