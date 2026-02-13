@@ -28,9 +28,23 @@ export default function LanguageSwitcher() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 15 }}
-        whileHover={{ scale: 1.1 }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: [0, -6, 2, -1, 0],
+        }}
+        transition={{
+          opacity: { delay: 0.5, duration: 0.3 },
+          scale: { delay: 0.5, type: "spring", stiffness: 200, damping: 15 },
+          y: {
+            delay: 1.5,
+            duration: 1.8,
+            repeat: Infinity,
+            repeatDelay: 4,
+            ease: "easeInOut",
+          },
+        }}
+        whileHover={{ scale: 1.1, y: 0 }}
         whileTap={{ scale: 0.95 }}
         className="flex h-11 items-center gap-2 rounded-full border border-line bg-surface/80 px-4 shadow-lg backdrop-blur-sm transition-colors duration-300 hover:border-marron/50"
       >

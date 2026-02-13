@@ -11,9 +11,23 @@ export default function ThemeToggle() {
     <motion.button
       onClick={toggleTheme}
       initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 2.5, type: "spring", stiffness: 200, damping: 15 }}
-      whileHover={{ scale: 1.15 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: [0, -6, 2, -1, 0],
+      }}
+      transition={{
+        opacity: { delay: 2.5, duration: 0.3 },
+        scale: { delay: 2.5, type: "spring", stiffness: 200, damping: 15 },
+        y: {
+          delay: 3,
+          duration: 1.8,
+          repeat: Infinity,
+          repeatDelay: 4,
+          ease: "easeInOut",
+        },
+      }}
+      whileHover={{ scale: 1.15, y: 0 }}
       whileTap={{ scale: 0.9 }}
       className="fixed right-6 top-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface/80 shadow-lg backdrop-blur-sm transition-colors duration-300 hover:border-marron/50"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
