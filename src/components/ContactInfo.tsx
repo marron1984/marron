@@ -2,7 +2,7 @@
 
 import { useLanguage } from "./LanguageProvider";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, IdCard } from "lucide-react";
 
 export default function ContactInfo() {
   const { t } = useLanguage();
@@ -25,6 +25,12 @@ export default function ContactInfo() {
           label: "LINE",
           href: "https://line.me/ti/p/0F2Yv5Je6b",
           color: "#06C755",
+        },
+        {
+          icon: IdCard,
+          label: "名刺",
+          href: "https://8card.net/virtual_cards/-fWqt7rpTBlXjBCx4k1Krw",
+          color: "#3B82F6",
         },
       ],
     },
