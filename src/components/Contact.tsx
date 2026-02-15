@@ -74,7 +74,7 @@ export default function Contact() {
   };
 
   const inputClasses =
-    "w-full rounded-xl border border-line bg-elevated px-4 py-3 text-foreground placeholder-dimmest outline-none transition-all duration-300 focus:border-marron/60 focus:shadow-lg focus:shadow-marron/10 focus:ring-1 focus:ring-marron/20";
+    "w-full rounded-xl border border-line bg-elevated px-4 py-3 text-foreground placeholder-dimmest outline-none transition-all duration-500 focus:border-marron/60 focus:shadow-[0_0_30px_-5px_rgba(237,171,98,0.2)] focus:ring-2 focus:ring-marron/20 focus:scale-[1.01] hover:border-marron/30";
 
   const fields = [
     {
@@ -280,16 +280,30 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   whileHover={{
-                    scale: 1.03,
-                    y: -3,
-                    boxShadow: "0 20px 40px rgba(237,171,98,0.3)",
+                    scale: 1.05,
+                    y: -5,
+                    boxShadow: "0 25px 50px rgba(237,171,98,0.35)",
                   }}
-                  whileTap={{ scale: 0.97 }}
+                  whileTap={{ scale: 0.93, rotateX: 5 }}
                   animate={
-                    isSubmitting ? { scale: [1, 0.95, 1] } : undefined
+                    isSubmitting
+                      ? { scale: [1, 0.95, 1] }
+                      : { boxShadow: [
+                          "0 10px 30px rgba(237,171,98,0.2)",
+                          "0 15px 40px rgba(237,171,98,0.3)",
+                          "0 10px 30px rgba(237,171,98,0.2)",
+                        ] }
                   }
-                  className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-marron to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-marron/20 transition-all"
+                  transition={
+                    isSubmitting
+                      ? { duration: 0.3 }
+                      : { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                  }
+                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-marron to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-marron/20 transition-all"
+                  style={{ transformPerspective: 400 }}
                 >
+                  {/* shine sweep */}
+                  <div className="pointer-events-none absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
                   <Send className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                   {t.ui.contact.submitButton}
                   <motion.div
