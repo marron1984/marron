@@ -31,23 +31,25 @@ function TimelineItem({
     <motion.div
       initial={{
         opacity: 0,
-        x: isEven ? -100 : 100,
-        scale: 0.85,
-        filter: "blur(6px)",
+        x: isEven ? -120 : 120,
+        scale: 0.8,
+        rotateY: isEven ? -15 : 15,
+        filter: "blur(8px)",
       }}
       whileInView={{
         opacity: 1,
         x: 0,
         scale: 1,
+        rotateY: 0,
         filter: "blur(0px)",
       }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        duration: 1,
-        delay: index * 0.08,
+        duration: 1.2,
+        delay: index * 0.1,
         type: "spring",
-        stiffness: 60,
-        damping: 15,
+        stiffness: 70,
+        damping: 14,
       }}
       className={`relative flex items-start gap-8 ${
         isEven ? "md:flex-row" : "md:flex-row-reverse"
@@ -61,10 +63,13 @@ function TimelineItem({
       >
         <motion.div
           whileHover={{
-            scale: 1.04,
-            y: -6,
-            rotateY: isEven ? -3 : 3,
-            transition: { type: "spring", stiffness: 300, damping: 15 },
+            scale: 1.06,
+            y: -10,
+            rotateY: isEven ? -5 : 5,
+            boxShadow: event.highlight
+              ? "0 20px 60px -10px rgba(237,171,98,0.25)"
+              : "0 20px 60px -10px rgba(255,255,255,0.08)",
+            transition: { type: "spring", stiffness: 350, damping: 12 },
           }}
           className={`inline-block rounded-2xl border ${
             event.highlight
@@ -97,9 +102,13 @@ function TimelineItem({
             {event.year}
           </motion.span>
 
-          <h3 className="mb-2 text-lg font-bold text-foreground">
+          <motion.h3
+            className="mb-2 text-lg font-bold text-foreground"
+            whileHover={{ x: isEven ? -4 : 4, color: "#EDAB62" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             {event.title}
-          </h3>
+          </motion.h3>
 
           <p className="mb-3 text-sm leading-relaxed text-muted">
             {event.description}
@@ -172,12 +181,20 @@ function TimelineItem({
               }`}
             />
           )}
-          <div
+          <motion.div
             className={`flex h-5 w-5 items-center justify-center rounded-full ${
               event.highlight
                 ? "bg-marron shadow-lg shadow-marron/40"
                 : "bg-dimmest"
             }`}
+            animate={event.highlight ? {
+              boxShadow: [
+                "0 0 0 0 rgba(237,171,98,0.4)",
+                "0 0 0 8px rgba(237,171,98,0)",
+                "0 0 0 0 rgba(237,171,98,0.4)",
+              ],
+            } : undefined}
+            transition={{ duration: 2, repeat: Infinity }}
           >
             <Circle
               className={`h-2 w-2 ${
@@ -185,7 +202,7 @@ function TimelineItem({
               }`}
               fill="currentColor"
             />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 

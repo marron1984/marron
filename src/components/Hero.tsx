@@ -222,6 +222,30 @@ export default function Hero() {
         style={{ animationDelay: "4s" }}
       />
 
+      {/* Floating particles */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className="pointer-events-none absolute h-1 w-1 rounded-full bg-marron/30"
+          style={{
+            left: `${15 + i * 14}%`,
+            top: `${20 + (i % 3) * 25}%`,
+          }}
+          animate={{
+            y: [0, -40, 0],
+            x: [0, (i % 2 === 0 ? 20 : -20), 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.5, 1],
+          }}
+          transition={{
+            duration: 5 + i * 0.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.5,
+          }}
+        />
+      ))}
+
       {/* Radial gradient */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(237,171,98,0.08)_0%,_transparent_70%)]" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
@@ -335,9 +359,13 @@ export default function Hero() {
         </motion.div>
 
         {/* Name */}
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
+        <motion.h1
+          className="mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl"
+          whileHover={{ scale: 1.03, letterSpacing: "0.02em" }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
           <SplitText text={t.personalInfo.nameJa} delay={0.9} />
-        </h1>
+        </motion.h1>
 
         {/* English name with scramble */}
         <motion.p
@@ -352,15 +380,20 @@ export default function Hero() {
         {/* Catchphrase */}
         <div className="mx-auto mb-4 max-w-3xl">
           <motion.p
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 30, scale: 0.9, rotateX: -15 }}
+            animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
             transition={{
               duration: 1,
               delay: 1.8,
               type: "spring",
               stiffness: 100,
             }}
+            whileHover={{
+              scale: 1.05,
+              textShadow: "0 0 30px rgba(237,171,98,0.3)",
+            }}
             className="animate-shimmer bg-gradient-to-r from-foreground via-marron to-foreground bg-clip-text text-2xl font-bold text-transparent md:text-4xl"
+            style={{ transformPerspective: 600 }}
           >
             {t.personalInfo.catchphrase}
           </motion.p>
