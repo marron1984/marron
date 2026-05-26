@@ -6,7 +6,6 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Timeline from "@/components/Timeline";
-import ContactInfo from "@/components/ContactInfo";
 import Achievements from "@/components/Achievements";
 import Philosophy from "@/components/Philosophy";
 import WebPortfolio from "@/components/WebPortfolio";
@@ -35,8 +34,6 @@ export default function Home() {
 
       <main className="relative">
         <Hero />
-        <SectionDivider />
-        <ContactInfo />
         <SectionDivider />
         <Achievements />
         <SectionDivider />
