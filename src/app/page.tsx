@@ -1,8 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
-import MouseBackground from "@/components/MouseBackground";
-import PageLoader from "@/components/PageLoader";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Hero from "@/components/Hero";
@@ -16,117 +14,42 @@ import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
+function SectionDivider() {
   return (
-    <div className="grain-overlay relative min-h-screen bg-background">
-      <PageLoader />
-      <MouseBackground />
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="mx-auto max-w-6xl px-6"
+    >
+      <div className="h-px bg-foreground/8" />
+    </motion.div>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="relative min-h-screen bg-background">
       <ThemeToggle />
       <LanguageSwitcher />
 
-      {/* Scroll progress bar */}
-      <motion.div
-        style={{ scaleX }}
-        className="scroll-progress fixed left-0 right-0 top-0 z-50 h-[2px]"
-      />
-
-      <main className="relative z-10">
+      <main className="relative">
         <Hero />
-
-        {/* Section divider */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <ContactInfo />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <Achievements />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <BentoGrid />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <Timeline />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <Philosophy />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <WebPortfolio />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <Gallery />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-xl px-6"
-        >
-          <div className="h-px bg-gradient-to-r from-transparent via-marron/20 to-transparent" />
-        </motion.div>
-
+        <SectionDivider />
         <Contact />
       </main>
       <Footer />

@@ -10,48 +10,32 @@ export default function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, -6, 2, -1, 0],
-      }}
-      transition={{
-        opacity: { delay: 2.5, duration: 0.3 },
-        scale: { delay: 2.5, type: "spring", stiffness: 200, damping: 15 },
-        y: {
-          delay: 3,
-          duration: 1.8,
-          repeat: Infinity,
-          repeatDelay: 4,
-          ease: "easeInOut",
-        },
-      }}
-      whileHover={{ scale: 1.15, y: 0 }}
-      whileTap={{ scale: 0.9 }}
-      className="fixed right-6 top-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface/80 shadow-lg backdrop-blur-sm transition-colors duration-300 hover:border-marron/50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1, duration: 0.3 }}
+      className="fixed right-6 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 bg-background/80 backdrop-blur-sm transition-colors hover:border-foreground/30"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
       <AnimatePresence mode="wait">
         {theme === "dark" ? (
           <motion.div
             key="sun"
-            initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-            animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.2 }}
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.15 }}
           >
-            <Sun className="h-5 w-5 text-marron" />
+            <Sun className="h-4 w-4 text-foreground" />
           </motion.div>
         ) : (
           <motion.div
             key="moon"
-            initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
-            animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.2 }}
+            initial={{ rotate: 90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: -90, opacity: 0 }}
+            transition={{ duration: 0.15 }}
           >
-            <Moon className="h-5 w-5 text-navy" />
+            <Moon className="h-4 w-4 text-foreground" />
           </motion.div>
         )}
       </AnimatePresence>

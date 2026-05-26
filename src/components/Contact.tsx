@@ -2,16 +2,8 @@
 
 import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {
-  Mail,
-  Send,
-  User,
-  MessageSquare,
-  Building,
-  ArrowRight,
-} from "lucide-react";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { Send, ArrowRight } from "lucide-react";
 
 const MAILTO = "yoshida@aska-g.com";
 
@@ -24,31 +16,6 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef<HTMLDivElement>(null);
-
-  // 3D tilt for form card
-  const cardMouseX = useMotionValue(0);
-  const cardMouseY = useMotionValue(0);
-  const cardRotateX = useSpring(
-    useTransform(cardMouseY, [-0.5, 0.5], [4, -4]),
-    { stiffness: 200, damping: 20 }
-  );
-  const cardRotateY = useSpring(
-    useTransform(cardMouseX, [-0.5, 0.5], [-4, 4]),
-    { stiffness: 200, damping: 20 }
-  );
-
-  const handleCardMouse = (e: React.MouseEvent) => {
-    if (!formRef.current) return;
-    const rect = formRef.current.getBoundingClientRect();
-    cardMouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-    cardMouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handleCardLeave = () => {
-    cardMouseX.set(0);
-    cardMouseY.set(0);
-  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -74,255 +41,114 @@ export default function Contact() {
   };
 
   const inputClasses =
-    "w-full rounded-xl border border-line bg-elevated px-4 py-3 text-foreground placeholder-dimmest outline-none transition-all duration-500 focus:border-marron/60 focus:shadow-[0_0_30px_-5px_rgba(237,171,98,0.2)] focus:ring-2 focus:ring-marron/20 focus:scale-[1.01] hover:border-marron/30";
-
-  const fields = [
-    {
-      id: "name",
-      label: t.ui.contact.nameLabel,
-      icon: User,
-      required: true,
-      type: "text",
-      placeholder: t.ui.contact.namePlaceholder,
-    },
-    {
-      id: "company",
-      label: t.ui.contact.companyLabel,
-      icon: Building,
-      required: false,
-      type: "text",
-      placeholder: t.ui.contact.companyPlaceholder,
-    },
-    {
-      id: "email",
-      label: t.ui.contact.emailLabel,
-      icon: Mail,
-      required: true,
-      type: "email",
-      placeholder: t.ui.contact.emailPlaceholder,
-    },
-  ];
+    "w-full border-b border-foreground/15 bg-transparent px-0 py-3 text-foreground placeholder-dimmest outline-none transition-colors focus:border-foreground";
 
   return (
-    <section className="relative px-6 py-32" id="contact">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(237,171,98,0.04)_0%,_transparent_60%)]" />
-
-      <div className="relative mx-auto max-w-2xl">
+    <section className="px-6 py-24 md:px-12 lg:px-20" id="contact">
+      <div className="mx-auto max-w-2xl">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, type: "spring", stiffness: 60 }}
-          className="mb-16 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-12"
         >
-          <motion.span
-            initial={{ opacity: 0, letterSpacing: "0em", y: 20 }}
-            whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-marron"
-          >
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
             {t.ui.contact.label}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-              type: "spring",
-              stiffness: 100,
-            }}
-            className="text-3xl font-bold text-foreground md:text-5xl"
-          >
+          </span>
+          <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
             {t.ui.contact.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-4 text-muted"
-          >
-            {t.ui.contact.subtitle}
-          </motion.p>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.2,
-              delay: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
-          />
+          </h2>
+          <p className="mt-2 text-sm text-muted">{t.ui.contact.subtitle}</p>
+          <div className="mt-4 h-px w-16 bg-foreground" />
         </motion.div>
 
-        {/* Form card with 3D tilt */}
-        <motion.div
-          ref={formRef}
-          initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: -8 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+        {/* Form */}
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 1,
-            delay: 0.2,
-            type: "spring",
-            stiffness: 60,
-            damping: 15,
-          }}
-          onMouseMove={handleCardMouse}
-          onMouseLeave={handleCardLeave}
-          style={{
-            rotateX: cardRotateX,
-            rotateY: cardRotateY,
-            transformPerspective: 1000,
-          }}
-          className="relative"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-8"
         >
-          {/* Animated gradient border */}
-          <motion.div
-            animate={{
-              background: [
-                "linear-gradient(0deg, rgba(237,171,98,0.4), transparent 50%, rgba(96,144,232,0.2))",
-                "linear-gradient(90deg, rgba(237,171,98,0.4), transparent 50%, rgba(96,144,232,0.2))",
-                "linear-gradient(180deg, rgba(237,171,98,0.4), transparent 50%, rgba(96,144,232,0.2))",
-                "linear-gradient(270deg, rgba(237,171,98,0.4), transparent 50%, rgba(96,144,232,0.2))",
-                "linear-gradient(360deg, rgba(237,171,98,0.4), transparent 50%, rgba(96,144,232,0.2))",
-              ],
-            }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-[1px] rounded-3xl"
-          />
+          <div>
+            <label htmlFor="name" className="mb-1 block text-xs font-medium uppercase tracking-wider text-dimmer">
+              {t.ui.contact.nameLabel} *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={form.name}
+              onChange={handleChange}
+              placeholder={t.ui.contact.namePlaceholder}
+              className={inputClasses}
+            />
+          </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="relative rounded-3xl bg-surface p-8 md:p-12"
-          >
-            <div className="space-y-6">
-              {fields.map((field, idx) => (
-                <motion.div
-                  key={field.id}
-                  initial={{ opacity: 0, x: -40, filter: "blur(4px)" }}
-                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.3 + idx * 0.1,
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 15,
-                  }}
-                >
-                  <label
-                    htmlFor={field.id}
-                    className="mb-2 flex items-center gap-2 text-sm font-medium text-secondary"
-                  >
-                    <field.icon className="h-4 w-4 text-marron" />
-                    {field.label}
-                    {field.required && (
-                      <span className="text-marron">*</span>
-                    )}
-                  </label>
-                  <input
-                    type={field.type}
-                    id={field.id}
-                    name={field.id}
-                    required={field.required}
-                    value={form[field.id as keyof typeof form]}
-                    onChange={handleChange}
-                    placeholder={field.placeholder}
-                    className={inputClasses}
-                  />
-                </motion.div>
-              ))}
+          <div>
+            <label htmlFor="company" className="mb-1 block text-xs font-medium uppercase tracking-wider text-dimmer">
+              {t.ui.contact.companyLabel}
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              placeholder={t.ui.contact.companyPlaceholder}
+              className={inputClasses}
+            />
+          </div>
 
-              {/* Message */}
-              <motion.div
-                initial={{ opacity: 0, x: -40, filter: "blur(4px)" }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: 0.6,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                }}
-              >
-                <label
-                  htmlFor="message"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-secondary"
-                >
-                  <MessageSquare className="h-4 w-4 text-marron" />
-                  {t.ui.contact.messageLabel} <span className="text-marron">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder={t.ui.contact.messagePlaceholder}
-                  className={`${inputClasses} resize-none`}
-                />
-              </motion.div>
+          <div>
+            <label htmlFor="email" className="mb-1 block text-xs font-medium uppercase tracking-wider text-dimmer">
+              {t.ui.contact.emailLabel} *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={form.email}
+              onChange={handleChange}
+              placeholder={t.ui.contact.emailPlaceholder}
+              className={inputClasses}
+            />
+          </div>
 
-              {/* Submit */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7 }}
-              >
-                <motion.button
-                  type="submit"
-                  whileHover={{
-                    scale: 1.05,
-                    y: -5,
-                    boxShadow: "0 25px 50px rgba(237,171,98,0.35)",
-                  }}
-                  whileTap={{ scale: 0.93, rotateX: 5 }}
-                  animate={
-                    isSubmitting
-                      ? { scale: [1, 0.95, 1] }
-                      : { boxShadow: [
-                          "0 10px 30px rgba(237,171,98,0.2)",
-                          "0 15px 40px rgba(237,171,98,0.3)",
-                          "0 10px 30px rgba(237,171,98,0.2)",
-                        ] }
-                  }
-                  transition={
-                    isSubmitting
-                      ? { duration: 0.3 }
-                      : { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                  }
-                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-marron to-[#D49550] px-6 py-4 font-medium text-white shadow-lg shadow-marron/20 transition-all"
-                  style={{ transformPerspective: 400 }}
-                >
-                  {/* shine sweep */}
-                  <div className="pointer-events-none absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
-                  <Send className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                  {t.ui.contact.submitButton}
-                  <motion.div
-                    className="overflow-hidden"
-                    initial={{ width: 0, opacity: 0 }}
-                    whileHover={{ width: "auto", opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.div>
-                </motion.button>
-              </motion.div>
-            </div>
+          <div>
+            <label htmlFor="message" className="mb-1 block text-xs font-medium uppercase tracking-wider text-dimmer">
+              {t.ui.contact.messageLabel} *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={5}
+              value={form.message}
+              onChange={handleChange}
+              placeholder={t.ui.contact.messagePlaceholder}
+              className={`${inputClasses} resize-none`}
+            />
+          </div>
 
-            <p className="mt-4 text-center text-xs text-dimmer">
-              {t.ui.contact.submitHint}
-            </p>
-          </form>
-        </motion.div>
+          <div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="group flex items-center gap-3 bg-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider text-background transition-opacity hover:opacity-80"
+            >
+              <Send className="h-4 w-4" />
+              {t.ui.contact.submitButton}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <p className="mt-3 text-xs text-dimmer">{t.ui.contact.submitHint}</p>
+          </div>
+        </motion.form>
       </div>
     </section>
   );

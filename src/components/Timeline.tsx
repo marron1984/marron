@@ -1,340 +1,82 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValueEvent,
-} from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "./LanguageProvider";
-import type { TimelineEvent } from "@/i18n/types";
-import { Circle, Zap } from "lucide-react";
-
-function TimelineItem({
-  event,
-  index,
-  total,
-  scrollProgress,
-}: {
-  event: TimelineEvent;
-  index: number;
-  total: number;
-  scrollProgress: number;
-}) {
-  const isEven = index % 2 === 0;
-  const itemThreshold = index / total;
-  const isActive = scrollProgress > itemThreshold;
-
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        x: isEven ? -120 : 120,
-        scale: 0.8,
-        rotateY: isEven ? -15 : 15,
-        filter: "blur(8px)",
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-        scale: 1,
-        rotateY: 0,
-        filter: "blur(0px)",
-      }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: 1.2,
-        delay: index * 0.1,
-        type: "spring",
-        stiffness: 70,
-        damping: 14,
-      }}
-      className={`relative flex items-start gap-8 ${
-        isEven ? "md:flex-row" : "md:flex-row-reverse"
-      } flex-row`}
-    >
-      {/* Content */}
-      <div
-        className={`flex-1 ${
-          isEven ? "md:text-right" : "md:text-left"
-        } text-left`}
-      >
-        <motion.div
-          whileHover={{
-            scale: 1.06,
-            y: -10,
-            rotateY: isEven ? -5 : 5,
-            boxShadow: event.highlight
-              ? "0 20px 60px -10px rgba(237,171,98,0.25)"
-              : "0 20px 60px -10px rgba(255,255,255,0.08)",
-            transition: { type: "spring", stiffness: 350, damping: 12 },
-          }}
-          className={`inline-block rounded-2xl border ${
-            event.highlight
-              ? "border-marron/40 bg-marron/8"
-              : "border-line bg-elevated"
-          } p-6 transition-all duration-500 hover:shadow-xl ${
-            event.highlight
-              ? "hover:shadow-marron/15"
-              : "hover:shadow-white/5"
-          }`}
-          style={{ perspective: "600px" }}
-        >
-          {/* Year badge */}
-          <motion.span
-            initial={{ opacity: 0, scale: 0, rotate: -20 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: index * 0.08 + 0.2,
-              type: "spring",
-              stiffness: 300,
-              damping: 12,
-            }}
-            className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold tracking-widest ${
-              event.highlight
-                ? "bg-marron/15 text-marron"
-                : "bg-subtle text-dimmer"
-            }`}
-          >
-            {event.year}
-          </motion.span>
-
-          <motion.h3
-            className="mb-2 text-lg font-bold text-foreground"
-            whileHover={{ x: isEven ? -4 : 4, color: "#EDAB62" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            {event.title}
-          </motion.h3>
-
-          <p className="mb-3 text-sm leading-relaxed text-muted">
-            {event.description}
-          </p>
-
-          {/* Detail tag */}
-          {event.detail && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: isEven ? 20 : -20,
-                scale: 0.8,
-              }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.08 + 0.4,
-                type: "spring",
-                stiffness: 200,
-              }}
-              className="inline-flex items-center gap-1.5 rounded-full bg-marron/10 px-3 py-1"
-            >
-              <motion.div
-                animate={{ rotate: [0, 15, -15, 0] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <Zap className="h-3 w-3 text-marron" />
-              </motion.div>
-              <span className="text-xs font-medium text-marron">
-                {event.detail}
-              </span>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
-
-      {/* Center dot with pulse */}
-      <div className="absolute left-0 top-6 z-10 md:static md:flex md:flex-shrink-0 md:items-start md:justify-center">
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            delay: index * 0.08 + 0.15,
-            type: "spring",
-            stiffness: 400,
-            damping: 10,
-          }}
-          whileHover={{
-            scale: 1.8,
-            transition: { type: "spring", stiffness: 500, damping: 8 },
-          }}
-          className="relative"
-        >
-          {isActive && (
-            <motion.div
-              initial={{ scale: 1, opacity: 0.6 }}
-              animate={{ scale: 2, opacity: 0 }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-              className={`absolute inset-0 rounded-full ${
-                event.highlight ? "bg-marron" : "bg-dimmest"
-              }`}
-            />
-          )}
-          <motion.div
-            className={`flex h-5 w-5 items-center justify-center rounded-full ${
-              event.highlight
-                ? "bg-marron shadow-lg shadow-marron/40"
-                : "bg-dimmest"
-            }`}
-            animate={event.highlight ? {
-              boxShadow: [
-                "0 0 0 0 rgba(237,171,98,0.4)",
-                "0 0 0 8px rgba(237,171,98,0)",
-                "0 0 0 0 rgba(237,171,98,0.4)",
-              ],
-            } : undefined}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <Circle
-              className={`h-2 w-2 ${
-                event.highlight ? "text-background" : "text-dimmer"
-              }`}
-              fill="currentColor"
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <div className="hidden flex-1 md:block" />
-    </motion.div>
-  );
-}
 
 export default function Timeline() {
   const { t } = useLanguage();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const glowOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0, 1, 0.8, 0.2]
-  );
-  const lineSpring = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 20,
-  });
-
-  useMotionValueEvent(lineSpring, "change", (v) => setProgress(v));
 
   return (
-    <section className="relative px-6 py-32" id="history">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(96,144,232,0.04)_0%,_transparent_60%)]" />
-
-      <div ref={containerRef} className="relative mx-auto max-w-4xl">
+    <section className="px-6 py-24 md:px-12 lg:px-20" id="history">
+      <div className="mx-auto max-w-4xl">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, type: "spring", stiffness: 60 }}
-          className="mb-20 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, letterSpacing: "0em", y: 20 }}
-            whileInView={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-            className="mb-4 block text-sm uppercase text-marron"
-          >
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
             {t.ui.history.label}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-              type: "spring",
-              stiffness: 100,
-            }}
-            className="text-3xl font-bold text-foreground md:text-5xl"
-          >
+          </span>
+          <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
             {t.ui.history.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-4 text-muted"
-          >
-            {t.ui.history.subtitle}
-          </motion.p>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.2,
-              delay: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
-            className="mx-auto mt-6 h-[2px] w-32 bg-gradient-to-r from-transparent via-marron to-transparent"
-          />
+          </h2>
+          <p className="mt-2 text-sm text-muted">{t.ui.history.subtitle}</p>
+          <div className="mt-4 h-px w-16 bg-foreground" />
         </motion.div>
 
-        {/* Timeline */}
+        {/* Timeline items */}
         <div className="relative">
-          {/* Vertical line (desktop) */}
-          <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-subtle/50 md:left-1/2 md:block md:-translate-x-1/2">
-            <motion.div
-              style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-marron via-marron to-navy/50"
-            />
-            {/* Glow trail */}
-            <motion.div
-              style={{ height: lineHeight, opacity: glowOpacity }}
-              className="absolute -left-1 top-0 w-[6px] bg-marron blur-md"
-            />
-            {/* Moving dot */}
-            <motion.div
-              style={{ top: lineHeight }}
-              className="absolute -left-[5px] h-3 w-3 rounded-full bg-marron shadow-lg shadow-marron/50"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="absolute inset-0 rounded-full bg-marron"
-              />
-            </motion.div>
-          </div>
+          {/* Vertical line */}
+          <div className="absolute left-[7px] top-0 h-full w-px bg-foreground/10 md:left-24" />
 
-          {/* Vertical line (mobile) */}
-          <div className="absolute left-[9px] top-0 h-full w-[2px] bg-subtle/50 md:hidden">
-            <motion.div
-              style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-marron to-marron/20"
-            />
-          </div>
-
-          <div className="space-y-14 pl-10 md:space-y-20 md:pl-0">
+          <div className="space-y-10">
             {t.timeline.map((event, index) => (
-              <TimelineItem
+              <motion.div
                 key={event.title}
-                event={event}
-                index={index}
-                total={t.timeline.length}
-                scrollProgress={progress}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="relative flex gap-6 md:gap-10"
+              >
+                {/* Dot */}
+                <div className="relative z-10 flex flex-shrink-0 md:w-24 md:justify-end">
+                  <div
+                    className={`mt-2 h-[14px] w-[14px] rounded-full border-2 ${
+                      event.highlight
+                        ? "border-foreground bg-foreground"
+                        : "border-foreground/30 bg-background"
+                    }`}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pb-2">
+                  <span
+                    className={`mb-1 inline-block rounded-full px-3 py-0.5 text-[10px] font-bold tracking-widest ${
+                      event.highlight
+                        ? "bg-foreground text-background"
+                        : "bg-foreground/5 text-dimmer"
+                    }`}
+                  >
+                    {event.year}
+                  </span>
+                  <h3 className="mb-2 text-base font-bold text-foreground">
+                    {event.title}
+                  </h3>
+                  <p className="mb-2 text-sm leading-relaxed text-muted">
+                    {event.description}
+                  </p>
+                  {event.detail && (
+                    <span className="text-xs font-medium text-dimmer">
+                      — {event.detail}
+                    </span>
+                  )}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
