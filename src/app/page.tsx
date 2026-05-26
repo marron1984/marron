@@ -15,14 +15,15 @@ import Footer from "@/components/Footer";
 
 function SectionDivider() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      className="mx-auto max-w-6xl px-6"
-    >
-      <div className="h-px bg-foreground/8" />
-    </motion.div>
+    <div className="mx-auto max-w-6xl px-6">
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true, margin: "-20px" }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="h-[2px] origin-left bg-foreground/8"
+      />
+    </div>
   );
 }
 
