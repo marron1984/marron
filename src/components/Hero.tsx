@@ -66,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.95] tracking-tight text-foreground"
+          className="mb-6 whitespace-pre-line text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.95] tracking-tight text-foreground"
         >
           {t.personalInfo.catchphrase}
         </motion.h1>
@@ -76,7 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mb-10 max-w-2xl text-lg leading-relaxed text-muted md:text-xl"
+          className="mb-10 max-w-2xl whitespace-pre-line text-lg leading-relaxed text-muted md:text-xl"
         >
           {t.personalInfo.subcatchphrase}
         </motion.p>
@@ -128,7 +128,7 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-10">
+          <div className="flex flex-wrap gap-6 md:gap-10">
             {t.personalInfo.stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-3xl font-black text-foreground md:text-4xl">

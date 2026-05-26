@@ -5,9 +5,9 @@ const uz: SiteLocale = {
     nameJa: "吉田 俊輔",
     nameEn: "Shunsuke Yoshida",
     alias: "Marron",
-    catchphrase: "Ijtimoiy muammolarni biznes orqali hal qilish.",
+    catchphrase: "Ijtimoiy muammolarni\nbiznes orqali hal qilish.",
     subcatchphrase:
-      "16 yoshdan boshlab davom etayotgan, mustaqil tadbirkorlik yo'li.",
+      "16 yoshdan boshlab davom etayotgan,\nmustaqil tadbirkorlik yo'li.",
     birthDate: "1984-yil 2-may tug'ilgan",
     origin: "Osaka shahrining Tsurumi tumanidan",
     hobby: "Poker",
@@ -96,16 +96,6 @@ const uz: SiteLocale = {
     },
   ],
   portfolio: [
-    {
-      company: "株式会社AA",
-      role: "Hammuassis va Bosh direktorning o'rinbosari",
-      description: "Uy-joy muhtojlariga yordam, parvarish xizmati va Myanma loyihasi",
-      longDescription:
-        "Uy-joy muhtojlari (keksalar, nogironlar) uchun qo'llab-quvvatlanadigan turar joy va uyga tashrif buyuruvchi parvarish-hamshiralik xizmatini boshqaradi. 2025-yilda Hyogo viloyati Nishinomiya shahrida 71 o'rinli turar joy tipidagi keksalar uyi va Kyoto Fushimida 50 xonali qo'llab-quvvatlanadigan turar joyni ochish rejalashtirilgan. Myanmada yapon tili maktabi va maxsus ko'nikma (tokutei gino) parvarish maktabini tashkil etib, Yaponiyadagi parvarish kadrlarini ta'minlash va mahalliy kadrlar tayyorlashni uyg'unlashtirgan xalqaro biznes modelini yaratgan. \"Ee Kango\" va \"Ee Support\" brendlarini boshqaradi.",
-      tags: ["Social Impact", "Housing Support", "Care", "Myanmar"],
-      accent: "marron",
-      span: "wide",
-    },
     {
       company: "株式会社AAウズベキスタン",
       role: "Bosh direktor",
@@ -366,7 +356,7 @@ const uz: SiteLocale = {
   ],
   philosophy: {
     mainQuote:
-      "Muvaffaqiyat — omad, uchrashuvlar va vaqtga bog'liq, ammo muvaffaqiyatsizlik takrorlanish xususiyatiga ega",
+      "Muvaffaqiyat — omad, uchrashuvlar\nva vaqtga bog'liq, ammo\nmuvaffaqiyatsizlik takrorlanish xususiyatiga ega",
     subtext:
       "Boshlang'ich va o'rta maktab davrlarida maktabga bormaslik, 16 yoshida tadbirkorlik, litsey bitirishi bilan bir vaqtda hikikomori. Shundan mustaqil o'rganish orqali qayta tiklanib, 20 yildan ortiq vaqt davomida ijtimoiy muammolarni biznes orqali hal qilib kelmoqda.",
     beliefs: [

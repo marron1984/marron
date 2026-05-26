@@ -5,8 +5,8 @@ const en: SiteLocale = {
     nameJa: "吉田 俊輔",
     nameEn: "Shunsuke Yoshida",
     alias: "Marron",
-    catchphrase: "Solving social issues through business.",
-    subcatchphrase: "The journey of a self-driven entrepreneur, since age 16.",
+    catchphrase: "Solving social issues\nthrough business.",
+    subcatchphrase: "The journey of a self-driven entrepreneur,\nsince age 16.",
     birthDate: "Born May 2, 1984",
     origin: "From Tsurumi-ku, Osaka City, Osaka",
     hobby: "Poker",
@@ -40,16 +40,6 @@ const en: SiteLocale = {
     { name: "AA 求人", url: "https://aa-kyujin2.vercel.app/", domain: "aa-kyujin2.vercel.app", tag: "Recruitment" },
   ],
   portfolio: [
-    {
-      company: "株式会社AA",
-      role: "Co-founder & Executive Vice President",
-      description: "Housing refugee support, home nursing care & Myanmar operations",
-      longDescription:
-        "Operates supportive housing and home nursing care services for housing refugees (elderly, disabled). Plans to open a 71-bed residential nursing home in Nishinomiya, Hyogo and a 50-room supportive housing facility in Fushimi, Kyoto during fiscal 2025. In Myanmar, established and operates a Japanese language school and a care training school for specified skilled workers, building an international business model that addresses Japan's care workforce shortage while developing local human resources. Operates the 'Ee Kaigo' and 'Ee Support' brands.",
-      tags: ["Social Impact", "Housing Support", "Care", "Myanmar"],
-      accent: "marron",
-      span: "wide",
-    },
     {
       company: "株式会社AAウズベキスタン",
       role: "CEO & Representative Director",
@@ -298,7 +288,7 @@ const en: SiteLocale = {
     },
   ],
   philosophy: {
-    mainQuote: "Success depends on luck, connections, and timing \u2014 but failure is highly reproducible.",
+    mainQuote: "Success depends on luck,\nconnections, and timing \u2014\nbut failure is highly reproducible.",
     subtext:
       "Truancy during elementary and middle school, entrepreneurship at 16, and social withdrawal right after graduating high school. From there, he rebuilt himself through self-education and has continued solving social issues through business for over 20 years.",
     beliefs: [

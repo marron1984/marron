@@ -5,8 +5,8 @@ const ja: SiteLocale = {
     nameJa: "吉田 俊輔",
     nameEn: "Shunsuke Yoshida",
     alias: "Marron",
-    catchphrase: "社会課題を、事業で解く。",
-    subcatchphrase: "16歳から続く、自走型起業家の軌跡。",
+    catchphrase: "社会課題を、\n事業で解く。",
+    subcatchphrase: "16歳から続く、\n自走型起業家の軌跡。",
     birthDate: "1984年5月2日生",
     origin: "大阪府大阪市鶴見区出身",
     hobby: "ポーカー",
@@ -40,16 +40,6 @@ const ja: SiteLocale = {
     { name: "AA 求人", url: "https://aa-kyujin2.vercel.app/", domain: "aa-kyujin2.vercel.app", tag: "求人" },
   ],
   portfolio: [
-    {
-      company: "株式会社AA",
-      role: "共同創業者・取締役副社長",
-      description: "住宅難民支援・訪問介護看護 & ミャンマー事業",
-      longDescription:
-        "賃貸住宅難民（高齢者・障害者）向けのサポート付き住宅と訪問介護看護事業を運営。2025年度中に兵庫県西宮市に71床の住宅型老人ホーム、京都伏見に50部屋のサポート付き住宅をオープン予定。ミャンマーでは日本語学校と特定技能向け介護スクールを立ち上げ・運営し、日本の介護人材確保と現地の人材育成を両立する国際事業モデルを構築。「ええかんご」「ええさぽーと」ブランドを展開。",
-      tags: ["Social Impact", "Housing Support", "Care", "Myanmar"],
-      accent: "marron",
-      span: "wide",
-    },
     {
       company: "株式会社AAウズベキスタン",
       role: "代表取締役",
@@ -301,7 +291,7 @@ const ja: SiteLocale = {
     },
   ],
   philosophy: {
-    mainQuote: "成功は運や出会い、タイミングだけど、失敗は再現性が高い",
+    mainQuote: "成功は運や出会い、\nタイミングだけど、\n失敗は再現性が高い",
     subtext:
       "小中学生時代の不登校、16歳での起業、高校卒業と同時の引きこもり。そこから独学で再起し、20年以上にわたり社会課題を事業で解決し続ける。",
     beliefs: [

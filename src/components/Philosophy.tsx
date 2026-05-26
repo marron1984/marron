@@ -34,7 +34,7 @@ export default function Philosophy() {
           transition={{ duration: 0.6 }}
           className="mb-16 border-l-2 border-foreground pl-8 md:pl-12"
         >
-          <p className="mb-6 text-2xl font-black leading-snug text-foreground md:text-4xl">
+          <p className="mb-6 whitespace-pre-line text-2xl font-black leading-snug text-foreground md:text-4xl">
             「{t.philosophy.mainQuote}」
           </p>
           <div className="mb-6 h-px w-12 bg-foreground/20" />
