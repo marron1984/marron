@@ -205,7 +205,7 @@ const en: SiteLocale = {
       year: "2024",
       title: "Established a diversified portfolio management model",
       description:
-        "Founded 株式会社AA (Aug) and 株式会社あん (Sep). Now manages 12 business entities across 6 industries, including the DHP Group (resort development, care management, urban development, hospitality, FUDOKI, 100doors, Uni Craft, Mitchino), AA Uzbekistan, IPLPF, and more. Spans care, hospitality, technology, primary industries, international cooperation, and food & beverage.",
+        "Founded 株式会社あん (Sep). Now manages multiple business entities across 6 industries, including the DHP Group (resort development, care management, urban development, hospitality, FUDOKI, 100doors, Uni Craft, Mitchino), IPLPF, and more. Spans care, hospitality, technology, primary industries, international cooperation, and food & beverage.",
       detail: "12 entities x 6 industries under unified management",
       highlight: true,
     },

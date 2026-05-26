@@ -271,7 +271,7 @@ const uz: SiteLocale = {
       year: "2024",
       title: "Ko'p tarmoqli portfel boshqaruvining shakllanishi",
       description:
-        "株式会社AA (avgust~) va 株式会社あん (sentabr~) ni tashkil etdi. DHP guruhi (kurort ishlab chiqish, parvarish boshqaruvi, shahar rivojlantirish, mehmondo'stlik, FUDOKI, 100doors, Uni Craft, Mitchino), AA O'zbekiston, IPLPF va boshqalar — 12 ta biznes tuzilmasini boshqaradi. Parvarish, mehmondo'stlik, texnologiya, birlamchi sanoat, xalqaro hamkorlik va ovqatlanish — 6 ta sohani nazorat qiladi.",
+        "株式会社あん (sentabr~) ni tashkil etdi. DHP guruhi (kurort ishlab chiqish, parvarish boshqaruvi, shahar rivojlantirish, mehmondo'stlik, FUDOKI, 100doors, Uni Craft, Mitchino), IPLPF va boshqalar — bir nechta biznes tuzilmasini boshqaradi. Parvarish, mehmondo'stlik, texnologiya, birlamchi sanoat, xalqaro hamkorlik va ovqatlanish — 6 ta sohani nazorat qiladi.",
       detail: "12 ta biznes tuzilmasi x 6 ta sohani boshqarish",
       highlight: true,
     },
