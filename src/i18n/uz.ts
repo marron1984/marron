@@ -385,6 +385,12 @@ const uz: SiteLocale = {
     { src: "/gallery/19.jpg", alt: "Biznes manzarasi" },
     { src: "/gallery/20.jpg", alt: "Biznes manzarasi" },
     { src: "/gallery/21.jpg", alt: "Jamoa a'zolari" },
+    { src: "/gallery/IMG_1318.jpeg", alt: "Cheksiz hovuz - kun botishi" },
+    { src: "/gallery/IMG_1324.jpeg", alt: "Qarag'ay daraxtlari orasida quyosh botishi" },
+    { src: "/gallery/IMG_1669.jpeg", alt: "Ichki bezak - quritilgan gullar" },
+    { src: "/gallery/IMG_1711.jpeg", alt: "Kurort hovuzi" },
+    { src: "/gallery/IMG_1825.jpeg", alt: "Nara kiyigi" },
+    { src: "/gallery/IMG_1833.jpeg", alt: "Yapon sashimi taomi" },
   ],
   ui: {
     scroll: "Scroll",

@@ -321,6 +321,12 @@ const ja: SiteLocale = {
     { src: "/gallery/19.jpg", alt: "事業風景" },
     { src: "/gallery/20.jpg", alt: "事業風景" },
     { src: "/gallery/21.jpg", alt: "チームメンバー" },
+    { src: "/gallery/IMG_1318.jpeg", alt: "インフィニティプール・夕景" },
+    { src: "/gallery/IMG_1324.jpeg", alt: "松林の夕焼け" },
+    { src: "/gallery/IMG_1669.jpeg", alt: "インテリア・ドライフラワー" },
+    { src: "/gallery/IMG_1711.jpeg", alt: "リゾートプール" },
+    { src: "/gallery/IMG_1825.jpeg", alt: "奈良の鹿" },
+    { src: "/gallery/IMG_1833.jpeg", alt: "和食・刺身盛り合わせ" },
   ],
   ui: {
     scroll: "Scroll",

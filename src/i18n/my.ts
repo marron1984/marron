@@ -380,6 +380,12 @@ const my: SiteLocale = {
     { src: "/gallery/19.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
     { src: "/gallery/20.jpg", alt: "စီးပွားရေးမြင်ကွင်း" },
     { src: "/gallery/21.jpg", alt: "အဖွဲ့ဝင်များ" },
+    { src: "/gallery/IMG_1318.jpeg", alt: "အင်ဖင်နီတီရေကူးကန် နေဝင်ချိန်" },
+    { src: "/gallery/IMG_1324.jpeg", alt: "ထင်းရှူးတောနေဝင်ချိန်" },
+    { src: "/gallery/IMG_1669.jpeg", alt: "အတွင်းပိုင်းအလှဆင်ပန်းခြောက်" },
+    { src: "/gallery/IMG_1711.jpeg", alt: "အပန်းဖြေစခန်းရေကူးကန်" },
+    { src: "/gallery/IMG_1825.jpeg", alt: "နာရသမင်" },
+    { src: "/gallery/IMG_1833.jpeg", alt: "ဂျပန်ဆာရှီမီအစုံ" },
   ],
   ui: {
     scroll: "Scroll",

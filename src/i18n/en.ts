@@ -318,6 +318,12 @@ const en: SiteLocale = {
     { src: "/gallery/19.jpg", alt: "Business scene" },
     { src: "/gallery/20.jpg", alt: "Business scene" },
     { src: "/gallery/21.jpg", alt: "Team members" },
+    { src: "/gallery/IMG_1318.jpeg", alt: "Infinity pool at sunset" },
+    { src: "/gallery/IMG_1324.jpeg", alt: "Pine trees at sunset" },
+    { src: "/gallery/IMG_1669.jpeg", alt: "Interior dried flowers" },
+    { src: "/gallery/IMG_1711.jpeg", alt: "Resort pool" },
+    { src: "/gallery/IMG_1825.jpeg", alt: "Nara deer" },
+    { src: "/gallery/IMG_1833.jpeg", alt: "Japanese sashimi platter" },
   ],
   ui: {
     scroll: "Scroll",
