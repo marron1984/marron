@@ -41,16 +41,6 @@ const ja: SiteLocale = {
   ],
   portfolio: [
     {
-      company: "株式会社AAウズベキスタン",
-      role: "代表取締役",
-      description: "ウズベキスタン国内の介護事業提供・普及・コンサルティング",
-      longDescription:
-        "ウズベキスタン国内における介護事業の提供、普及及びコンサルティングを展開。日本で培った介護ノウハウを中央アジアに移転し、現地の高齢化社会に向けた介護インフラの構築と人材育成を推進する。",
-      tags: ["Healthcare", "Uzbekistan", "Care Consulting", "International"],
-      accent: "marron",
-      span: "normal",
-    },
-    {
       company: "株式会社あん",
       role: "創業者・代表取締役",
       description: "社会課題解決型の複合プロジェクト運営",
@@ -374,10 +364,10 @@ const ja: SiteLocale = {
       phoneLabel: "電話番号",
       phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
-      addressLabel: "会社住所",
-      address: "〒555-0022 大阪府大阪市西淀川区柏里2-9-3 シャンクレール102号室（株式会社AA）",
-      residenceLabel: "現住所",
-      residence: "大阪市天王寺区（鶴橋）",
+      addressLabel: "",
+      address: "",
+      residenceLabel: "",
+      residence: "",
       familyLabel: "家族構成",
       family: "年上の妻、娘1人、義母、愛犬（キャバプー）",
       nameLabel: "お名前",

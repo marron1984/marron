@@ -97,17 +97,6 @@ const my: SiteLocale = {
   ],
   portfolio: [
     {
-      company: "株式会社AAウズベキスタン",
-      role: "အမှုဆောင်ဒါရိုက်တာ",
-      description:
-        "ဥဇဘက်ကစ္စတန်ပြည်တွင်း သက်ကြီးစောင့်ရှောက်ရေး ပံ့ပိုးမှုနှင့် အကြံပေးခြင်း",
-      longDescription:
-        "ဥဇဘက်ကစ္စတန်ပြည်တွင်း သက်ကြီးစောင့်ရှောက်ရေးလုပ်ငန်း ပံ့ပိုးမှု၊ ပြန့်ပွားရေးနှင့် အကြံပေးဝန်ဆောင်မှုကို ဆောင်ရွက်သည်။ ဂျပန်နိုင်ငံတွင် ဆည်းပူးခဲ့သော စောင့်ရှောက်ရေးအတွေ့အကြုံကို ဗဟိုအာရှသို့ လွှဲပြောင်းပြီး ဒေသတွင်း သက်ကြီးလူ့အဖွဲ့အစည်းအတွက် စောင့်ရှောက်ရေးအခြေခံအဆောက်အအုံ တည်ဆောက်ခြင်းနှင့် လူ့စွမ်းအား ဖွံ့ဖြိုးတိုးတက်ရေးကို တွန်းအားပေးသည်။",
-      tags: ["Healthcare", "Uzbekistan", "Care Consulting", "International"],
-      accent: "marron",
-      span: "normal",
-    },
-    {
       company: "株式会社あん",
       role: "တည်ထောင်သူနှင့် အမှုဆောင်ဒါရိုက်တာ",
       description: "လူမှုရေးပြဿနာဖြေရှင်းမှုပုံစံ ပေါင်းစပ်စီမံကိန်းလည်ပတ်ခြင်း",
@@ -434,10 +423,10 @@ const my: SiteLocale = {
       phoneLabel: "ဖုန်းနံပါတ်",
       phone: "070-8885-5952",
       emailAddress: "yoshida@aska-g.com",
-      addressLabel: "ရုံးလိပ်စာ",
-      address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",
-      residenceLabel: "နေရပ်လိပ်စာ",
-      residence: "Tennoji-ku, Osaka (Tsuruhashi)",
+      addressLabel: "",
+      address: "",
+      residenceLabel: "",
+      residence: "",
       familyLabel: "မိသားစု",
       family: "ဇနီး (အသက်ကြီးသူ)၊ သမီး ၁ ဦး၊ ယောက္ခမ၊ အိမ်မွေးခွေး (Cavapoo)",
       nameLabel: "အမည်",

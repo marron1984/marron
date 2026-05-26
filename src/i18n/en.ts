@@ -41,16 +41,6 @@ const en: SiteLocale = {
   ],
   portfolio: [
     {
-      company: "株式会社AAウズベキスタン",
-      role: "CEO & Representative Director",
-      description: "Care services, outreach & consulting in Uzbekistan",
-      longDescription:
-        "Provides care services, promotes awareness, and delivers consulting in Uzbekistan. Transfers care expertise cultivated in Japan to Central Asia, building care infrastructure and developing human resources to address the country's aging population.",
-      tags: ["Healthcare", "Uzbekistan", "Care Consulting", "International"],
-      accent: "marron",
-      span: "normal",
-    },
-    {
       company: "株式会社あん",
       role: "Founder & CEO",
       description: "Social issue-driven multi-project operations",
@@ -371,10 +361,10 @@ const en: SiteLocale = {
       phoneLabel: "Phone",
       phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
-      addressLabel: "Office Address",
-      address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",
-      residenceLabel: "Residence",
-      residence: "Tennoji-ku, Osaka (Tsuruhashi)",
+      addressLabel: "",
+      address: "",
+      residenceLabel: "",
+      residence: "",
       familyLabel: "Family",
       family: "Wife (older), 1 daughter, mother-in-law, pet dog (Cavapoo)",
       nameLabel: "Name",

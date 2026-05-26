@@ -2,7 +2,7 @@
 
 import { useLanguage } from "./LanguageProvider";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle, IdCard } from "lucide-react";
+import { Mail, Phone, MessageCircle, IdCard } from "lucide-react";
 
 export default function ContactInfo() {
   const { t } = useLanguage();
@@ -25,17 +25,12 @@ export default function ContactInfo() {
       value: t.ui.contact.emailAddress,
       href: `mailto:${t.ui.contact.emailAddress}`,
     },
-    {
-      icon: MapPin,
-      label: t.ui.contact.addressLabel,
-      value: t.ui.contact.address,
-    },
   ];
 
   return (
     <section className="px-6 py-16 md:px-12 lg:px-20" id="info">
       <div className="mx-auto max-w-4xl">
-        <div className="grid grid-cols-1 gap-px border border-foreground/8 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px border border-foreground/8 sm:grid-cols-2">
           {items.map((item, idx) => (
             <motion.div
               key={idx}

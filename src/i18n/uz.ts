@@ -97,17 +97,6 @@ const uz: SiteLocale = {
   ],
   portfolio: [
     {
-      company: "株式会社AAウズベキスタン",
-      role: "Bosh direktor",
-      description:
-        "O'zbekistonda parvarish xizmatlarini taqdim etish, tarqatish va maslahat berish",
-      longDescription:
-        "O'zbekiston ichida parvarish xizmatlarini taqdim etish, tarqatish va maslahat berish faoliyatini olib boradi. Yaponiyada to'plangan parvarish tajribasini Markaziy Osiyoga o'tkazib, mahalliy keksaygan jamiyat uchun parvarish infratuzilmasini yaratish va kadrlar tayyorlashni amalga oshiradi.",
-      tags: ["Healthcare", "Uzbekistan", "Care Consulting", "International"],
-      accent: "marron",
-      span: "normal",
-    },
-    {
       company: "株式会社あん",
       role: "Asoschisi va Bosh direktor",
       description: "Ijtimoiy muammolarni hal qiluvchi ko'p tarmoqli loyihalarni boshqarish",
@@ -439,10 +428,10 @@ const uz: SiteLocale = {
       phoneLabel: "Telefon raqami",
       phone: "070-8555-5952",
       emailAddress: "yoshida@aska-g.com",
-      addressLabel: "Ofis manzili",
-      address: "〒555-0022 Shanclaire 102, 2-9-3 Kashiwazato, Nishiyodogawa-ku, Osaka (AA Inc.)",
-      residenceLabel: "Yashash joyi",
-      residence: "Tennoji-ku, Osaka (Tsuruhashi)",
+      addressLabel: "",
+      address: "",
+      residenceLabel: "",
+      residence: "",
       familyLabel: "Oila tarkibi",
       family: "Katta yoshli rafiqasi, 1 qiz farzand, qaynona, uy hayvoni (Kavapoo)",
       nameLabel: "Ismingiz",
