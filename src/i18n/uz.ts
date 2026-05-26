@@ -5,9 +5,8 @@ const uz: SiteLocale = {
     nameJa: "吉田 俊輔",
     nameEn: "Shunsuke Yoshida",
     alias: "Marron",
-    catchphrase: "Ijtimoiy muammolarni\nbiznes orqali hal qilish.",
-    subcatchphrase:
-      "16 yoshdan boshlab davom etayotgan,\nmustaqil tadbirkorlik yo'li.",
+    catchphrase: "Muammoni hal qil.\nBiznes yarat.",
+    subcatchphrase: "16 yoshda boshlangan. 20 yildan ortiq ijtimoiy muammolarni biznes orqali hal qilish tajribasi.",
     birthDate: "1984-yil 2-may tug'ilgan",
     origin: "Osaka shahrining Tsurumi tumanidan",
     hobby: "Poker",
