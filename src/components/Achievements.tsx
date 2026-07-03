@@ -29,10 +29,10 @@ export default function Achievements() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.achievements.label}
           </span>
-          <h2 className="text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.achievements.title}
           </h2>
           <motion.div
@@ -40,7 +40,7 @@ export default function Achievements() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function Achievements() {
               }}
               className="group cursor-default border-b border-r border-foreground/10 p-8 transition-all duration-500"
             >
-              <span className="mb-2 block text-3xl font-black text-foreground/5 group-hover:text-background/10 transition-colors duration-500">
+              <span className="font-display mb-2 block text-3xl font-bold text-accent/25 group-hover:text-background/20 transition-colors duration-500">
                 0{idx + 1}
               </span>
               <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-foreground group-hover:text-background transition-colors duration-500">
@@ -74,7 +74,7 @@ export default function Achievements() {
               <ul className="space-y-2">
                 {achievement.items.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex gap-2 text-sm leading-relaxed text-muted group-hover:text-background/70 transition-colors duration-500">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/30 group-hover:bg-background/30 transition-colors duration-500" />
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/60 group-hover:bg-background/40 transition-colors duration-500" />
                     <span>{item}</span>
                   </li>
                 ))}

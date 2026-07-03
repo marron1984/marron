@@ -23,26 +23,26 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
       transition={{ duration: 1, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -10, scale: 1.02, rotateZ: -0.5 }}
       onClick={() => setIsExpanded(!isExpanded)}
-      className={`group cursor-pointer border-b-2 border-foreground/8 pb-8 transition-all duration-500 hover:border-foreground ${
+      className={`group cursor-pointer border-b-2 border-foreground/8 pb-8 transition-all duration-500 hover:border-accent ${
         item.span === "wide" ? "md:col-span-2" : item.span === "tall" ? "md:row-span-2" : ""
       }`}
       style={{ perspective: 1000 }}
     >
       {item.group && (
         <motion.span
-          whileHover={{ scale: 1.15, backgroundColor: "var(--foreground)", color: "var(--background)" }}
-          className="mb-3 inline-block rounded-full border border-foreground/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-dimmer transition-colors duration-300"
+          whileHover={{ scale: 1.15, backgroundColor: "var(--accent)", color: "var(--background)" }}
+          className="mb-3 inline-block rounded-full border border-accent/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent transition-colors duration-300"
         >
           {item.group}
         </motion.span>
       )}
 
       <div className="mb-3 flex items-start justify-between">
-        <h3 className="text-lg font-black text-foreground">{item.company}</h3>
+        <h3 className="font-display text-lg font-bold text-foreground">{item.company}</h3>
         <motion.div
           animate={{ rotate: isExpanded ? 180 : 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-1 text-dimmer transition-colors group-hover:text-foreground"
+          className="mt-1 text-dimmer transition-colors group-hover:text-accent"
         >
           <ArrowUpRight className="h-5 w-5" />
         </motion.div>
@@ -67,7 +67,7 @@ function BentoCard({ item, index }: { item: PortfolioItem; index: number }) {
         {item.tags.map((tag) => (
           <motion.span
             key={tag}
-            whileHover={{ scale: 1.15, backgroundColor: "var(--foreground)", color: "var(--background)" }}
+            whileHover={{ scale: 1.15, backgroundColor: "var(--accent)", color: "var(--background)" }}
             className="rounded-full border border-foreground/8 px-3 py-1 text-[10px] font-bold text-dimmer transition-all duration-300"
           >
             {tag}
@@ -102,10 +102,10 @@ export default function BentoGrid() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.portfolio.label}
           </span>
-          <h2 className="text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.portfolio.title}
           </h2>
           <p className="mt-2 text-sm text-muted">{t.ui.portfolio.subtitle}</p>
@@ -114,7 +114,7 @@ export default function BentoGrid() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
 

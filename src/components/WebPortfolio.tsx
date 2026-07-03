@@ -18,17 +18,17 @@ function PortfolioCard({ site, index }: { site: WebSite; index: number }) {
       transition={{ duration: 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{
         x: 16,
-        backgroundColor: "var(--foreground)",
+        backgroundColor: "var(--accent)",
         color: "var(--background)",
         skewX: -1,
       }}
       className="group flex items-center justify-between border-b-2 border-foreground/8 py-6 px-4 transition-all duration-400"
     >
       <div className="flex items-center gap-4">
-        <motion.span className="text-xs font-black tabular-nums text-dimmer group-hover:text-background/50 transition-colors duration-400">
+        <motion.span className="font-display text-xs font-bold tabular-nums text-accent group-hover:text-background/60 transition-colors duration-400">
           {String(index + 1).padStart(2, "0")}
         </motion.span>
-        <h3 className="text-base font-black text-foreground group-hover:text-background transition-colors duration-400">
+        <h3 className="font-display text-base font-bold text-foreground group-hover:text-background transition-colors duration-400">
           {site.name}
         </h3>
         <span className="rounded-full border border-foreground/10 px-3 py-0.5 text-[10px] font-bold text-dimmer group-hover:border-background/30 group-hover:text-background/60 transition-colors duration-400">
@@ -78,11 +78,11 @@ export default function WebPortfolio() {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mb-3 inline-block rounded-full border border-foreground/10 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-dimmer"
+            className="mb-3 inline-block rounded-full border border-accent/40 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-accent"
           >
             {t.ui.webPortfolio.badge}
           </motion.span>
-          <h2 className="mt-4 text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display mt-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.webPortfolio.title}
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
@@ -93,7 +93,7 @@ export default function WebPortfolio() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
 
@@ -119,7 +119,7 @@ export default function WebPortfolio() {
               key={stat.label}
               whileHover={{ scale: 1.2, y: -6, rotate: 3 }}
             >
-              <p className="text-4xl font-black text-foreground">{stat.value}</p>
+              <p className="font-display text-4xl font-bold text-foreground">{stat.value}</p>
               <p className="text-[10px] uppercase tracking-wider text-dimmer">{stat.label}</p>
             </motion.div>
           ))}

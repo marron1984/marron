@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   const inputClasses =
-    "w-full border-b-2 border-foreground/15 bg-transparent px-0 py-4 text-lg text-foreground placeholder-dimmest outline-none transition-all duration-500 focus:border-foreground focus:pl-2";
+    "w-full border-b-2 border-foreground/15 bg-transparent px-0 py-4 text-lg text-foreground placeholder-dimmest outline-none transition-all duration-500 focus:border-accent focus:pl-2";
 
   const fields = [
     { id: "name", label: t.ui.contact.nameLabel, required: true, placeholder: t.ui.contact.namePlaceholder, type: "text" },
@@ -59,10 +59,10 @@ export default function Contact() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.contact.label}
           </span>
-          <h2 className="text-4xl font-black tracking-tight text-foreground md:text-6xl">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-foreground md:text-6xl">
             {t.ui.contact.title}
           </h2>
           <p className="mt-2 text-sm text-muted">{t.ui.contact.subtitle}</p>
@@ -71,7 +71,7 @@ export default function Contact() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[2px] w-24 origin-left bg-foreground"
+            className="mt-4 h-[2px] w-24 origin-left bg-accent"
           />
         </motion.div>
 
@@ -139,7 +139,7 @@ export default function Contact() {
               disabled={isSubmitting}
               whileHover={{ scale: 1.03, x: 8 }}
               whileTap={{ scale: 0.97 }}
-              className="group flex items-center gap-3 bg-foreground px-10 py-5 text-sm font-bold uppercase tracking-wider text-background transition-opacity hover:opacity-90"
+              className="group flex items-center gap-3 bg-accent px-10 py-5 text-sm font-bold uppercase tracking-wider text-background transition-opacity hover:opacity-90"
             >
               <Send className="h-4 w-4" />
               {t.ui.contact.submitButton}

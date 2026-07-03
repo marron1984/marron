@@ -90,10 +90,10 @@ export default function Gallery() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.gallery.label}
           </span>
-          <h2 className="text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.gallery.title}
           </h2>
           <motion.div
@@ -101,7 +101,7 @@ export default function Gallery() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
       </div>

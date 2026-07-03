@@ -29,10 +29,10 @@ export default function Timeline() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mb-20"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.history.label}
           </span>
-          <h2 className="text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.history.title}
           </h2>
           <p className="mt-2 text-sm text-muted">{t.ui.history.subtitle}</p>
@@ -41,7 +41,7 @@ export default function Timeline() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
 
@@ -49,7 +49,7 @@ export default function Timeline() {
           <div className="absolute left-[7px] top-0 h-full w-px bg-foreground/10 md:left-24" />
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-[6px] top-0 w-[3px] bg-foreground md:left-[93px]"
+            className="absolute left-[6px] top-0 w-[3px] bg-accent md:left-[93px]"
           />
 
           <div className="space-y-14">
@@ -76,7 +76,7 @@ export default function Timeline() {
                     whileHover={{ scale: 1.5, rotate: 90 }}
                     className={`mt-2 h-4 w-4 rounded-full border-2 ${
                       event.highlight
-                        ? "border-foreground bg-foreground"
+                        ? "border-accent bg-accent"
                         : "border-foreground/30 bg-background"
                     }`}
                   />
@@ -87,13 +87,13 @@ export default function Timeline() {
                     whileHover={{ scale: 1.15, x: 4 }}
                     className={`mb-2 inline-block rounded-full px-4 py-1 text-xs font-black tracking-widest ${
                       event.highlight
-                        ? "bg-foreground text-background"
+                        ? "bg-accent text-background"
                         : "bg-foreground/5 text-dimmer"
                     }`}
                   >
                     {event.year}
                   </motion.span>
-                  <h3 className="mb-2 text-lg font-black text-foreground">
+                  <h3 className="font-display mb-2 text-lg font-bold text-foreground">
                     {event.title}
                   </h3>
                   <p className="mb-3 text-sm leading-relaxed text-muted">
@@ -105,7 +105,7 @@ export default function Timeline() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="inline-block border-l-2 border-foreground/30 pl-3 text-xs font-bold text-dimmer"
+                      className="inline-block border-l-2 border-accent/60 pl-3 text-xs font-bold text-dimmer"
                     >
                       {event.detail}
                     </motion.span>

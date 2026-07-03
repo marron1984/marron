@@ -22,7 +22,7 @@ export default function Philosophy() {
         style={{ opacity: bgOpacity }}
         className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden"
       >
-        <span className="text-[20vw] font-black uppercase leading-none text-foreground/[0.02]">
+        <span className="font-display text-[24vw] font-bold leading-none text-accent/[0.04]">
           信念
         </span>
       </motion.div>
@@ -35,10 +35,10 @@ export default function Philosophy() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mb-20"
         >
-          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-dimmer">
+          <span className="mb-3 block text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {t.ui.philosophy.label}
           </span>
-          <h2 className="text-5xl font-black tracking-tight text-foreground md:text-7xl">
+          <h2 className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
             {t.ui.philosophy.title}
           </h2>
           <motion.div
@@ -46,21 +46,21 @@ export default function Philosophy() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 h-[3px] w-32 origin-left bg-foreground"
+            className="mt-4 h-[3px] w-32 origin-left bg-accent"
           />
         </motion.div>
 
         {/* Main quote — dramatic scale + rotation */}
         <motion.div
           style={{ scale: quoteScale, rotate: quoteRotate }}
-          className="mb-24 border-l-4 border-foreground pl-8 md:pl-12 will-change-transform"
+          className="mb-24 border-l-4 border-accent pl-8 md:pl-12 will-change-transform"
         >
           <motion.p
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-8 whitespace-pre-line text-3xl font-black leading-snug text-foreground md:text-5xl lg:text-6xl"
+            className="font-display mb-8 whitespace-pre-line text-3xl font-bold leading-snug text-foreground md:text-5xl lg:text-6xl"
           >
             「{t.philosophy.mainQuote}」
           </motion.p>
@@ -69,7 +69,7 @@ export default function Philosophy() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="mb-8 h-px w-20 origin-left bg-foreground/20"
+            className="mb-8 h-px w-20 origin-left bg-accent/50"
           />
           <motion.p
             initial={{ opacity: 0 }}
@@ -83,7 +83,7 @@ export default function Philosophy() {
         </motion.div>
 
         {/* Belief cards — 3D flip on hover */}
-        <div className="grid grid-cols-1 gap-0 border-2 border-foreground md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-0 border border-foreground/20 md:grid-cols-3">
           {t.philosophy.beliefs.map((belief, i) => (
             <motion.div
               key={belief.title}
@@ -97,7 +97,7 @@ export default function Philosophy() {
                 scale: 1.02,
                 zIndex: 10,
               }}
-              className="group relative cursor-default border-foreground p-12 transition-colors duration-500 md:border-r last:md:border-r-0"
+              className="group relative cursor-default border-foreground/20 p-12 transition-colors duration-500 md:border-r last:md:border-r-0"
               style={{ perspective: 1000 }}
             >
               <motion.span
@@ -105,11 +105,11 @@ export default function Philosophy() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 + i * 0.2, type: "spring", stiffness: 150 }}
-                className="mb-8 block text-6xl font-black text-foreground/5 group-hover:text-background/10 transition-colors duration-500"
+                className="font-display mb-8 block text-6xl font-bold text-accent/20 group-hover:text-background/20 transition-colors duration-500"
               >
                 0{i + 1}
               </motion.span>
-              <h3 className="mb-4 text-xl font-black text-foreground group-hover:text-background transition-colors duration-500">
+              <h3 className="font-display mb-4 text-xl font-bold text-foreground group-hover:text-background transition-colors duration-500">
                 {belief.title}
               </h3>
               <p className="text-sm leading-relaxed text-muted group-hover:text-background/70 transition-colors duration-500">

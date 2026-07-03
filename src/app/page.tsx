@@ -21,22 +21,27 @@ function ScrollProgress() {
   return (
     <motion.div
       style={{ scaleX, transformOrigin: "left" }}
-      className="fixed left-0 top-0 z-50 h-[3px] w-full bg-foreground"
+      className="fixed left-0 top-0 z-50 h-[3px] w-full bg-accent"
     />
   );
 }
 
 function MarqueeBand({ text }: { text: string }) {
   return (
-    <div className="overflow-hidden border-y border-foreground/5 py-3">
+    <div className="overflow-hidden border-y border-accent/10 py-3">
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         className="flex whitespace-nowrap"
       >
         {Array.from({ length: 12 }).map((_, i) => (
-          <span key={i} className="mx-6 text-sm font-bold uppercase tracking-[0.3em] text-foreground/[0.06]">
-            {text}
+          <span key={i} className="mx-6 text-sm font-bold uppercase tracking-[0.3em] text-foreground/[0.08]">
+            {text.split("✦").map((part, j, arr) => (
+              <span key={j}>
+                {part}
+                {j < arr.length - 1 && <span className="text-accent/30">✦</span>}
+              </span>
+            ))}
           </span>
         ))}
       </motion.div>

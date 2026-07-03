@@ -12,7 +12,7 @@ function MarqueeText({ text, speed = 20, reverse = false }: { text: string; spee
         className="inline-block"
       >
         {Array.from({ length: 10 }).map((_, i) => (
-          <span key={i} className="mx-6 text-7xl font-black uppercase tracking-tight text-foreground/[0.03] md:text-9xl">
+          <span key={i} className="font-display mx-6 text-7xl font-bold uppercase tracking-tight text-foreground/[0.04] md:text-9xl">
             {text}
           </span>
         ))}
@@ -25,7 +25,7 @@ export default function Footer() {
   const { t } = useLanguage();
   return (
     <footer className="overflow-hidden">
-      <div className="border-t-2 border-foreground/10">
+      <div className="border-t-2 border-accent/30">
         <MarqueeText text={`${t.personalInfo.alias} —`} speed={25} />
         <MarqueeText text={`${t.personalInfo.nameEn} —`} speed={30} reverse />
       </div>
@@ -39,7 +39,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p className="text-lg font-black text-foreground">
+              <p className="font-display text-lg font-bold text-foreground">
                 {t.personalInfo.nameJa}
               </p>
               <p className="mt-0.5 text-xs text-dimmer">
@@ -57,7 +57,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
                   whileHover={{ y: -4, scale: 1.1 }}
-                  className="text-xs font-bold uppercase tracking-wider text-muted transition-colors hover:text-foreground"
+                  className="text-xs font-bold uppercase tracking-wider text-muted transition-colors hover:text-accent"
                 >
                   {link.label}
                 </motion.a>

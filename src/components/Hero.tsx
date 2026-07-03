@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { useRef, useState, useEffect } from "react";
 import { useTextScramble } from "@/hooks/useTextScramble";
 import { useCounter } from "@/hooks/useCounter";
-import { useInView } from "framer-motion";
 
 type Ease = [number, number, number, number];
 const EASE: Ease = [0.16, 1, 0.3, 1];
@@ -27,13 +26,27 @@ function StatCounter({ value, label }: { value: string; label: string }) {
       transition={{ duration: 0.8, delay: 1.4, ease: EASE }}
       whileHover={{ scale: 1.2, y: -8, rotateZ: 3 }}
     >
-      <p className="text-4xl font-black tabular-nums text-foreground md:text-5xl">
-        {count}{suffix}
+      <p className="font-display text-4xl font-bold tabular-nums text-foreground md:text-5xl">
+        {count}
+        <span className="text-accent">{suffix}</span>
       </p>
       <p className="mt-1 text-[10px] uppercase tracking-wider text-dimmer">
         {label}
       </p>
     </motion.div>
+  );
+}
+
+/* Renders a catchphrase line with trailing punctuation in vermilion */
+function AccentLine({ text }: { text: string }) {
+  const match = text.match(/^(.*?)([。．.！!]+)$/);
+  const body = match ? match[1] : text;
+  const punct = match ? match[2] : "";
+  return (
+    <>
+      {body}
+      {punct && <span className="text-accent">{punct}</span>}
+    </>
   );
 }
 
@@ -48,12 +61,12 @@ export default function Hero() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-  const bgNumber = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+  const bgChar = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
   const marqueeSpeed = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
   const catchphraseLines = t.personalInfo.catchphrase.split("\n");
   const { displayed: scrambledLine1 } = useTextScramble(catchphraseLines[0] || "", { delay: 500, speed: 40 });
-  const { displayed: scrambledLine2 } = useTextScramble(catchphraseLines[1] || "", { delay: 900, speed: 40 });
+  const { displayed: scrambledLine2, done: line2Done } = useTextScramble(catchphraseLines[1] || "", { delay: 900, speed: 40 });
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -63,35 +76,64 @@ export default function Hero() {
       ref={sectionRef}
       className="relative flex min-h-screen flex-col justify-end overflow-hidden px-6 pb-16 pt-32 md:px-12 lg:px-20"
     >
-      {/* Background giant number — parallax */}
+      {/* Background giant kanji — parallax, serif */}
       <motion.div
-        style={{ y: bgNumber }}
-        className="pointer-events-none absolute right-[-10%] top-[5%] select-none text-[40vw] font-black leading-none text-foreground/[0.02]"
+        style={{ y: bgChar }}
+        className="font-display pointer-events-none absolute right-[-5%] top-[2%] select-none text-[45vw] font-bold leading-none text-foreground/[0.025]"
       >
-        16
+        創
       </motion.div>
 
       {/* Background marquee band */}
       <motion.div
         style={{ x: marqueeSpeed }}
-        className="pointer-events-none absolute left-0 top-[40%] select-none whitespace-nowrap"
+        className="pointer-events-none absolute left-0 top-[42%] select-none whitespace-nowrap"
       >
         <span className="text-[12vw] font-black uppercase tracking-tight text-foreground/[0.015]">
           SERIAL ENTREPRENEUR — SOCIAL PROBLEM SOLVER — RESILIENT LEADER — SERIAL ENTREPRENEUR — SOCIAL PROBLEM SOLVER —
         </span>
       </motion.div>
 
+      {/* Vertical keyword column — right edge, desktop only */}
+      <div className="pointer-events-none absolute right-6 top-28 hidden flex-col items-center gap-6 lg:flex">
+        {t.personalInfo.keywords.slice(0, 2).map((keyword, i) => (
+          <motion.span
+            key={keyword}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.6 + i * 0.2, ease: EASE }}
+            className="vertical-text text-[10px] font-medium uppercase tracking-[0.4em] text-dimmer"
+          >
+            {keyword}
+          </motion.span>
+        ))}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.2, delay: 2.0, ease: EASE }}
+          className="h-24 w-px origin-top bg-accent/40"
+        />
+      </div>
+
       <motion.div
         style={{ opacity: heroOpacity, y: heroY, scale: heroScale }}
         className="relative z-10 mx-auto w-full max-w-6xl"
       >
-        {/* Top line — explosive expand */}
-        <motion.div
-          initial={{ scaleX: 0, height: 0 }}
-          animate={{ scaleX: 1, height: 2 }}
-          transition={{ duration: 1.4, delay: 0.1, ease: EASE }}
-          className="mb-8 origin-left bg-foreground"
-        />
+        {/* Top line — ink with vermilion tip */}
+        <div className="mb-8 flex items-center gap-0">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.4, delay: 0.1, ease: EASE }}
+            className="h-[2px] flex-1 origin-left bg-foreground"
+          />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
+            className="h-[2px] w-16 origin-right bg-accent"
+          />
+        </div>
 
         {/* Info pills — staggered bounce in */}
         <div className="mb-8 flex flex-wrap items-center gap-3">
@@ -105,7 +147,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.1, type: "spring", stiffness: 200 }}
-              whileHover={{ scale: 1.1, backgroundColor: "var(--foreground)", color: "var(--background)" }}
+              whileHover={{ scale: 1.1, backgroundColor: "var(--accent)", color: "var(--background)", borderColor: "var(--accent)" }}
               className="rounded-full border border-foreground/20 px-4 py-1.5 text-xs tracking-wide text-muted transition-colors duration-300 cursor-default"
             >
               {info}
@@ -117,29 +159,31 @@ export default function Hero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + i * 0.08, ease: EASE }}
-              className="text-xs font-medium uppercase tracking-[0.15em] text-dimmer"
+              className="text-xs font-medium uppercase tracking-[0.15em] text-dimmer lg:hidden"
             >
               {keyword}
             </motion.span>
           ))}
         </div>
 
-        {/* Main catchphrase — TEXT SCRAMBLE + scale entrance */}
+        {/* Main catchphrase — serif display + scramble */}
         <motion.h1
-          initial={{ scale: 1.5, opacity: 0, filter: "blur(20px)" }}
+          initial={{ scale: 1.3, opacity: 0, filter: "blur(20px)" }}
           animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, delay: 0.3, ease: EASE }}
-          className="mb-6"
+          className="font-display mb-8"
         >
-          <span className="block text-[clamp(2.5rem,9vw,8rem)] font-black leading-[0.95] tracking-tighter text-foreground">
-            {mounted ? scrambledLine1 : catchphraseLines[0]}
+          <span className="block text-[clamp(2.5rem,9vw,8rem)] font-bold leading-[1.1] tracking-tight text-foreground">
+            {mounted && !line2Done ? scrambledLine1 : <AccentLine text={catchphraseLines[0] || ""} />}
           </span>
-          <span className="block text-[clamp(2.5rem,9vw,8rem)] font-black leading-[0.95] tracking-tighter text-foreground">
-            {mounted ? scrambledLine2 : catchphraseLines[1]}
-          </span>
+          {catchphraseLines[1] && (
+            <span className="block text-[clamp(2.5rem,9vw,8rem)] font-bold leading-[1.1] tracking-tight text-foreground">
+              {mounted && !line2Done ? scrambledLine2 : <AccentLine text={catchphraseLines[1]} />}
+            </span>
+          )}
         </motion.h1>
 
-        {/* Subcatchphrase — typewriter-like reveal */}
+        {/* Subcatchphrase */}
         <motion.p
           initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
           animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
@@ -149,14 +193,14 @@ export default function Hero() {
           {t.personalInfo.subcatchphrase}
         </motion.p>
 
-        {/* Core identity — slide up from behind */}
+        {/* Core identity */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4, ease: EASE }}
           className="mb-12 overflow-hidden"
         >
-          <p className="max-w-2xl text-sm leading-relaxed text-dim">
+          <p className="max-w-2xl border-l-2 border-accent/60 pl-5 text-sm leading-relaxed text-dim">
             {t.personalInfo.coreIdentity}
           </p>
         </motion.div>
@@ -166,12 +210,12 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, delay: 1.3, ease: EASE }}
-          className="mb-8 h-[2px] origin-left bg-foreground/10"
+          className="mb-8 h-px origin-left bg-foreground/15"
         />
 
-        {/* Bottom: Profile + Stats */}
+        {/* Bottom: Profile + hanko + Stats */}
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          {/* Profile — spin in */}
+          {/* Profile — with hanko seal */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -198,7 +242,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
-                className="text-xl font-black tracking-tight text-foreground"
+                className="font-display text-xl font-bold tracking-tight text-foreground"
               >
                 {t.personalInfo.nameJa}
               </motion.p>
@@ -211,6 +255,16 @@ export default function Hero() {
                 {t.personalInfo.nameEn} / {t.personalInfo.alias}
               </motion.p>
             </div>
+            {/* Hanko seal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 2, rotate: -12 }}
+              animate={{ opacity: 1, scale: 1, rotate: -6 }}
+              transition={{ duration: 0.5, delay: 1.9, type: "spring", stiffness: 300, damping: 15 }}
+              whileHover={{ rotate: 0, scale: 1.1 }}
+              className="vertical-text font-display ml-1 flex h-16 w-9 select-none items-center justify-center bg-accent text-sm font-bold leading-none tracking-[0.3em] text-background shadow-md"
+            >
+              俊輔
+            </motion.div>
           </motion.div>
 
           {/* Stats — counter animation */}
@@ -222,7 +276,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll indicator — pulsing */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -237,7 +291,7 @@ export default function Hero() {
           <span className="text-[9px] uppercase tracking-[0.3em] text-dimmer">
             {t.ui.scroll}
           </span>
-          <div className="h-12 w-px bg-foreground/30" />
+          <div className="h-12 w-px bg-accent/50" />
         </motion.div>
       </motion.div>
     </section>
